@@ -6,6 +6,7 @@
 	<form action="add">
 		Number 1: <input type="number" name="n1"><br />
 		Number 2: <input type="number" name="n2"><br />
+		Number 3: <input type="number" name="n3"><br/>
 		<input type="submit">
 	</form>
 </body>
