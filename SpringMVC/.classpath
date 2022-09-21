@@ -25,7 +25,8 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/LAPTOP/Downloads/apache-tomcat-9.0.65-windows-x64/apache-tomcat-9.0.65/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/LAPTOP/Desktop/Kiểm thử/jar_files.zip"/>
+	<classpathentry kind="lib" path="C:/Users/LAPTOP/Desktop/Kiểm thử/junit5-main.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
