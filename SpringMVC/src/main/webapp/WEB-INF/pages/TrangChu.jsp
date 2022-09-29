@@ -133,7 +133,7 @@
                 <div class="details">
                     <div class="recentOrder">
                         <div id="container" style="height: 400px; width: 950px"></div>
-                        <script src="./js/scriptt.js"></script>
+                        <script src="<%=request.getContextPath() %>/resources/js/scripts.js"></script>
                     </div>
                     <div class="recentCustomers">
                         <div class="cardHeader">

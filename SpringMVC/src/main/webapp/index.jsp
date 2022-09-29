@@ -9,5 +9,6 @@
 		Number 3: <input type="number" name="n3"><br/>
 		<input type="submit">
 	</form>
+	<jsp:forward page="/pages/TrangChu.jsp"></jsp:forward>
 </body>
 </html>
