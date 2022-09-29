@@ -1,11 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOTEL QUY NHƠN</title>
-    <link rel="stylesheet" href="index.css">
+    <title>HOTEL QUY NHON</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/TrangChu.css">
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
 <body>
@@ -28,7 +29,7 @@
                 <li>
                     <a href="./html/Room.html" class="title2">
                         <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
-                        <span class="title">THUÊ - TRẢ PHÒNG</span>
+                        <span class="title">THUÊ PHÒNG</span>
                     </a>
                 </li>
                 <li>
@@ -40,19 +41,19 @@
                 <li>
                     <a href="./html/Warehouse.html" class="title2">
                         <span class="icon"><ion-icon name="server-outline"></ion-icon></ion-icon></span>
-                        <span class="title">QUẢN LÍ DỊCH VỤ</span>
+                        <span class="title">QUẢN LÝ DỊCH VỤ</span>
                     </a>
                 </li>
                 <li>
                     <a href="./html/Collect.html" class="title2">
                         <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
-                        <span class="title">QUẢN LÍ THU CHI</span>
+                        <span class="title">QUẢN LÝ THU CHI</span>
                     </a>
                 </li>
                 <li>
                     <a href="./html/System.html" class="title2">
                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">QUẢN LÍ HỆ THỐNG</span>
+                        <span class="title">QUẢN LÝ HỆ THỐNG</span>
                     </a>
                 </li>
                 <li>
@@ -86,7 +87,7 @@
                 </label>
             </div> -->
             <div class="user">
-                <img src="anhbac.jpg">
+                <img src="resources/img/anhbac.jpg">
             </div>
         </div>
         <div class="topfour">
@@ -133,11 +134,11 @@
                 <div class="details">
                     <div class="recentOrder">
                         <div id="container" style="height: 400px; width: 950px"></div>
-                        <script src="<%=request.getContextPath() %>/resources/js/scripts.js"></script>
+                        <script src="<%=request.getContextPath() %>/resources/js/TrangChu.js"></script>
                     </div>
                     <div class="recentCustomers">
                         <div class="cardHeader">
-                            <h2>Nhật kí hệ thống</h2>
+                            <h2>Nhật ký hệ thống</h2>
                         </div>
                     </div>
                 </div>
