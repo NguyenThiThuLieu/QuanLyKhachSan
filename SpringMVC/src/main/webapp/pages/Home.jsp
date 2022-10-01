@@ -99,7 +99,7 @@
                         </div>
                         <div>
                             <div class="numbers">Thuê trong ngày</div>
-                            <div class="cardName">0 lượt</div>
+                            <div class="cardName">${numOfRentedInDay } lượt</div>
                         </div>
                         
                     </div>
@@ -109,7 +109,7 @@
                         </div>
                         <div>
                             <div class="numbers">Phòng chờ</div>
-                            <div class="cardName">0 phòng</div>
+                            <div class="cardName">${numOfEmtyRoom } phòng</div>
                         </div>
                     </div>
                     <div class="card">
@@ -118,7 +118,7 @@
                         </div>
                         <div>
                             <div class="numbers">Phòng đang thuê</div>
-                            <div class="cardName">0 phòng</div>
+                            <div class="cardName">${numOfRentedRoom } phòng</div>
                         </div>
                     </div>
                     <div class="card">
@@ -127,7 +127,7 @@
                         </div>
                         <div>
                             <div class="numbers">Phòng cần dọn</div>
-                            <div class="cardName">0 phòng</div>
+                            <div class="cardName">${numOfRoomNeedClean } phòng</div>
                         </div> 
                     </div>
                 </div>
