@@ -172,7 +172,6 @@
                 $('.tab-pane.active').classList.remove('active')
                 this.classList.add('active')
                 pane.classList.add('active')
-
             }
         })
     </script>

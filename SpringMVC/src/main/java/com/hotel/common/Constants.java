@@ -1,5 +1,10 @@
 package com.hotel.common;
 
+/**
+ * @author Tien
+ * 
+ * class Constants
+ */
 public class Constants {
 	
 	// Trang thai phong

@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Tien
+ *
+ * class RoomModel
+ */
 @Entity
 @Table(name = "phong")
 public class RoomModel {

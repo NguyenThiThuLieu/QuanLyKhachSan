@@ -1,8 +1,5 @@
 package com.hotel.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -13,6 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hotel.common.Constants;
 import com.hotel.service.HomeService;
 
+/**
+ * @author Tien
+ * 
+ * class HomeController
+ */
 @Controller
 public class HomeController implements ApplicationContextAware {
 	
@@ -28,19 +30,36 @@ public class HomeController implements ApplicationContextAware {
         context = ac;
     }
 
+	/**
+	 * phuong thuc tra ve trang chu
+	 * 
+	 * @return mv kieu ModelAndView
+	 */
 	@RequestMapping("/Home")
-	public ModelAndView add( HttpServletRequest req,
-							 HttpServletResponse res) {	
+	public ModelAndView home() {	
 		
+		// get HomeService from ApplicationContext
 		HomeService homeService = (HomeService) context.getBean("homeService");
 		
-		long numOfRentedInDay = homeService.GetNumOfRentedInDay();
-		long numOfEmtyRoom = homeService.GetNumOfByStatus(Constants.ROOM_EMPTY);
-		long numOfRentedRoom = homeService.GetNumOfByStatus(Constants.ROOM_RENTED);
-		long numOfRoomNeedClean = homeService.GetNumOfByStatus(Constants.ROOM_CLEAN);
+		// lay so luong phong thue trong ngay
+		long numOfRentedInDay = homeService.getNumOfRentedInDay();
 		
+		// lay so luong phong cho
+		long numOfEmtyRoom = homeService.getNumOfByStatus(Constants.ROOM_EMPTY);
+		
+		// lay so luong phong dang thue
+		long numOfRentedRoom = homeService.getNumOfByStatus(Constants.ROOM_RENTED);
+		
+		// lay so luong phong can don
+		long numOfRoomNeedClean = homeService.getNumOfByStatus(Constants.ROOM_CLEAN);
+		
+		// khoi tao doi tuong ModelAndView
 		ModelAndView mv = new ModelAndView();
+		
+		// set ten view tra ve
 		mv.setViewName("Home");
+		
+		// them cac du lieu can truyen xuong view
 		mv.addObject("numOfRentedInDay", numOfRentedInDay);
 		mv.addObject("numOfEmtyRoom", numOfEmtyRoom);
 		mv.addObject("numOfRentedRoom", numOfRentedRoom);

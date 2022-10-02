@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Tien
+ * 
+ * class RentedRoomModel
+ */
 @Entity
 @Table(name = "thuephong")
 public class RentedRoomModel {

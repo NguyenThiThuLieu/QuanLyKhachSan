@@ -8,24 +8,21 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hotel.common.Constants;
-
+/**
+ * @author Tien
+ *
+ * class HomeDAO
+ */
 @Repository(value = "homeDAO")
 @Transactional(rollbackFor = Exception.class)
 public class HomeDAO {
 
 	private SessionFactory sessionFactory;
 
-	/**
-	 * @return the sessionFactory
-	 */
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
-	/**
-	 * @param sessionFactory the sessionFactory to set
-	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
@@ -33,38 +30,46 @@ public class HomeDAO {
 	/**
 	 * phuong thuc lay so luong phong
 	 * 
-	 * @param now
-	 * @param queryString
-	 * @return result kieu long
+	 * @param now kieu Date
+	 * @param queryString kieu String
+	 * @return numOfRoom kieu long
 	 */
 	@SuppressWarnings("rawtypes")
-	public long GetNumOfRoom(Date now, String queryString) {
+	public long getNumOfRoom(Date now, String queryString) {
+		
+		// lay session tu sessionFactory
 		Session session = this.sessionFactory.getCurrentSession();
 		
+		// tao query
 		Query query = session.createQuery(queryString);
+		
+		// set tham so cho query
 		query.setParameter("now", now);
+		
+		// execute query
 		long numOfRoom = (long) query.uniqueResult();
 		
 		return numOfRoom;
 	}
 	
+	/**
+	 * @param queryString
+	 * @param status
+	 * @return
+	 */
 	@SuppressWarnings("rawtypes")
-	public long GetNumOfEmtyRoom(String queryString) {
+	public long getNumOfRoomByStatus(String queryString, int status) {
+		
+		// lay session tu sessionFactory
 		Session session = this.sessionFactory.getCurrentSession();
 		
+		// tao query
 		Query query = session.createQuery(queryString);
-		query.setParameter("trangThai", Constants.ROOM_EMPTY);
-		long numOfEmtyRoom = (long) query.uniqueResult();
 		
-		return numOfEmtyRoom;
-	}
-	
-	@SuppressWarnings("rawtypes")
-	public long GetNumOfRoomByStatus(String queryString, int status) {
-		Session session = this.sessionFactory.getCurrentSession();
-		
-		Query query = session.createQuery(queryString);
+		// set tham so cho query
 		query.setParameter("trangThai", status);
+		
+		// execute query
 		long numOfEmtyRoom = (long) query.uniqueResult();
 		
 		return numOfEmtyRoom;
