@@ -134,7 +134,7 @@
                 </div>
                 <div class="details">
                     <div class="recentOrder">
-                        <div id="container" style="height: 400px; width: 950px"></div>
+                        <div id="container" style="height: 100%; width: 100%"></div>
                         <script src="<%=request.getContextPath() %>/resources/js/Home.js"></script>
                     </div>
                     <div class="recentCustomers">
