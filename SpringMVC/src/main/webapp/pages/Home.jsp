@@ -46,8 +46,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="pages/Collect.jsp" class="title2">
-                        <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
+                    <a href="pages/RoomManage.jsp" class="title2">
+                        <span class="icon"><ion-icon name="bed-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ THU CHI</span>
                     </a>
                 </li>

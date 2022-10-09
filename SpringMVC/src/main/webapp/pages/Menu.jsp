@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/Home.css">
-    <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/selectbox.css">
     <script src="../js/Home.js"></script>
 </head>
 <body>
-    <div class="container">
+ 	<div class="container">
         <div class="navigation">
             <ul>
                 <li>
@@ -74,13 +73,13 @@
         </div>
     </div>
     
-    <div class="main">
+	<div class="main">
         <div class="topbar">
             <div class="toggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h3>QUẢN LÍ PHÒNG</h3>
+                <h3>MENU</h3>
             </div>
             <div class="user">
                 <img src="anhbac.jpg">
@@ -89,55 +88,63 @@
         <div class="topfour">
             <div class="tab-pane active">
                 <div class="cardBox">
-                    <div class="search">
+                    <div class="">
+                        <a href="../html/System.html" style="font-size: 30px;">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <!-- <div class="search">
                         <label>
-                            <input type="text" placeholder="Tìm kiếm phòng">
+                            <input type="text" placeholder="Search here">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
-                    </div>
-                    <div class="search">
+                    </div> -->
+                    <div class="searchh">
                         <button id="btn2">Thêm mới</button>
                     </div>
                 </div>
                 <div class="details">
                     <div class="recentOrder">
                         <div class="cardHeader">
-                            <h2>DANH SÁCH PHÒNG</h2>
+                            <h2>DANH SÁCH MENU</h2>
                             <a href="#" class="btn">View All</a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Mã Phòng</td>
-                                    <td>Tên phòng</td>
-                                    <td>Loại phòng</td>
-                                    <td>Trạng thái</td>
+                                    <td>Tên menu</td>
+                                    <td>Loại menu</td>
+                                    <td>Đơn giá</td>
                                     <td>Chỉnh sửa</td>
                                     <td>Xóa </td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>P.101</td>
-                                    <td>Phòng 101</td>
-                                    <td>Phòng đơn</td>
-                                    <td><span class="status delivered">Trống</span></td>
+                                    <td>Cafe</td>
+                                    <td>Đồ uống</td>
+                                    <td><span class="status delivered">15000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
                                 <tr>
-                                    <td>P.102</td>
-                                    <td>Phòng 102</td>
-                                    <td>Phòng đôi</td>
-                                    <td><span class="status pending">Chưa dọn</span></td>
+                                    <td>Nước chanh</td>
+                                    <td>Đồ uống</td>
+                                    <td><span class="status pending">15000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
                                 <tr>
-                                    <td>P.103</td>
-                                    <td>Phòng 103</td>
-                                    <td>Phòng đơn</td>
-                                    <td><span class="status return">Đang thuê</span></td>
+                                    <td>Nước khoáng</td>
+                                    <td>Đồ uống</td>
+                                    <td><span class="status return">15000đ</span></td>
+                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
+                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Bò né</td>
+                                    <td>Đồ ăn</td>
+                                    <td><span class="status return">30000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
@@ -151,40 +158,26 @@
                         </div>
                         <div class="page">
                             <div class="field field_v1">
-                                <label for="first-name" class="ha-screen-reader">Mã phòng</label>
-                                <input id="first-name" class="field__input" placeholder="vd: P.201">
-                                <span class="field__label-wrap" aria-hidden="true">
-                                  <span class="field__label">Mã phòng</span>
-                                </span>
-                              </div>
-                            <div class="field field_v1">
-                              <label for="first-name" class="ha-screen-reader">Tên phòng</label>
-                              <input id="first-name" class="field__input" placeholder="vd: Phòng 201">
+                              <label for="first-name" class="ha-screen-reader">Tên menu</label>
+                              <input id="first-name" class="field__input" placeholder="vd: Cafe, nước chanh, nước cam vv..">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Tên phòng</span>
+                                <span class="field__label">Tên menu</span>
                               </span>
                             </div>
-                            <div class="select-box">
-                                <div class="select-box__current" tabindex="1">
-                                  <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked"/>
-                                    <p class="select-box__input-text">Phòng đơn</p>
-                                  </div>
-                                  <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="1" value="2" name="Ben" checked="checked"/>
-                                    <p class="select-box__input-text">Phòng đôi</p>
-                                  </div><img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
-                                </div>
-                                <ul class="select-box__list">
-                                  <li>
-                                    <label class="select-box__option" for="0" aria-hidden="aria-hidden">Phòng đơn</label>
-                                  </li>
-                                  <li>
-                                    <label class="select-box__option" for="1" aria-hidden="aria-hidden">Phòng đôi</label>
-                                  </li>
-                                 
-                                </ul>
-                              </div>
+                            <div class="field field_v2">
+                              <label for="last-name" class="ha-screen-reader">Loại menu</label>
+                              <input id="last-name"  class="field__input" placeholder="Đồ ăn, uống vv..">
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">Loại menu</span>
+                              </span>
+                            </div>    
+                            <div class="field field_v3">
+                              <label for="email" class="ha-screen-reader">Đơn giá</label>
+                              <input id="email" class="field__input" placeholder="15000 đ/món vv..">
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">Đơn giá</span>
+                              </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -207,6 +200,13 @@
                     Loại phòng
                 </label>
                 <input id="type" type="text" class="modal-input" placeholder="Loại phòng">
+
+                <label for="status" class="modal-label">
+                    <ion-icon name="checkmark-done-circle-outline" class="modal-icon"></ion-icon>
+                    Trạng thái
+                </label>
+                <input id="status" type="text" class="modal-input" placeholder="Trạng thái">
+
                 <button class="btn-edit">
                     Done
                 </button>
@@ -230,7 +230,7 @@
          //onclick thêm mới
         document.getElementById("btn2").onclick = function () {
                 document.getElementById("recentCustomerss").style.display = 'block';
-        };
+            };
     </script>
     <script>
         const editBtns = document.querySelectorAll('.js-edit')
@@ -250,6 +250,5 @@
         modalClose.addEventListener('click', hideShowedit)
 
     </script>
-   
 </body>
 </html>

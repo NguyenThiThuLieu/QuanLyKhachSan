@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/Home.css">
-    <script src="../js/scriptt.js"></script>
+    <script src="../js/Home.js"></script>
 </head>
 <body>
     <div class="container">
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <a href="Room.jsp" class="title2">
-                        <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
+                        <span class="icon"><ion-icon name="repeat-outline"></ion-icon></span>
                         <span class="title">THUÊ - TRẢ PHÒNG</span>
                     </a>
                 </li>
@@ -41,14 +41,14 @@
                 </li>
                 <li>
                     <a href="Customer.jsp" class="title2">
-                        <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
+                        <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ KHÁCH HÀNG</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Collect.jsp" class="title2">
-                        <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
-                        <span class="title">QUẢN LÍ THU CHI</span>
+                    <a href="RoomManage.jsp" class="title2">
+                        <span class="icon"><ion-icon name="bed-outline"></ion-icon></span>
+                        <span class="title">QUẢN LÍ PHÒNG</span>
                     </a>
                 </li>
                 <li>
@@ -59,12 +59,12 @@
                 </li>
                 <li>
                     <a href="Account.jsp" class="title2">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
+                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                         <span class="title">TÀI KHOẢN</span>
                     </a>
                 </li>
                 <li>
-                    <a href="login.jsp">
+                    <a href="Login.jsp">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span class="title">ĐĂNG XUẤT</span>
                     </a>

@@ -28,7 +28,7 @@
                 </li>
                 <li>
                     <a href="Room.jsp" class="title2">
-                        <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
+                        <span class="icon"><ion-icon name="repeat-outline"></ion-icon></span>
                         <span class="title">THUÊ - TRẢ PHÒNG</span>
                     </a>
                 </li>
@@ -40,14 +40,14 @@
                 </li>
                 <li>
                     <a href="Customer.jsp" class="title2">
-                        <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
+                        <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ KHÁCH HÀNG</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Collect.jsp" class="title2">
-                        <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
-                        <span class="title">QUẢN LÍ THU CHI</span>
+                    <a href="RoomManage.jsp" class="title2">
+                        <span class="icon"><ion-icon name="bed-outline"></ion-icon></span>
+                        <span class="title">QUẢN LÍ PHÒNG</span>
                     </a>
                 </li>
                 <li>
@@ -58,7 +58,7 @@
                 </li>
                 <li>
                     <a href="Account.jsp" class="title2">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
+                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                         <span class="title">TÀI KHOẢN</span>
                     </a>
                 </li>
@@ -91,46 +91,6 @@
             </div>
         </div>
         <div class="topfour">
-            <!-- <div class="tab-pane active">
-                <div class="cardBox">
-                    <div class="card">
-                        <div>
-                            <div class="numbers">2,504</div>
-                            <div class="cardName">View</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">180</div>
-                            <div class="cardName">Sales</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="cart-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">484</div>
-                            <div class="cardName">Comments</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="chatbubbles-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">$17,842</div>
-                            <div class="cardName">Earning</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="cash-outline"></ion-icon>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="tab-pane active">
                 <div class="cardBox">
                     <div class="search">
