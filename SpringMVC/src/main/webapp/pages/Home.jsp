@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/Home.css">
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
-<body>
+<body><jsp:include page=""></jsp:include>
     <div class="container">
         <div class="navigation">
             <ul>
