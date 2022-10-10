@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONTACT</title>
     <script src="https://kit.fontawesome.com/eaa4609b2f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/style.css">
 </head>
 
 <body>
@@ -92,7 +92,7 @@
         </div>
     </footer>
 
-    <script src="<%request.getContextPath(); %>/SpringMVC/resources/js/script.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/script.js"></script>
 </body>
 
 </html>

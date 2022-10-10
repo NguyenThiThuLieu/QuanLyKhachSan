@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
     <!-- <link rel="stylesheet" href="css/Login.css"> -->
-    <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/style.css">
 </head>
 <body>
     <!-- <div class="preloader">

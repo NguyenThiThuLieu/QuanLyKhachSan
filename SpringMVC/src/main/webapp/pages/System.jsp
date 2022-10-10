@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
-    <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/Home.css">
-    <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/selectbox.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>

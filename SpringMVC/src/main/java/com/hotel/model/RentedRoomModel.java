@@ -1,5 +1,6 @@
 package com.hotel.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,7 +17,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "thuephong")
-public class RentedRoomModel {
+public class RentedRoomModel implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +29,12 @@ public class RentedRoomModel {
 	private Date ngayDen;
 	@Column(name = "NgayDi")
 	private Date ngayDi;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaPhong")
 	private String maPhong;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaNV")
 	private String maNV;
 	@Column(name = "TrangThai")

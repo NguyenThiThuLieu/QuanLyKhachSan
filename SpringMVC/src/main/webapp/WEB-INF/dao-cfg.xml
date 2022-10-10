@@ -4,12 +4,22 @@
  xsi:schemaLocation="http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
  
+ <!-- Home -->
  <bean id="homeDAO" class="com.hotel.dao.HomeDAO">
  	<property name="sessionFactory" ref="mySessionFactory" />
  </bean>
  
  <bean id="homeService" class="com.hotel.service.HomeService">
  	<property name="homeDAO" ref="homeDAO"></property>
+ </bean>
+ 
+ <!-- System -->
+ <bean id="systemDAO" class="com.hotel.dao.SystemDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
+ 
+ <bean id="systemService" class="com.hotel.service.SystemService">
+ 	<property name="systemDAO" ref="systemDAO"></property>
  </bean>
 
 </beans>
