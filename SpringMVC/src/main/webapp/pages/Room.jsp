@@ -10,67 +10,7 @@
     <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/Home.css">
 </head>
 <body>
-    <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                        <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
-                        <span class="titlee">ATHENA HOTEL</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Home.jsp" class="title2 active">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">TRANG CHÍNH</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Room.jsp" class="title2">
-                        <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
-                        <span class="title">THUÊ - TRẢ PHÒNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Order.jsp" class="title2">
-                        <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
-                        <span class="title">ĐẶT PHÒNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Customer.jsp" class="title2">
-                        <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
-                        <span class="title">QUẢN LÍ KHÁCH HÀNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Collect.jsp" class="title2">
-                        <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
-                        <span class="title">QUẢN LÍ THU CHI</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="System.jsp" class="title2">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">QUẢN LÍ HỆ THỐNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Account.jsp" class="title2">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
-                        <span class="title">TÀI KHOẢN</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Login.jsp">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">ĐĂNG XUẤT</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <jsp:include page="MenuBar.jsp"/>
 
     <div class="main">
         <div class="topbar">
@@ -91,46 +31,6 @@
             </div>
         </div>
         <div class="topfour">
-            <!-- <div class="tab-pane active">
-                <div class="cardBox">
-                    <div class="card">
-                        <div>
-                            <div class="numbers">2,504</div>
-                            <div class="cardName">View</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">180</div>
-                            <div class="cardName">Sales</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="cart-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">484</div>
-                            <div class="cardName">Comments</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="chatbubbles-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">$17,842</div>
-                            <div class="cardName">Earning</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="cash-outline"></ion-icon>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="tab-pane active">
                 <div class="cardBox">
                     <div class="search">

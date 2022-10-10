@@ -297,6 +297,9 @@ h3{
     cursor: pointer;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
+.carddd a{
+	text-decoration: none;
+}
 .cardBoxxx .carddd .numbersss{
     position: relative;
     font-weight: 400;
@@ -1037,4 +1040,5 @@ hr {
       transform: translateY(0);
     }
   }
- 
+  
+  

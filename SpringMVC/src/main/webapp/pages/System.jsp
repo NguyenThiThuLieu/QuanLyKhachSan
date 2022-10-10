@@ -8,69 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/Home.css">
+    <link rel="stylesheet" href="<%request.getContextPath(); %>/SpringMVC/resources/css/selectbox.css">
 </head>
 <body>
-    <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                        <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
-                        <span class="titlee">ATHENA HOTEL</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Home.jsp" class="title2 active">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">TRANG CHÍNH</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Room.jsp" class="title2">
-                        <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
-                        <span class="title">THUÊ - TRẢ PHÒNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Order.jsp" class="title2">
-                        <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
-                        <span class="title">ĐẶT PHÒNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Customer.jsp" class="title2">
-                        <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
-                        <span class="title">QUẢN LÍ KHÁCH HÀNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Collect.jsp" class="title2">
-                        <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
-                        <span class="title">QUẢN LÍ THU CHI</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="System.jsp" class="title2">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">QUẢN LÍ HỆ THỐNG</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Account.jsp" class="title2">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
-                        <span class="title">TÀI KHOẢN</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="login.jsp">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">ĐĂNG XUẤT</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <jsp:include page="MenuBar.jsp"/>
 
     <div class="main">
         <div class="topbar">
@@ -94,46 +35,52 @@
             <div class="tab-pane active">
                 <div class="cardBoxxx">
                     <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="library-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Cách tính tiền</div>
-                            <!-- <div class="cardNameee">Daily View</div> -->
-                        </div>
+                        <a href="Money.jsp" class="hethong">
+                            <div class="iconBxxx">
+                                <ion-icon name="library-outline"></ion-icon>
+                                <hr>
+                            </div>
+                            <div>
+                                <div class="numbersss">Cách tính tiền</div>
+                                <!-- <div class="cardNameee">Daily View</div> -->
+                            </div>
+                         </a>
                     </div>
                     <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="home-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Loại phòng</div>
-                            <!-- <div class="cardNameee">Sales</div> -->
-                        </div>
+                        <a href="RoomSystem.jsp" class="hethong">
+                            <div class="iconBxxx">
+                                <ion-icon name="home-outline"></ion-icon>
+                                <hr>
+                            </div>
+                            <div>
+                                <div class="numbersss">Loại phòng</div>
+                                <!-- <div class="cardNameee">Sales</div> -->
+                            </div>
+                        </a>
                     </div>
-                    <a href="RoomManage.jsp" class="room">
-                        <div class="carddd">                           
+                    <div class="carddd">
+                        <a href="Member.jsp" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="file-tray-outline"></ion-icon>
                                 <hr>
                             </div>
                             <div>
-                                <div class="numbersss">Phòng</div>
+                                <div class="numbersss">Nhân viên</div>
                                 <!-- <div class="cardNameee">Comment</div> -->
-                            </div>                   
-                        </div>
-                </a>
+                            </div>
+                        </a>
+                    </div>
                     <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Menu</div>
-                            <!-- <div class="cardNameee">Earning</div> -->
-                        </div>
+                        <a href="Menu.jsp" class="hethong">
+                            <div class="iconBxxx">
+                                <ion-icon name="bookmark-outline"></ion-icon>
+                                <hr>
+                            </div>
+                            <div>
+                                <div class="numbersss">Menu</div>
+                                <!-- <div class="cardNameee">Earning</div> -->
+                            </div>
+                        </a>
                     </div>
                     <div class="carddd">
                         <div class="iconBxxx">
@@ -141,7 +88,7 @@
                             <hr>
                         </div>
                         <div>
-                            <div class="numbersss">Tài khoản phụ</div>
+                            <div class="numbersss">Quản lí kho</div>
                             <!-- <div class="cardNameee">Daily View</div> -->
                         </div>
                     </div>
