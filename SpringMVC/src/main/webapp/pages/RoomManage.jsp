@@ -52,6 +52,7 @@
                                     <td>Mã Phòng</td>
                                     <td>Tên phòng</td>
                                     <td>Loại phòng</td>
+                                    <td>Giá phòng</td>
                                     <td>Trạng thái</td>
                                     <td>Chỉnh sửa</td>
                                     <td>Xóa </td>
@@ -62,6 +63,7 @@
                                     <td>P.101</td>
                                     <td>Phòng 101</td>
                                     <td>Phòng đơn</td>
+                                    <td>100000</td>
                                     <td><span class="status delivered">Trống</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
@@ -70,6 +72,7 @@
                                     <td>P.102</td>
                                     <td>Phòng 102</td>
                                     <td>Phòng đôi</td>
+                                    <td>100000</td>
                                     <td><span class="status pending">Chưa dọn</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
@@ -78,7 +81,26 @@
                                     <td>P.103</td>
                                     <td>Phòng 103</td>
                                     <td>Phòng đơn</td>
+                                    <td>100000</td>
                                     <td><span class="status return">Đang thuê</span></td>
+                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
+                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                </tr>
+                                <tr>
+                                    <td>P.104</td>
+                                    <td>Phòng 104</td>
+                                    <td>Phòng đôi</td>
+                                    <td>100000</td>
+                                    <td><span class="status pending">Chưa dọn</span></td>
+                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
+                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                </tr>
+                                <tr>
+                                    <td>P.105</td>
+                                    <td>Phòng 105</td>
+                                    <td>Phòng đơn</td>
+                                    <td>100000</td>
+                                    <td><span class="status delivered">Trống</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
@@ -105,27 +127,19 @@
                                 <span class="field__label">Tên phòng</span>
                               </span>
                             </div>
-                            <div class="select-box">
-                                <div class="select-box__current" tabindex="1">
-                                  <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked"/>
-                                    <p class="select-box__input-text">Phòng đơn</p>
-                                  </div>
-                                  <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="1" value="2" name="Ben" checked="checked"/>
-                                    <p class="select-box__input-text">Phòng đôi</p>
-                                  </div><img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
-                                </div>
-                                <ul class="select-box__list">
-                                  <li>
-                                    <label class="select-box__option" for="0" aria-hidden="aria-hidden">Phòng đơn</label>
-                                  </li>
-                                  <li>
-                                    <label class="select-box__option" for="1" aria-hidden="aria-hidden">Phòng đôi</label>
-                                  </li>
-                                 
-                                </ul>
-                              </div>
+                            <div class="wrapper">
+                                <select id="" class="wrap">
+                                    <option value="P0" class="wraptext">Phòng đơn</option>
+                                    <option value="P1" class="wraptext">Phòng đôi</option>
+                                 </select>
+                            </div>
+                            <div class="field field_v1">
+                              <label for="first-name" class="ha-screen-reader">Giá phòng</label>
+                              <input id="first-name" class="field__input" placeholder="vd: 100000">
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">Giá phòng</span>
+                              </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,7 +161,17 @@
                     <ion-icon name="bed-outline" class="modal-icon"></ion-icon>
                     Loại phòng
                 </label>
-                <input id="type" type="text" class="modal-input" placeholder="Loại phòng">
+                <div class="wrapper">
+                    <select id="" class="wrap">
+                        <option value="P0" class="wraptext">Phòng đơn</option>
+                        <option value="P1" class="wraptext">Phòng đôi</option>
+                     </select>
+                </div>
+                <label for="name" class="modal-label">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    Giá
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Giá phòng">
                 <button class="btn-edit">
                     Done
                 </button>

@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
+html{
+  overflow: auto;
+}
 :root
 {
     --blue: #287bff;
@@ -183,7 +186,8 @@ h3{
 {
     position: relative;
     width: 400px;
-    margin: 0 20px;
+    margin: 0 -20px;
+    margin-left: 20px;
 } */
  .search label
 {
@@ -200,8 +204,49 @@ h3{
     font-size: 18px;
     outline: none;
     border: 1px solid var(--black2);
+    /* border-bottom: 2px inset #b1154a;
+    border-top: none;
+    border-left: none;
+    border-right: none; */
 }
 .search label ion-icon
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2em;
+} 
+
+
+
+.searchh
+{
+    position: relative;
+    width: 400px;
+    margin: 0px 250px 0px -200px;
+    margin-left: -250px;
+} */
+ .searchh label
+{
+    position: relative;
+    width: 100%;
+}
+.searchh label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 12px;
+    padding: 5px 20px;
+    padding-left: 45px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+    /* border-bottom: 2px inset #b1154a;
+    border-top: none;
+    border-left: none;
+    border-right: none; */
+}
+.searchh label ion-icon
 {
     position: absolute;
     top: 10px;
@@ -297,9 +342,6 @@ h3{
     cursor: pointer;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
-.carddd a{
-	text-decoration: none;
-}
 .cardBoxxx .carddd .numbersss{
     position: relative;
     font-weight: 400;
@@ -342,7 +384,7 @@ hr {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
-    margin-top: 10px;
+    
 }
 .details .recentOrder{
     position: relative;
@@ -370,6 +412,9 @@ hr {
     color: var(--white);
     border-radius: 6px;
 }
+.btn-edit{
+  border: none;
+}
 .details .table{
     width: 100%;
     border-collapse: collapse;
@@ -392,13 +437,13 @@ hr {
     padding: 10px;
 }
 .details .recentOrder table tr td:last-child{
-    text-align: center;
+    text-align: left;
 }
 .details .recentOrder table tr td:nth-child(2){
-    text-align: center;
+    text-align: left;
 }
 .details .recentOrder table tr td:nth-child(3){
-    text-align: center;
+    text-align: left;
 }
 .status.delivered{
     padding: 2px 4px;
@@ -514,19 +559,21 @@ hr {
   }
   .tab {
     float: left;
+    width: 50%;
   }
   .tab-switch {
     display: none;
   }
   .tab-label {
+    text-align: center;
     position: relative;
     display: block;
     line-height: 2.75em;
     height: 3em;
-    padding: 0 1.618em;
-    background: #1abc9c;
-    border-right: 0.125rem solid #16a085;
-    color: #fff;
+    color: #222;
+    padding: 0 1em; 
+    
+    border-bottom: 0.05rem solid #272626;
     cursor: pointer;
     top: 0;
     transition: all 0.25s;
@@ -534,25 +581,44 @@ hr {
   .tab-label:hover {
     top: -0.25rem;
     transition: top 0.25s;
+    border-bottom: 0.05rem solid #272626;
   }
   .tab-content {
+    width: 100%;
     height: 24rem;
     position: absolute;
     z-index: 1;
     top: 2.75em;
     left: 0;
-    padding: 1.618rem;
+    padding: 0.618rem;
     background: #fff;
     color: #2c3e50;
     border-bottom: 0.25rem solid #bdc3c7;
     opacity: 0;
     transition: all 0.35s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+ 
+  ::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d; 
   }
   .tab-switch:checked + .tab-label {
-    background: rgb(240, 255, 76);
+    background: rgba(0, 0, 0, .15);
     color: #2c3e50;
     border-bottom: 0;
-    border-right: 0.125rem solid #fff;
+    
     transition: all 0.35s;
     z-index: 1;
     top: -0.0625rem;
@@ -565,12 +631,12 @@ hr {
 
   button {
     background-color: #29b6f6;
-    border: none;
     border-radius: 10px;
     color: #fff;
     cursor: pointer;
     padding: .75em 1.5em;
     font-size: 1em;
+    height: 42px;
   }
   button:hover {
     background-color: #0563af;
@@ -939,11 +1005,13 @@ hr {
     transform: translateY(0%);
     opacity: 0.25;
   }
-  
-  .room{
+  .cardBoxxx .carddd a{
+    text-decoration: none;
+  }
+  /* .room{
     text-decoration: none;
     
-  }
+  } */
   .edit-icon{
     padding: 2px 4px;
     color: rgb(20, 182, 77);
@@ -1024,7 +1092,9 @@ hr {
   }
   .room-icon{
     background: #fff;
+    border: none;
   }
+  
   .room-icon:hover{
     background: white;
   }
@@ -1041,4 +1111,8 @@ hr {
     }
   }
   
+   #btn2{
+    border: none;
+   }
   
+ 

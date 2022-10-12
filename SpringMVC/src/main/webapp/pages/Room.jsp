@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Room.css">
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -20,31 +21,19 @@
             <div class="search">
                 <h3>THUÊ - TRẢ PHÒNG</h3>
             </div>
-            <!-- <div class="search">
-                <label>
-                    <input type="text" placeholder="Search here">
-                    <ion-icon name="search-outline"></ion-icon>
-                </label>
-            </div> -->
             <div class="user">
                 <img src="anhbac.jpg">
             </div>
         </div>
         <div class="topfour">
             <div class="tab-pane active">
-                <div class="cardBox">
+                <div class="cardBox">                   
                     <div class="search">
                         <label>
                             <input type="text" placeholder="Tìm kiếm phòng">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
-                    <div class="box">
-                        <select>
-                          <option>Xếp theo độ ưu tiên</option>
-                          <option>Xếp theo tên</option>
-                        </select>
-                      </div>
                 </div>
                 <div class="details">
                     <div class="recentOrder">
@@ -52,25 +41,107 @@
                             <div class="tabs">
                               <div class="tab">
                                 <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
-                                <label for="tab-1" class="tab-label">Phòng chờ</label>
-                                <div class="tab-content">My father had a small estate in Nottinghamshire: I was the third of five sons. He sent me to Emanuel College in Cambridge at fourteen years old, where I resided three years, and applied myself close to my studies; but the charge of maintaining me, although I had a very scanty allowance, being too great for a narrow fortune, I was bound apprentice to Mr. James Bates, an eminent surgeon in London, with whom I continued four years. </div>
+                                <label for="tab-1" class="tab-label">
+                                    <ion-icon name="storefront-outline" class="icon-"></ion-icon>
+                                    Phòng chờ</label>
+                                <div class="tab-content">
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.101
+                                        </div>
+                                        <div class="tab-item-second">
+                                            <ion-icon name="business-outline"></ion-icon>
+                                            Chưa sử dụng
+                                        </div>
+                                    </div>
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.102
+                                        </div>
+                                        <div class="tab-item-second">
+                                            <ion-icon name="business-outline"></ion-icon>
+                                            Chưa sử dụng
+                                        </div>
+                                    </div>
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.103
+                                        </div>
+                                        <div class="tab-item-second">
+                                            <ion-icon name="business-outline"></ion-icon>
+                                            Chưa sử dụng
+                                        </div>
+                                    </div>
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.104
+                                        </div>
+                                        <div class="tab-item-second">
+                                            <ion-icon name="business-outline"></ion-icon>
+                                            Chưa sử dụng
+                                        </div>
+                                    </div>
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.105
+                                        </div>
+                                        <div class="tab-item-second">
+                                            <ion-icon name="business-outline"></ion-icon>
+                                            Chưa sử dụng
+                                        </div>
+                                    </div>
+                                </div>
                               </div>
                               <div class="tab">
                                 <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
-                                <label for="tab-2" class="tab-label">Phòng đang thuê</label>
-                                <div class="tab-content">My father now and then sending me small sums of money, I laid them out in learning navigation, and other parts of the mathematics, useful to those who intend to travel, as I always believed it would be, some time or other, my fortune to do. </div>
+                                <label for="tab-2" class="tab-label">
+                                    <ion-icon name="id-card-outline"></ion-icon>
+                                    Phòng đang thuê</label>
+                                <div class="tab-content">
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.104
+                                        </div>
+                                        <div class="tab-item-third">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tên khách hàng</td>
+                                                        <td>Loại phòng</td>
+                                                        <td><button id="btn3" class="info-view">Thông tin</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ngày đến</td>
+                                                        <td>Ngày đi</td>
+                                                        <td><button id="btn4">Trả phòng</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-item">
+                                        <div class="tab-item-first">
+                                            P.105
+                                        </div>
+                                        <div class="tab-item-third">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tên khách hàng</td>
+                                                        <td>Loại phòng</td>
+                                                        <td><button id="btn3" class="info-view">Thông tin</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ngày đến</td>
+                                                        <td>Ngày đi</td>
+                                                        <td><button id="btn4">Trả phòng</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                               </div>
-                              <div class="tab">
-                                <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
-                                <label for="tab-3" class="tab-label">Phòng cần dọn</label>
-                                <div class="tab-content">When I left Mr. Bates, I went down to my father: where, by the assistance of him and my uncle John, and some other relations, I got forty pounds, and a promise of thirty pounds a year to maintain me at Leyden: there I studied physic two years and seven months, knowing it would be useful in long voyages.</div>
-                              </div>
-                              <div class="tab">
-                                <input type="radio" name="css-tabs" id="tab-4" class="tab-switch">
-                                <label for="tab-4" class="tab-label">Lịch sử</label>
-                                <div class="tab-content">When I left Mr. Bates, I went down to my father: where, by the assistance of him and my uncle John, and some other relations, I got forty pounds, and a promise of thirty pounds a year to maintain me at Leyden: there I studied physic two years and seven months, knowing it would be useful in long.</div>
-                              </div>
-                            </div>
                             <!-- <p>Example line outside of tab box</p> -->
                         </div>
                     </div>
@@ -80,7 +151,50 @@
                         </div>
                     </div> -->
                 </div>
-            </div>
+                <div class="recentCustomerss" id="recentCustomerss">
+                    <div class="cardHeader">
+                        <h2>Thông tin khách hàng</h2>
+                    </div>
+                    <div class="page">
+                        <div class="field field_v1">
+                          <label for="first-name" class="ha-screen-reader">Họ và tên khách hàng</label>
+                          <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
+                          <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Họ và tên khách hàng</span>
+                          </span>
+                        </div>
+                        <div class="field field_v2">
+                          <label for="phone" class="ha-screen-reader">Số điện thoại</label>
+                          <input id="phone"  class="field__input" placeholder="034xxxxxxx">
+                          <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Số điện thoại</span>
+                          </span>
+                        </div>    
+                        <div class="field field_v2">
+                          <label for="CMND" class="ha-screen-reader">CMND</label>
+                          <input id="CMND" class="field__input" placeholder="056xxxxxxxxxx">
+                          <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">CMND</span>
+                          </span>
+                        </div>
+                        <div class="field field_v2">
+                            <label for="country" class="ha-screen-reader">Quốc tịch</label>
+                            <input id="country" class="field__input" placeholder="Việt nam">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">Quốc tịch</span>
+                            </span>
+                        </div>
+                        <div class="field field_v2">
+                            <label for="email" class="ha-screen-reader">Loại</label>
+                            <input id="email" class="field__input" placeholder="VIP">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">VIP</span>
+                            </span>
+                        </div>                       
+                    </div>
+                    <button class="exit-info">Thoát</button>
+                </div>
+            </div>      
         </div>
     </div>
     
@@ -98,21 +212,22 @@
             navigation.classList.toggle('active')
             main.classList.toggle('active')
         }
-
-        // const $ = document.querySelector.bind(document)
-        // const $$ = document.querySelectorAll.bind(document)
-        // const title = $$('.title2')
-        // const panes = $$('.tab-pane')
-        // title.forEach((tab, index)=>{
-        //     const pane = panes[index]
-        //     tab.onclick = function(){
-        //         $('.title2.active').classList.remove('active')
-        //         $('.tab-pane.active').classList.remove('active')
-        //         this.classList.add('active')
-        //         pane.classList.add('active')
-
-        //     }
-        // })
     </script>
+    <script>
+	    const infoBtns = document.querySelectorAll('.info-view')
+	    const modal = document.querySelector('.recentCustomerss')
+	    const modalClose = document.querySelector('.exit-info')
+	    function showinfo(){
+	        modal.classList.add('open-info')
+	    }
+	
+	    function hideinfo(){
+	        modal.classList.remove('open-info')
+	    }
+	    for(const infoBtn of infoBtns){
+	        infoBtn.addEventListener('click', showinfo)
+	    }
+	    modalClose.addEventListener('click', hideinfo)
+	</script>
 </body>
 </html>

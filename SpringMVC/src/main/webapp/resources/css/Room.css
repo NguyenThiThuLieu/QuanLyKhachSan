@@ -1,0 +1,62 @@
+@import url('http://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+.tab-item{
+    position: relative;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.tab-item-first{
+    position: relative;
+    padding: 10px 10px;
+    width: 100%;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.tab-item-second{
+    position: relative; 
+    padding: 10px 10px;
+    width: 100%;   
+}
+.tab-item-third{
+    position: relative; 
+    padding: 10px 10px;
+    width: 100%;   
+}
+.tab-item-third button{
+    background-color: #ffff;
+    border-radius: 10px;
+    color: rgb(27, 27, 27);
+    cursor: pointer;
+}
+.tab-item-third button:hover {
+    background-color: rgb(23, 87, 216);
+    color: #ffff;
+    border: none;
+}
+.tab-item-third td{
+    width: 38%;
+}
+.exit-info{
+    border: none;
+}
+.wrapper select.wrap{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    border-radius: 1px;
+    background-color: white;
+    box-shadow: 0 1px 1px rgb(0,0,0,0.2);
+    border: none;
+    margin-bottom: 25px;
+    outline: none;
+    font-size: 16px;
+    padding: .6em 1.4em .5em .8em;
+    z-index: 1;
+    color: rgb(94, 92, 92);
+   }
+
+.recentCustomerss.open-info{
+    display: block;
+}
+

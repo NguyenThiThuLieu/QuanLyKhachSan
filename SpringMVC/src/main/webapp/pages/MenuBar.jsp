@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Room.jsp" class="title2">
+                    <a href="pages/Room.jsp" class="title2">
                         <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
                         <span class="title">THUÊ - TRẢ PHÒNG</span>
                     </a>
@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<%= request.getContextPath() %>/Room" class="title2">
+                    <a href="RoomManage.jsp" class="title2">
                         <span class="icon"><ion-icon name="bed-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ PHÒNG</span>
                     </a>
