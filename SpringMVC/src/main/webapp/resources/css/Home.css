@@ -446,7 +446,7 @@ hr {
     padding: 10px;
 }
 .details .recentOrder table tr td:last-child{
-    text-align: left;
+    text-align: center;
 }
 .details .recentOrder table tr td:nth-child(2){
     text-align: left;
