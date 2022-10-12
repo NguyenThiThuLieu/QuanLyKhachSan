@@ -398,7 +398,7 @@ hr {
 .details .recentOrder{
     position: relative;
     display: grid;
-    min-height: 500px;
+    height: 520px;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);/*khung viên bóng */
@@ -1123,5 +1123,10 @@ hr {
    #btn2{
     border: none;
    }
+   
+.errorMessage {
+	font-size: 20px;
+	color: red;
+}
   
  

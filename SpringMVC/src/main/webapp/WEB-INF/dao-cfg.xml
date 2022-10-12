@@ -14,12 +14,12 @@
  </bean>
  
  <!-- System -->
- <bean id="systemDAO" class="com.hotel.dao.SystemDAO">
+ <bean id="roomDAO" class="com.hotel.dao.RoomDAO">
  	<property name="sessionFactory" ref="mySessionFactory" />
  </bean>
  
- <bean id="systemService" class="com.hotel.service.SystemService">
- 	<property name="systemDAO" ref="systemDAO"></property>
+ <bean id="roomService" class="com.hotel.service.RoomService">
+ 	<property name="roomDAO" ref="roomDAO"></property>
  </bean>
 
 </beans>

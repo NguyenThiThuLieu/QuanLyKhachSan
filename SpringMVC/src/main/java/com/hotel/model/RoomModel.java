@@ -30,7 +30,7 @@ public class RoomModel implements Serializable {
 	@Column(name = "LoaiPhong")
 	private String loaiPhong;
 	@Column(name = "Gia")
-	private Double gia;
+	private long gia;
 	@Column(name = "HinhAnh")
 	private String hinhAnh;
 	@Column(name = "TrangThai")
@@ -60,11 +60,11 @@ public class RoomModel implements Serializable {
 		this.loaiPhong = loaiPhong;
 	}
 
-	public Double getGia() {
+	public long getGia() {
 		return gia;
 	}
 
-	public void setGia(Double gia) {
+	public void setGia(long gia) {
 		this.gia = gia;
 	}
 

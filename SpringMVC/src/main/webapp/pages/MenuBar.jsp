@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="RoomManage.jsp" class="title2">
+                    <a href="<%= request.getContextPath() %>/Room" class="title2">
                         <span class="icon"><ion-icon name="bed-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ PHÒNG</span>
                     </a>

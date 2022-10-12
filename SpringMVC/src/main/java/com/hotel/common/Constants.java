@@ -20,4 +20,9 @@ public class Constants {
 	
 	// symbol
 	public static String PERCENT_SYMBOL = "%";
+	
+	// Loai phong
+	public static String DOUBLE_ROOM = "P1";
+	public static String SINGLE_ROOM_TEXT = "Phòng đơn";
+	public static String DOUBLE_ROOM_TEXT = "Phòng đôi";
 }

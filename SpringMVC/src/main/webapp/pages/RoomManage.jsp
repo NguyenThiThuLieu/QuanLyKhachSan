@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
+    
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
-    <script src="../js/Home.js"></script>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Home.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/RoomManage.js"></script>
 </head>
 <body>
 
@@ -32,19 +39,22 @@
                 <div class="cardBox">
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Tìm kiếm phòng">
+                            <input id="txtSearch" name="tenPhong" type="text" placeholder="Tìm kiếm phòng">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
                     <div class="search">
                         <button id="btn2">Thêm mới</button>
                     </div>
+                    <div>
+                    	<span class="errorMessage" id="errorMessage">${errorMessage }</span>
+                    </div>
                 </div>
                 <div class="details">
                     <div class="recentOrder">
                         <div class="cardHeader">
                             <h2>DANH SÁCH PHÒNG</h2>
-                            <a href="#" class="btn">View All</a>
+                            <button class="btn" id="btnViewAll" style="border: none">View All</button>
                         </div>
                         <table>
                             <thead>
@@ -55,92 +65,80 @@
                                     <td>Giá phòng</td>
                                     <td>Trạng thái</td>
                                     <td>Chỉnh sửa</td>
-                                    <td>Xóa </td>
+                                    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspXóa</td>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>P.101</td>
-                                    <td>Phòng 101</td>
-                                    <td>Phòng đơn</td>
-                                    <td>100000</td>
-                                    <td><span class="status delivered">Trống</span></td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>P.102</td>
-                                    <td>Phòng 102</td>
-                                    <td>Phòng đôi</td>
-                                    <td>100000</td>
-                                    <td><span class="status pending">Chưa dọn</span></td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>P.103</td>
-                                    <td>Phòng 103</td>
-                                    <td>Phòng đơn</td>
-                                    <td>100000</td>
-                                    <td><span class="status return">Đang thuê</span></td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>P.104</td>
-                                    <td>Phòng 104</td>
-                                    <td>Phòng đôi</td>
-                                    <td>100000</td>
-                                    <td><span class="status pending">Chưa dọn</span></td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>P.105</td>
-                                    <td>Phòng 105</td>
-                                    <td>Phòng đơn</td>
-                                    <td>100000</td>
-                                    <td><span class="status delivered">Trống</span></td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
+                            <tbody id="tbody">
+                                <c:forEach var="room" items="${roomList}">
+	                               <tr id='${room.maPhong }'>
+	                                    <td>${room.maPhong }</td>
+	                                    <td>${room.tenPhong }</td>
+	                                    <td>${room.loaiPhong }</td>
+	                                    <td>${room.gia }</td>
+	                                    <td><span class="status 
+	                                    
+	                                    <c:choose>
+										  	<c:when test="${room.trangThai == 0}">
+										    	delivered">Trống
+										  	</c:when>
+										  	<c:when test="${room.trangThai == 1}">
+										    	return">Đang thuê
+										  	</c:when>
+										  	<c:otherwise>
+										    	pending">Chưa dọn
+	 										</c:otherwise>
+										</c:choose>
+	                                    
+	                                    </span></td>
+	                                    <td>
+	                                    	<button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    	</button>
+	                                    </td>
+	                                    <td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+	                                </tr>
+
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>
                     <div class="recentCustomerss" id="recentCustomerss">
+
                         <div class="cardHeader">
-                            <h2>Thêm mới</h2>
-                            <button class="snip1457">Lưu</button>
+	                            <h2>Thêm mới</h2>
+	                            <button class="snip1457" id="btnAdd">Lưu</button>
                         </div>
-                        <div class="page">
+                        <div class="page">	
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Mã phòng</label>
-                                <input id="first-name" class="field__input" placeholder="vd: P.201">
+                                <input name="maPhong" id="maPhongAdd" class="field__input" placeholder="vd: P201">
                                 <span class="field__label-wrap" aria-hidden="true">
                                   <span class="field__label">Mã phòng</span>
                                 </span>
                               </div>
                             <div class="field field_v1">
                               <label for="first-name" class="ha-screen-reader">Tên phòng</label>
-                              <input id="first-name" class="field__input" placeholder="vd: Phòng 201">
+                              <input name="tenPhong" id="tenPhongAdd" class="field__input" placeholder="vd: Phòng 201">
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Tên phòng</span>
                               </span>
                             </div>
                             <div class="wrapper">
-                                <select id="" class="wrap">
+                                <select name="loaiPhong" id="loaiPhongAdd" class="wrap">
                                     <option value="P0" class="wraptext">Phòng đơn</option>
                                     <option value="P1" class="wraptext">Phòng đôi</option>
                                  </select>
                             </div>
                             <div class="field field_v1">
                               <label for="first-name" class="ha-screen-reader">Giá phòng</label>
-                              <input id="first-name" class="field__input" placeholder="vd: 100000">
+                              <input name="gia" id="giaAdd" class="field__input" placeholder="vd: 100000">
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Giá phòng</span>
                               </span>
                             </div>
+                            
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -151,18 +149,19 @@
             <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
             <header class="modal-header">CHỈNH SỬA</header>
             <div class="modal-body">
+           		<input type="hidden" name="maPhong" id="maPhong" value="">
                 <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
                     Tên phòng
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Tên phòng">
+                <input name="tenPhong" id="name" type="text" class="modal-input" placeholder="Tên phòng">
 
                 <label for="type" class="modal-label">
                     <ion-icon name="bed-outline" class="modal-icon"></ion-icon>
                     Loại phòng
                 </label>
                 <div class="wrapper">
-                    <select id="" class="wrap">
+                    <select name="loaiPhong" id="loaiPhong" class="wrap" style="margin-bottom: 25px;">
                         <option value="P0" class="wraptext">Phòng đơn</option>
                         <option value="P1" class="wraptext">Phòng đôi</option>
                      </select>
@@ -171,8 +170,8 @@
                     <ion-icon name="cash-outline"></ion-icon>
                     Giá
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Giá phòng">
-                <button class="btn-edit">
+                <input name="gia" id="gia" type="text" class="modal-input" placeholder="Giá phòng">
+                <button class="btn-edit" id="btnDone">
                     Done
                 </button>
             </div>
@@ -194,8 +193,21 @@
         }
          //onclick thêm mới
         document.getElementById("btn2").onclick = function () {
-                document.getElementById("recentCustomerss").style.display = 'block';
+        	 let recentCustomerss = $("#recentCustomerss").css('display')
+        	 if (recentCustomerss == 'none') {
+        		 $("#recentCustomerss").css('display', 'block')
+        	 } else {
+        		 $("#recentCustomerss").css('display', 'none')
+        	 }
+        		 
         };
+        
+        // hide error message 
+        let errorMessage = document.getElementById("errorMessage");
+        
+        if (errorMessage.innerHTML != "") {
+        	const hideError = setTimeout(()=>errorMessage.style.display = 'none', 3000)
+        }
     </script>
     <script>
         const editBtns = document.querySelectorAll('.js-edit')
@@ -213,7 +225,6 @@
             editBtn.addEventListener('click', showedit)
         }
         modalClose.addEventListener('click', hideShowedit)
-
     </script>
    
 </body>
