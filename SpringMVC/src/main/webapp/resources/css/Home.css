@@ -252,6 +252,15 @@ h3{
     top: 10px;
     left: 10px;
     font-size: 1.2em;
+}
+.close a ion-icon{
+  font-size: 40px;
+}
+.cardBox .close a ion-icon:hover
+{
+    border-radius: 40px;
+    background-color: #999;
+    color: white;
 } 
 .user
 {
