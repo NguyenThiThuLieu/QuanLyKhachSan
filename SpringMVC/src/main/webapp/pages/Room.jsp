@@ -143,27 +143,39 @@
                             <span class="field__label">Số điện thoại</span>
                           </span>
                         </div>    
-                        <div class="field field_v3">
+                        <div class="field field_v1">
                           <label for="email" class="ha-screen-reader">CMND</label>
-                          <input id="email" class="field__input" placeholder="info@gmail.com">
+                          <input id="email" class="field__input" placeholder="056xxxxxxxxxx">
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">CMND</span>
                           </span>
                         </div>
-                        <div class="field field_v3">
+                        <div class="field field_v1">
                             <label for="email" class="ha-screen-reader">Quốc tịch</label>
-                            <input id="email" class="field__input" placeholder="info@gmail.com">
+                            <input id="email" class="field__input" placeholder="Việt Nam">
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">Quốc tịch</span>
                             </span>
                         </div>
-                        <div class="field field_v3">
+                        <div class="field field_v1">
                             <label for="email" class="ha-screen-reader">Loại</label>
-                            <input id="email" class="field__input" placeholder="info@gmail.com">
+                            <input id="email" class="field__input" placeholder="VIP">
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">VIP</span>
                             </span>
-                        </div>                       
+                        </div>
+                        <div class="field field_v1">
+                            <label for="start" class="date">Start date:</label>
+                            <input class="datee" type="date" id="start" name="trip-start"
+                                 value="2022-07-22"
+                                 min="2000-01-01" max="2022-12-31">
+                        </div>
+                        <div class="field field_v1">
+                            <label for="start" class="date">End date :</label>
+                            <input class="datee" type="date" id="start" name="trip-start"
+                                 value="2022-07-22"
+                                 min="2000-01-01" max="2022-12-31">
+                        </div>                         
                     </div>
                     <button class="pay-info">Thuê</button>
                     <button class="exit-info">Thoát</button>
@@ -207,7 +219,8 @@
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">VIP</span>
                               </span>
-                          </div>                       
+                          </div>
+                                               
                     </div>
                     <button class="exit-view">Thoát</button>
                 </div>
