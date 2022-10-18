@@ -269,6 +269,8 @@
 	    
 	    function showpay(){
 	        modal.classList.add('open-info');
+	        roominfo.classList.remove('open-room');
+	        viewinfo.classList.remove('open-pay')
 	    }
 	
 	    function hidepay(){
@@ -276,7 +278,9 @@
 	    }
 	
 	    function showroom(){
-	        roominfo.classList.add('open-room')
+	        roominfo.classList.add('open-room');
+	        modal.classList.remove('open-info');
+	        viewinfo.classList.remove('open-pay')
 	    }
 	
 	    function hideroom(){
@@ -284,7 +288,9 @@
 	    }
 	
 	    function showinfo(){
-	        viewinfo.classList.add('open-pay')     
+	        viewinfo.classList.add('open-pay');
+	        modal.classList.remove('open-info');
+	        roominfo.classList.remove('open-room')
 	    }
 	
 	    function hideinfo(){
