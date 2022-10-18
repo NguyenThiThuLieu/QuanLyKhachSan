@@ -257,7 +257,7 @@
         }
     </script>
     <script>
-	    const rooms = document.querySelectorAll('.tab-item')
+	    const rooms = document.querySelectorAll('.tab-item-second')
 	    const infoBtns = document.querySelectorAll('.info-view')
 	    const payBtns = document.querySelectorAll('.btn-thue')
 	    const modal = document.querySelector('.recentCustomerss')
@@ -269,7 +269,6 @@
 	    
 	    function showpay(){
 	        modal.classList.add('open-info');
-	        document.getElementById("recentCustomerss").style.display = 'none';
 	    }
 	
 	    function hidepay(){
