@@ -38,98 +38,160 @@ public class RoomController implements ApplicationContextAware {
         context = ac;
     }
 	
+    /**
+     * phuong thuc lay tat ca phong va tra ve view
+     * 
+     * @return
+     */
     @RequestMapping("/Room")
-	public ModelAndView getAllRoomView() {
-		
-    	RoomService roomService = (RoomService) context.getBean("roomService");
+	public ModelAndView getView() {
     			 
-    	List<RoomModel> roomList = roomService.getAllRoom();
+    	// lay danh sach tat ca cac phong
+    	List<RoomModel> roomList = getAllRoom();
     	
-		// khoi tao doi tuong ModelAndView
+		// khoi tao doi tuong mv ModelAndView
 		ModelAndView mv = new ModelAndView();
 		
 		// set ten view tra ve
 		mv.setViewName("RoomManage");
 		
+		// them doi tuong vao mv
 		mv.addObject("roomList", roomList);
 		
 		return mv;
 	}
     
+    /**
+     * phuong thuc lay tat ca phong
+     * 
+     * @return
+     */
     @RequestMapping("/Room/GetAllRoom")
 	public @ResponseBody List<RoomModel> getAllRoom() {
 		
+    	// lay RoomService tu ApplicationContext
     	RoomService roomService = (RoomService) context.getBean("roomService");
-    			 
+    			
+    	// lay danh sach tat ca phong
     	List<RoomModel> roomList = roomService.getAllRoom();
 		
 		return roomList;
 	}
     
+    /**
+     * phuong thuc lay danh sach phong theo ten
+     * 
+     * @param searchString kieu String
+     * @return
+     */
     @RequestMapping(value = "/Room/Search",
     		method = RequestMethod.GET)
-	public @ResponseBody List<RoomModel> getRoomByName(@RequestParam(name = "searchString") String searchString) {
+	public @ResponseBody List<RoomModel> getRoomByName(
+			@RequestParam(name = "searchString")String searchString) {
 		
+    	// lay RoomService tu ApplicationContext
     	RoomService roomService = (RoomService) context.getBean("roomService");
     			 
+    	// lay danh sach phong theo ten
     	List<RoomModel> roomList = roomService.getRoomByName(searchString);
 		
 		return roomList;
 	}
     
+	/**
+	 * phuong thuc them phong
+	 * 
+	 * @param room kieu RoomModel
+	 * @return
+	 */
 	@RequestMapping(value = "/Room/Add", method = RequestMethod.POST)
 	public @ResponseBody Object addRoom(@ModelAttribute("RoomModel") RoomModel room) {
 		
+		// lay RoomService tu ApplicationContext
 		RoomService roomService = (RoomService) context.getBean("roomService");
 		
+		// khai bao bien kiem tra co loi khong
 		boolean error = false;
 
+		// lay danh sach tat ca cac phong
 		List<RoomModel> roomList = roomService.getAllRoom();
 		
+		// kiem tra phong do co ton tai khong, neu co tra ve loi
 		if (!roomService.containRoom(roomList, room)) {
 			roomService.addRoom(room);
 		} else {
 			error = true;
 		}
 		
+		// lay danh sach tat ca phong
 		roomList = roomService.getAllRoom();
 		
+		// khoi tao doi tuong Map
 		Map<Object, Object> map = new HashMap<>();
 		
+		// put cac doi tuong vao map
 		map.put("roomList", roomList);
 		map.put("error", error);
 
 		return map;
 	}
     
+    /**
+     * phuong thuc xoa phong
+     * 
+     * @param maPhong kieu String
+     * @return
+     */
     @RequestMapping(value = "/Room/Remove",
     		method = RequestMethod.POST)
     public @ResponseBody List<RoomModel> removeRoom(@RequestParam(name = "maPhong") String maPhong) {
     	
+    	// lay RoomService tu ApplicationContext
     	RoomService roomService = (RoomService) context.getBean("roomService");
     	
+    	// thuc hien xoa phong
     	roomService.removeRoom(maPhong);
     	
+    	// lay danh sach tat ca phong
     	List<RoomModel> roomList = roomService.getAllRoom();
     	
     	return roomList;
     }
     
+    /**
+     * phuong thuc lay phong theo ma phong
+     * 
+     * @param maPhong kieu String
+     * @return
+     */
     @RequestMapping(value = "/Room/GetRoom",
     		method = RequestMethod.GET)
     public @ResponseBody RoomModel getRoom(@RequestParam(name = "maPhong") String maPhong) {
+    	
+    	// lay RoomService tu ApplicationContext
     	RoomService roomService = (RoomService) context.getBean("roomService");
+    	
+    	// thuc hien viec lay phong va tra ve kết qua
     	return roomService.getRoom(maPhong);
     }
     
+    /**
+     * phuong thuc chinh sua phong
+     * 
+     * @param room kieu RoomModel
+     * @return
+     */
     @RequestMapping(value = "/Room/Edit",
     		method = RequestMethod.POST)
     public @ResponseBody List<RoomModel> editRoom(@ModelAttribute("RoomModel") RoomModel room) {
     	
+    	// lay RoomService tu ApplicationContext
     	RoomService roomService = (RoomService) context.getBean("roomService");
     	
+    	// thuc hien chinh sua phong
     	roomService.editRoom(room);
     	
+    	// lay danh sach tat ca phong
     	List<RoomModel> roomList = roomService.getAllRoom();
     	
     	return roomList;

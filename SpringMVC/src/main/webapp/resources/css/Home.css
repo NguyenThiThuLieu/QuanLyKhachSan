@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: sans-serif;
 }
 html{
   overflow: auto;
@@ -285,6 +285,17 @@ h3{
     left: 10px;
     font-size: 1.2em;
 }
+
+.close a ion-icon{
+  font-size: 40px;
+}
+.cardBox .close a ion-icon:hover
+{
+    border-radius: 40px;
+    background-color: #999;
+    color: white;
+}
+
 .close{
   width: 20%;
 }
@@ -297,6 +308,7 @@ h3{
     background-color: #999;
     color: white;
 } 
+
 .user
 {
     position: relative;
@@ -1139,6 +1151,7 @@ hr {
   .room-icon{
     background: #fff;
     border: none;
+    
   }
   
   .room-icon:hover{
@@ -1160,10 +1173,12 @@ hr {
    #btn2{
     border: none;
    }
-   
+  .recentOrder thead{
+  	background: #BBBBBB;
+  }
+ 
 .errorMessage {
 	font-size: 20px;
 	color: red;
 }
   
- 

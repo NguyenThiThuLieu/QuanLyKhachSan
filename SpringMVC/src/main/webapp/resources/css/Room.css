@@ -4,17 +4,43 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+}
+
+.tab-item:hover{
+	top: -0.25rem;
+    transition: top 0.25s;
+    border-bottom: 0.05rem solid #272626;
+    
+}
+.tab-item-2{
+    position: relative;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    top: 0;
+    transition: all 0.25s;
+    
+}
+
+.tab-item-2:hover{
+	top: -0.25rem;
+    transition: top 0.25s;
+    border-bottom: 0.05rem solid #272626;
 }
 
 .tab-item-first{
-    position: relative;
+    
     padding: 10px 10px;
     width: 100%;
     box-shadow: 0 1px rgba(0, 0, 0, 0.6);
 }
 
 .tab-item-second{
-    position: relative; 
+    
     padding: 10px 10px;
     width: 100%;   
 }
@@ -60,3 +86,117 @@
     display: block;
 }
 
+  
+.hover-arrow {
+    opacity: 0;
+    z-index: 110;
+    position: absolute;
+    left: 90px;
+    top: 90px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+  
+.hover-image {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    z-index: 100;
+    position: absolute;
+    opacity: 0;
+}
+  
+.hover-text {
+    position: absolute;
+    z-index: 90;
+    width: 200px;
+    height: 0px;
+    margin-top: 100px;
+    font-family: 'Arial Black';
+    background: #333;
+    color: #fff;
+    opacity: 0;
+}
+
+.btn-thue{
+    border: none;
+    font-size: 0.9em;
+    margin-left: 30px;
+    height: 30px;
+    padding-top: 5px;
+}
+.exit-info{
+    margin-left: 130px;
+}
+.pay-info{
+    border: none;
+    margin-left: 20px;
+}
+
+.recentPays{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;  
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.recentPays{
+    display: none;
+}
+
+.recentPays.open-pay{
+    display: block;
+}
+
+.exit-view{
+    border: none;
+    right: 0;
+}
+
+.page-info{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 0%;
+    display: grid;
+    grid-gap: 30px;
+}
+
+.recentHotels{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;  
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.recentHotels{
+    display: none;
+}
+.recentHotels.open-room{
+    display: block;
+}
+.recentHotels .page-info{
+    width: 350px;
+    margin-left: -5px;
+}
+
+.recentHotels img{
+    
+    height: 200px;
+    width: 350px;
+}
+.exit-room{
+    border: none;
+    width: 350px;
+}
+.btn-search{
+	border: none;
+}

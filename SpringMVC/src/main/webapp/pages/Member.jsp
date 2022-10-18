@@ -33,8 +33,8 @@
         <div class="topfour">
         <div class="tab-pane active">
                 <div class="cardBox">
-                    <div class="">
-                        <a href="../html/System.html" style="font-size: 30px;">
+                    <div class="close">
+                        <a href="System.jsp">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
@@ -54,49 +54,73 @@
                         <h2>Bảng nhân viên</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
-                    <table>
+                    <table id="tableee">
                         <thead>
                             <tr>
                                 <td>Mã nhân viên</td>
                                 <td>Tên nhân viên</td>
+                                <td>Ngày sinh</td>
+                                <td>Giới tính</td>
                                 <td>Số điện thoại</td>
-                                <td>CMND/CCCD</td>
-                                <td>Trạng thái</td>
+                                <td>Mật khẩu</td>
+                                <td>Chức vụ</td>
+                                <td>Lương</td>
+                                <td>Tình trạng</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr id="tr">
                                 <td>NV01</td>
                                 <td>Thái Bá Tường</td>
                                 <td>xxxx</td>
                                 <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
                                 <td><span class="status delivered">Quy Nhơn</span></td>
                             </tr>
-                            <tr>
+                            <tr id="tr">
                                 <td>NV02</td>
                                 <td>Nguyễn Thị Thu Liễu</td>
                                 <td>xxxx</td>
                                 <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
                                 <td><span class="status pending">Quy Nhơn</span></td>
                             </tr>
-                            <tr>
+                            <tr id="tr">
                                 <td>NV03</td>
                                 <td>Mai Anh Bắc</td>
                                 <td>xxxx</td>
                                 <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
                                 <td><span class="status return">Gia Lai</span></td>
                             </tr>
-                            <tr>
+                            <tr id="tr">
                                 <td>NV04</td>
                                 <td>Nguyễn Văn A</td>
                                 <td>xxxx</td>
                                 <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
                                 <td><span class="status inprogress">Tuy Phước</span></td>
                             </tr>
-                            <tr>
+                            <tr id="tr">
                                 <td>NV05</td>
                                 <td>Trần Ngọc tiền</td>
                                 <td>xxxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
                                 <td>xxxx</td>
                                 <td><span class="status delivered">Quy Nhơn</span></td>
                             </tr>
@@ -115,7 +139,7 @@
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">Mã nhân viên</span>
                             </span>
-                          </div>
+                        </div>
                         <div class="field field_v1">
                           <label for="first-name" class="ha-screen-reader">Họ và tên nhân viên</label>
                           <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
@@ -124,24 +148,52 @@
                           </span>
                         </div>
                         <div class="field field_v2">
+                            <label for="last-name" class="ha-screen-reader">Ngày sinh</label>
+                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">Ngày sinh</span>
+                            </span>
+                        </div>
+                        <div class="field field_v2">
+                            <label for="last-name" class="ha-screen-reader">Giới tính</label>
+                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">Giới tính</span>
+                            </span>
+                        </div>
+                        <div class="field field_v2">
+                            <label for="last-name" class="ha-screen-reader">Mật khẩu</label>
+                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">Mật khẩu</span>
+                            </span>
+                        </div> 
+                        <div class="field field_v2">
                           <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
                           <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Số điện thoại</span>
                           </span>
                         </div>
-                        <div class="field field_v2">
-                            <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">CMND/CCCD</span>
-                            </span>
-                          </div>    
                         <div class="field field_v3">
-                          <label for="email" class="ha-screen-reader">Trạng thái</label>
+                            <label for="email" class="ha-screen-reader">Chức vụ</label>
+                            <input id="email" class="field__input" placeholder="info@gmail.com">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">Chức vụ</span>
+                            </span>
+                        </div>
+                        <div class="field field_v3">
+                            <label for="email" class="ha-screen-reader">Lương</label>
+                            <input id="email" class="field__input" placeholder="info@gmail.com">
+                            <span class="field__label-wrap" aria-hidden="true">
+                              <span class="field__label">Lương</span>
+                            </span>
+                        </div>
+                        <div class="field field_v3">
+                          <label for="email" class="ha-screen-reader">Tình trạng</label>
                           <input id="email" class="field__input" placeholder="info@gmail.com">
                           <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Trạng thái</span>
+                            <span class="field__label">Tình trạng</span>
                           </span>
                         </div>
                     </div>
@@ -168,21 +220,10 @@
         //onclick thêm mới
         document.getElementById("btn2").onclick = function () {
                 document.getElementById("recentCustomerss").style.display = 'block';
+                document.getElementById("tableee").style.marginTop = '-270px';
+                document.getElementById("tr").style.margin = '60px';
             };
-        // const $ = document.querySelector.bind(document)
-        // const $$ = document.querySelectorAll.bind(document)
-        // const title = $$('.title2')
-        // const panes = $$('.tab-pane')
-        // title.forEach((tab, index)=>{
-        //     const pane = panes[index]
-        //     tab.onclick = function(){
-        //         $('.title2.active').classList.remove('active')
-        //         $('.tab-pane.active').classList.remove('active')
-        //         this.classList.add('active')
-        //         pane.classList.add('active')
-
-        //     }
-        // })
+      
     </script>
 </body>
 </html>

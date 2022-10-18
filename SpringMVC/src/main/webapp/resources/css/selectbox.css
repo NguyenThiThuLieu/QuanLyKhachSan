@@ -16,7 +16,12 @@
   	position: absolute;
   	overflow-y: scroll;
     overflow-x: hidden;
+    height: 550px;
   }
+  .recentOrder tbody button{
+  	align-items: flex-end;
+  }
+  
   ::-webkit-scrollbar {
     width: 20px;
   }

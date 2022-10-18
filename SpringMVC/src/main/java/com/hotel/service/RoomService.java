@@ -23,6 +23,11 @@ public class RoomService {
 		this.roomDAO = roomDAO;
 	}
 
+	/**
+	 * phuong thuc lay tat ca phong
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public List<RoomModel> getAllRoom() {
 		
@@ -38,6 +43,12 @@ public class RoomService {
 		return roomList;
 	}
 	
+	/**
+	 * phuong thuc lay phong theo ten
+	 * 
+	 * @param searchString kieu String
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public List<RoomModel> getRoomByName(String searchString) {
 		
@@ -47,7 +58,8 @@ public class RoomService {
 		// thiet lap cau truy van sql
 		builder.append("select r from com.hotel.model.RoomModel r ");
 		
-		if (null != searchString && !Constants.EMTY_STRING.equals(searchString)) {
+		// Xu ly query string neu searchString khong rong
+		if (null != searchString && !Constants.EMTY_STRING.equals(searchString.trim())) {
 			builder.append("where r.tenPhong like :maPhong");
 		}
 		
@@ -57,6 +69,12 @@ public class RoomService {
 		return roomList;
 	}
 	
+	/**
+	 * phuong thuc them phong
+	 * 
+	 * @param room kieu RoomModel
+	 * @return
+	 */
 	public int addRoom(RoomModel room) {
 		
 		// khoi tao doi tuong builder kieu StringBuilder
@@ -66,6 +84,7 @@ public class RoomService {
 		builder.append("insert into phong(maPhong, tenPhong, loaiPhong, gia, hinhAnh, trangThai) ");
 		builder.append("values(:maPhong, :tenPhong, :loaiPhong, :gia, null, :trangThai)");
 		
+		// Xu ly gan lai loai phong cho room
 		if (!Constants.DOUBLE_ROOM.equals(room.getMaPhong())) {
 			room.setLoaiPhong(Constants.SINGLE_ROOM_TEXT);
 		} else {
@@ -76,9 +95,22 @@ public class RoomService {
 		return roomDAO.addRoom(room, builder.toString());
 	}
 	
+	/**
+	 * phuong thuc kiem tra phong da duoc tao
+	 * 
+	 * @param roomList kieu List<RoomModel>
+	 * @param room kieu RoomModel
+	 * @return
+	 */
 	public boolean containRoom(List<RoomModel> roomList, RoomModel room) {
+		
+		// khai bao bien kiem tra da ton tai phong do chua
 		boolean haveRoom = false;
+		
+		// duyet danh sach phong
     	for (RoomModel roomModel : roomList) {
+    		
+    		// so sanh cac room trong danh sach voi room can kiem tra
 			if (room.equals(roomModel)) {
 				haveRoom = true;
 				break;
@@ -88,6 +120,12 @@ public class RoomService {
     	return haveRoom;
 	}
 	
+	/**
+	 * phuong thuc xoa phong
+	 * 
+	 * @param maPhong kieu String
+	 * @return
+	 */
 	public int removeRoom(String maPhong) {
 		
 		// thiet lap cau truy van sql
@@ -98,6 +136,12 @@ public class RoomService {
 	}
 	
 	
+	/**
+	 * phuong thuc chinh sua phong
+	 * 
+	 * @param room kieu RoomModel
+	 * @return
+	 */
 	public int editRoom(RoomModel room) {
 		
 		// khoi tao doi tuong builder kieu StringBuilder
@@ -112,6 +156,12 @@ public class RoomService {
 		return roomDAO.editRoom(room, builder.toString());
 	}
 	
+	/**
+	 * phuong thuc lay phong theo ma phong
+	 * 
+	 * @param maPhong kieu String
+	 * @return
+	 */
 	public RoomModel getRoom(String maPhong) {
 		
 		// thiet lap cau truy van sql

@@ -13,7 +13,6 @@ function callAllEvent() {
 
 
 function eventAdd(){
-
   	
   	$('#btnAdd').click(function (){
 		errorMessage.style.display = 'block'
@@ -234,7 +233,7 @@ function getTBody(roomList) {
 	let tbody = ``;
 	
 	$.each(roomList, function( key, value ) {
-		tbody += `<tr id='${value.maPhong }'>`
+		tbody += `<tr id="${value.maPhong }">`
         tbody += `<td>${value.maPhong }</td>`
         tbody += `<td>${value.tenPhong }</td>`
         tbody += `<td>${value.loaiPhong }</td>`
