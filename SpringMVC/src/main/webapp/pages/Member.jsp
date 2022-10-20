@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
     <script src="../js/Home.js"></script>
 </head>
 <body>
@@ -31,30 +32,30 @@
             </div>
         </div>
         <div class="topfour">
-        <div class="tab-pane active">
+        	<div class="tab-pane active">
                 <div class="cardBox">
                     <div class="close">
                         <a href="System.jsp">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
-                    <div class="searchh">
+                    <div class="searchnv">
                         <label>
                             <input type="text" placeholder="Tìm kiếm nhân viên">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
-                    <div class="searchh">
+                    <div class="search">
                         <button id="btn2">Thêm mới</button>
                     </div>
                 </div>
             <div class="details">
                 <div class="recentOrder">
                     <div class="cardHeader">
-                        <h2>Bảng nhân viên</h2>
+                        <h2>DANH SÁCH NHÂN VIÊN</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
-                    <table id="tableee">
+                    <table>
                         <thead>
                             <tr>
                                 <td>Mã nhân viên</td>
@@ -132,71 +133,60 @@
                         <h2>Thêm mới</h2>
                         <button class="snip1457">Lưu</button>
                     </div>
-                    <div class="page">
-                        <div class="field field_v1">
-                            <label for="first-name" class="ha-screen-reader">Mã nhân viên</label>
-                            <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Mã nhân viên</span>
-                            </span>
-                        </div>
-                        <div class="field field_v1">
-                          <label for="first-name" class="ha-screen-reader">Họ và tên nhân viên</label>
-                          <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Họ và tên nhân viên</span>
-                          </span>
-                        </div>
-                        <div class="field field_v2">
-                            <label for="last-name" class="ha-screen-reader">Ngày sinh</label>
-                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Ngày sinh</span>
-                            </span>
-                        </div>
-                        <div class="field field_v2">
-                            <label for="last-name" class="ha-screen-reader">Giới tính</label>
-                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Giới tính</span>
-                            </span>
-                        </div>
-                        <div class="field field_v2">
-                            <label for="last-name" class="ha-screen-reader">Mật khẩu</label>
-                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Mật khẩu</span>
-                            </span>
-                        </div> 
-                        <div class="field field_v2">
-                          <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-                          <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Số điện thoại</span>
-                          </span>
-                        </div>
-                        <div class="field field_v3">
-                            <label for="email" class="ha-screen-reader">Chức vụ</label>
-                            <input id="email" class="field__input" placeholder="info@gmail.com">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Chức vụ</span>
-                            </span>
-                        </div>
-                        <div class="field field_v3">
-                            <label for="email" class="ha-screen-reader">Lương</label>
-                            <input id="email" class="field__input" placeholder="info@gmail.com">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Lương</span>
-                            </span>
-                        </div>
-                        <div class="field field_v3">
-                          <label for="email" class="ha-screen-reader">Tình trạng</label>
-                          <input id="email" class="field__input" placeholder="info@gmail.com">
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Tình trạng</span>
-                          </span>
-                        </div>
-                    </div>
+              		<div class="page">
+                            <div class="field field_v1">
+                                <label for="first-name" class="ha-screen-reader">Mã NV</label>
+                                <input id="first-name" class="field__input" placeholder="vd: P.201">
+                                <span class="field__label-wrap" aria-hidden="true">
+                                  <span class="field__label">Mã NV</span>
+                                </span>
+                              </div>
+                            <div class="field field_v1">
+                              <label for="first-name" class="ha-screen-reader">Tên NV</label>
+                              <input id="first-name" class="field__input" placeholder="vd: Phòng 201">
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">Tên NV</span>
+                              </span>
+                            </div>
+                            <div class="datemember">
+                                <div class="field field_v1">
+                                    <label for="first-name" class="ha-screen-reader">Ngày sinh</label>
+                                    <input id="first-name" class="field__input" placeholder="vd: 100000">
+                                    <span class="field__label-wrap" aria-hidden="true">
+                                      <span class="field__label">Ngày sinh</span>
+                                    </span>
+                                </div>
+                                <div class="field field_v1">
+                                    <label for="first-name" class="ha-screen-reader">Giới tính</label>
+                                    <input id="first-name" class="field__input" placeholder="vd: 100000">
+                                    <span class="field__label-wrap" aria-hidden="true">
+                                      <span class="field__label">Giới tính</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="datemember">
+                                <div class="field field_v1">
+                                    <label for="first-name" class="ha-screen-reader">Số điện thoại</label>
+                                    <input id="first-name" class="field__input" placeholder="vd: 100000">
+                                    <span class="field__label-wrap" aria-hidden="true">
+                                      <span class="field__label">Số điện thoại</span>
+                                    </span>
+                                </div>
+                                <div class="field field_v1">
+                                    <label for="first-name" class="ha-screen-reader">Mật khẩu</label>
+                                    <input id="first-name" class="field__input" placeholder="vd: 100000">
+                                    <span class="field__label-wrap" aria-hidden="true">
+                                      <span class="field__label">Mật khẩu</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="wrapper">
+                                <select id="" class="wrap">
+                                    <option value="P0">Nhân viên</option>
+                                    <option value="P1">Quản lí</option>
+                                </select>
+                            </div>      
+                       </div>
                 </div>
             </div>
         </div>
