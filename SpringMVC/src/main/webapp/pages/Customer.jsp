@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/SpringMVC/resources/css/Home.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -31,95 +31,133 @@
             </div>
         </div>
         <div class="topfour">
-            <div class="search">
-                <button id="btn2">Thêm mới</button>
-            </div>
-            <div class="details">
-                <div class="recentOrder">
-                    <div class="cardHeader">
-                        <h2>Bảng khách hàng</h2>
-                        <a href="#" class="btn">View All</a>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Mã khách hàng</td>
-                                <td>Tên khách hàng</td>
-                                <td>Số điện thoại</td>
-                                <td>CMND</td>
-                                <td>Quê Quán</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>Thái Bá Tường</td>
-                                <td>09xxxxxxx</td>
-                                <td>xxxx</td>
-                                <td><span class="status delivered">Quy Nhơn</span></td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>Nguyễn Thị Thu Liễu</td>
-                                <td>03xxxxxxx</td>
-                                <td>xxxx</td>
-                                <td><span class="status pending">Quy Nhơn</span></td>
-                            </tr>
-                            <tr>
-                                <td>003</td>
-                                <td>Mai Anh Bắc</td>
-                                <td>012xxxxxx</td>
-                                <td>xxxx</td>
-                                <td><span class="status return">Gia Lai</span></td>
-                            </tr>
-                            <tr>
-                                <td>004</td>
-                                <td>Trần Ngọc tiền</td>
-                                <td>08xxxxxxx</td>
-                                <td>xxxx</td>
-                                <td><span class="status delivered">Quy Nhơn</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="recentCustomerss" id="recentCustomerss">
-                    <div class="cardHeader">
-                        <h2>Thêm mới</h2>
-                        <button class="snip1457">Lưu</button>
-                    </div>
-                    <div class="page">
-                        <div class="field field_v1">
-                          <label for="first-name" class="ha-screen-reader">Họ và tên khách hàng</label>
-                          <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Họ và tên khách hàng</span>
-                          </span>
-                        </div>
-                        <div class="field field_v2">
-                          <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-                          <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Số điện thoại</span>
-                          </span>
-                        </div>
-                        <div class="field field_v2">
-                            <label for="last-name" class="ha-screen-reader">CMND/CCCD</label>
-                            <input id="last-name"  class="field__input" placeholder="xxxxxxxxxxxx">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">CMND/CCCD</span>
-                            </span>
-                          </div>    
-                        <div class="field field_v3">
-                          <label for="email" class="ha-screen-reader">E-mail</label>
-                          <input id="email" class="field__input" placeholder="info@gmail.com">
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">E-mail</span>
-                          </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+	        <div class="tab-pane active">
+	                <div class="cardBox">
+	                    <div class="search">
+	                        <label>
+	                            <input type="text" placeholder="Tìm kiếm khách hàng">
+	                            <ion-icon name="search-outline"></ion-icon>
+	                        </label>
+	                    </div>
+	                    <div class="search">
+	                        <button id="btn2">Thêm mới</button>
+	                    </div>
+	                </div>
+	            <div class="details">
+	                <div class="recentOrder">
+	                    <div class="cardHeader">
+	                        <h2>Bảng khách hàng</h2>
+	                        <a href="#" class="btn">View All</a>
+	                    </div>
+	                    <table>
+	                        <thead>
+	                            <tr>
+	                                <td>Mã khách hàng</td>
+	                                <td>Tên khách hàng</td>
+	                                <td>Số điện thoại</td>
+	                                <td>CMND/CCCD</td>
+	                                <td>Quê Quán</td>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td>001</td>
+	                                <td>Thái Bá Tường</td>
+	                                <td>xxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td>002</td>
+	                                <td>Nguyễn Thị Thu Liễu</td>
+	                                <td>xxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status pending">Quy Nhơn</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td>003</td>
+	                                <td>Mai Anh Bắc</td>
+	                                <td>xxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status return">Gia Lai</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td>004</td>
+	                                <td>Nguyễn Văn A</td>
+	                                <td>xxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status inprogress">Tuy Phước</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td>005</td>
+	                                <td>Trần Ngọc tiền</td>
+	                                <td>xxxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td>005</td>
+	                                <td>Trần Ngọc tiền</td>
+	                                <td>xxxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                            </tr>
+	                            <tr>
+	                                <td>005</td>
+	                                <td>Trần Ngọc tiền</td>
+	                                <td>xxxxx</td>
+	                                <td>xxxx</td>
+	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+	                </div>
+	                <div class="recentCustomerss" id="recentCustomerss">
+	                    <div class="cardHeader">
+	                        <h2>Thêm mới</h2>
+	                        <button class="snip1457">Lưu</button>
+	                    </div>
+	                    <div class="page">
+	                        <div class="field field_v1">
+	                            <label for="first-name" class="ha-screen-reader">Mã khách hàng</label>
+	                            <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
+	                            <span class="field__label-wrap" aria-hidden="true">
+	                              <span class="field__label">Mã khách hàng</span>
+	                            </span>
+	                          </div>
+	                        <div class="field field_v1">
+	                          <label for="first-name" class="ha-screen-reader">Họ và tên khách hàng</label>
+	                          <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
+	                          <span class="field__label-wrap" aria-hidden="true">
+	                            <span class="field__label">Họ và tên khách hàng</span>
+	                          </span>
+	                        </div>
+	                        <div class="field field_v2">
+	                          <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
+	                          <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+	                          <span class="field__label-wrap" aria-hidden="true">
+	                            <span class="field__label">Số điện thoại</span>
+	                          </span>
+	                        </div>
+	                        <div class="field field_v2">
+	                            <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
+	                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+	                            <span class="field__label-wrap" aria-hidden="true">
+	                              <span class="field__label">CMND/CCCD</span>
+	                            </span>
+	                          </div>    
+	                        <div class="field field_v3">
+	                          <label for="email" class="ha-screen-reader">Quê quán</label>
+	                          <input id="email" class="field__input" placeholder="info@gmail.com">
+	                          <span class="field__label-wrap" aria-hidden="true">
+	                            <span class="field__label">Quê quán</span>
+	                          </span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	     </div>
     </div>
     
 
