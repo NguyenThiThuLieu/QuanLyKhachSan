@@ -54,18 +54,27 @@
                                             <button class="btn-thue">Thuê</button>
                                         </div>
                                         <div class="tab-item-second">
+	                                            <ion-icon name="bed-outline"></ion-icon>
+	                                            Phòng đôi
+                                        </div>
+                                        <div class="tab-item-second">
                                             <ion-icon name="business-outline"></ion-icon>
                                             Chưa sử dụng
+                                            
                                         </div>
                                     </div>
                                     <div class="tab-item">
                                         <div class="tab-item-first">
                                             P.102
-                                            <button class="btn-thue">Thuê</button>
+                                            <button class="btn-thue">Thuê</button>                                      
+                                        </div>
+                                        <div class="tab-item-second">
+	                                            <ion-icon name="bed-outline"></ion-icon>
+	                                            Phòng đơn
                                         </div>
                                         <div class="tab-item-second">
                                             <ion-icon name="business-outline"></ion-icon>
-                                            Chưa sử dụng
+                                            Chưa sử dụng                    
                                         </div>
                                     </div>
                                 </div>
@@ -201,21 +210,21 @@
                           </div>    
                           <div class="field field_v3">
                             <label for="email" class="ha-screen-reader">CMND</label>
-                            <input id="email" class="field__input" placeholder="info@gmail.com" disabled>
+                            <input id="email" class="field__input" placeholder="056xxxxxxxxxxx" disabled>
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">CMND</span>
                             </span>
                           </div>
                           <div class="field field_v3">
                               <label for="email" class="ha-screen-reader">Quốc tịch</label>
-                              <input id="email" class="field__input" placeholder="info@gmail.com" disabled>
+                              <input id="email" class="field__input" placeholder="Việt Nam" disabled>
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Quốc tịch</span>
                               </span>
                           </div>
                           <div class="field field_v3">
                               <label for="email" class="ha-screen-reader">Loại</label>
-                              <input id="email" class="field__input" placeholder="info@gmail.com" disabled>
+                              <input id="email" class="field__input" placeholder="VIP" disabled>
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">VIP</span>
                               </span>
