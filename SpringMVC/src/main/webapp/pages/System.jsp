@@ -41,7 +41,7 @@
                                 <hr>
                             </div>
                             <div>
-                                <div class="numbersss">Cách tính tiền</div>
+                                <div class="numbersss">Quản lí kho</div>
                                 <!-- <div class="cardNameee">Daily View</div> -->
                             </div>
                          </a>
@@ -53,7 +53,7 @@
                                 <hr>
                             </div>
                             <div>
-                                <div class="numbersss">Loại phòng</div>
+                                <div class="numbersss">Thống kê</div>
                                 <!-- <div class="cardNameee">Sales</div> -->
                             </div>
                         </a>
@@ -81,46 +81,6 @@
                                 <!-- <div class="cardNameee">Earning</div> -->
                             </div>
                         </a>
-                    </div>
-                    <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="eye-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Quản lí kho</div>
-                            <!-- <div class="cardNameee">Daily View</div> -->
-                        </div>
-                    </div>
-                    <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="cart-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Thống kê</div>
-                            <!-- <div class="cardNameee">Sales</div> -->
-                        </div>
-                    </div>
-                    <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="chatbubbles-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Lịch sử</div>
-                            <!-- <div class="cardNameee">Comment</div> -->
-                        </div>
-                    </div>
-                    <div class="carddd">
-                        <div class="iconBxxx">
-                            <ion-icon name="grid-outline"></ion-icon>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="numbersss">Thiết lập khác</div>
-                            <!-- <div class="cardNameee">Earning</div> -->
-                        </div>
                     </div>
                 </div>
             </div>

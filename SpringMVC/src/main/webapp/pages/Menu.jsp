@@ -88,8 +88,8 @@
         <div class="topfour">
             <div class="tab-pane active">
                 <div class="cardBox">
-                    <div class="">
-                        <a href="../html/System.html" style="font-size: 30px;">
+                    <div class="close">
+                        <a href="System.jsp" style="font-size: 30px;">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
@@ -191,21 +191,21 @@
             <div class="modal-body">
                 <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
-                    Tên phòng
+                    Tên menu
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Tên phòng">
+                <input id="name" type="text" class="modal-input" placeholder="Tên menu">
 
                 <label for="type" class="modal-label">
                     <ion-icon name="bed-outline" class="modal-icon"></ion-icon>
-                    Loại phòng
+                    Loại menu
                 </label>
-                <input id="type" type="text" class="modal-input" placeholder="Loại phòng">
+                <input id="type" type="text" class="modal-input" placeholder="Loại menu">
 
                 <label for="status" class="modal-label">
                     <ion-icon name="checkmark-done-circle-outline" class="modal-icon"></ion-icon>
-                    Trạng thái
+                    Đơn giá
                 </label>
-                <input id="status" type="text" class="modal-input" placeholder="Trạng thái">
+                <input id="status" type="text" class="modal-input" placeholder="Đơn giá">
 
                 <button class="btn-edit">
                     Done
