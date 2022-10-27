@@ -210,3 +210,10 @@
 .date{
 	margin-left: 20px;
 }
+.recentCustomerss{
+    display: none;
+}
+
+.recentCustomerss.open-info{
+    display: block;
+}

@@ -100,7 +100,7 @@
                         </label>
                     </div> -->
                     <div class="searchh">
-                        <button id="btn2">Thêm mới</button>
+                        <button id="btn2" class="info-view-info">Thêm mới</button>
                     </div>
                 </div>
                 <div class="details">

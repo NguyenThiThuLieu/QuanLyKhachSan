@@ -440,7 +440,7 @@ hr {
 .details .recentOrder{
     position: relative;
     display: grid;
-    height: 520px;
+    height: 622px;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);/*khung viên bóng */
@@ -680,8 +680,7 @@ hr {
     opacity: 1;
     transition: all 0.35s;
   }
-
-  button {
+  button.info-view-info, .exit-info {
     background-color: #29b6f6;
     border-radius: 10px;
     color: #fff;
@@ -689,10 +688,26 @@ hr {
     padding: .75em 1.5em;
     font-size: 1em;
     height: 42px;
+    border: none;
   }
-  button:hover {
+  button.info-view-info, .exit-info:hover {
     background-color: #0563af;
   }
+  button.info-view{
+    background-color: white;
+    border: 2px solid #272626;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    padding: 0.5em .75em;
+    font-size: 1em;
+    height: 42px;
+  }
+  button.info-view:hover{
+    background-color: #0563af;
+    border: none;
+    color: white;
+  }s
  /* Selector */
 
  */
@@ -1000,7 +1015,7 @@ hr {
   .snip1457 {
     font-family: 'Raleway', Arial, sans-serif;
     border: none;
-    /* background-color: #52a2f3; */
+    background-color: #52a2f3; 
     border-radius: 5px;
     color: #ffffff;
     cursor: pointer;
@@ -1164,11 +1179,7 @@ hr {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-  
-   #btn2{
-    border: none;
-   }
+}
   .recentOrder thead{
   	background: #BBBBBB;
   }
@@ -1177,4 +1188,4 @@ hr {
 	font-size: 20px;
 	color: red;
 }
-  
+

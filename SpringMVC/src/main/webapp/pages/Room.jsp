@@ -35,7 +35,7 @@
                         </label>
                     </div>
                     <div class="search">
-	                <button class="btn-search">Search</button>
+	                <button class="info-view-info">Search</button>
 	            </div>
                 </div>
                 <div class="details">
@@ -100,7 +100,7 @@
                                                     <tr>
                                                         <td>Ngày đến</td>
                                                         <td>Ngày đi</td>
-                                                        <td><button id="btn4">Trả phòng</button></td>
+                                                        <td><button id="btn4" class="info-view">Trả phòng</button></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -121,7 +121,7 @@
                                                     <tr>
                                                         <td>Ngày đến</td>
                                                         <td>Ngày đi</td>
-                                                        <td><button id="btn4">Trả phòng</button></td>
+                                                        <td><button id="btn4" class="info-view">Trả phòng</button></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
