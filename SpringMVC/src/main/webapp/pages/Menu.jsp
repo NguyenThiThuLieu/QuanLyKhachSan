@@ -106,14 +106,14 @@
                 <div class="details">
                     <div class="recentOrder">
                         <div class="cardHeader">
-                            <h2>DANH SÁCH MENU</h2>
+                            <h2>DANH SÁCH DỊCH VỤ</h2>
                             <a href="#" class="btn">View All</a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Tên menu</td>
-                                    <td>Loại menu</td>
+                                	<td>Mã dịch vụ</td>
+                                    <td>Tên dịch vụ</td>
                                     <td>Đơn giá</td>
                                     <td>Chỉnh sửa</td>
                                     <td>Xóa </td>
@@ -158,17 +158,17 @@
                         </div>
                         <div class="page">
                             <div class="field field_v1">
-                              <label for="first-name" class="ha-screen-reader">Tên menu</label>
+                              <label for="first-name" class="ha-screen-reader">Mã dịch vụ</label>
                               <input id="first-name" class="field__input" placeholder="vd: Cafe, nước chanh, nước cam vv..">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Tên menu</span>
+                                <span class="field__label">Mã dịch vụ</span>
                               </span>
                             </div>
                             <div class="field field_v2">
-                              <label for="last-name" class="ha-screen-reader">Loại menu</label>
+                              <label for="last-name" class="ha-screen-reader">Tên dịch vụ</label>
                               <input id="last-name"  class="field__input" placeholder="Đồ ăn, uống vv..">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Loại menu</span>
+                                <span class="field__label">Tên dịch vụ</span>
                               </span>
                             </div>    
                             <div class="field field_v3">
@@ -191,16 +191,9 @@
             <div class="modal-body">
                 <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
-                    Tên menu
+                    Tên dịch vụ
                 </label>
                 <input id="name" type="text" class="modal-input" placeholder="Tên menu">
-
-                <label for="type" class="modal-label">
-                    <ion-icon name="bed-outline" class="modal-icon"></ion-icon>
-                    Loại menu
-                </label>
-                <input id="type" type="text" class="modal-input" placeholder="Loại menu">
-
                 <label for="status" class="modal-label">
                     <ion-icon name="checkmark-done-circle-outline" class="modal-icon"></ion-icon>
                     Đơn giá

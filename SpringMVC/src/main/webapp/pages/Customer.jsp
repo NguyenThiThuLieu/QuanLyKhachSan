@@ -57,6 +57,8 @@
 	                                <td>Số điện thoại</td>
 	                                <td>CMND/CCCD</td>
 	                                <td>Quê Quán</td>
+	                                <td></td>
+	                                <td></td>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
@@ -66,6 +68,11 @@
 	                                <td>xxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                            <tr>
 	                                <td>002</td>
@@ -73,6 +80,11 @@
 	                                <td>xxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status pending">Quy Nhơn</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                            <tr>
 	                                <td>003</td>
@@ -80,6 +92,11 @@
 	                                <td>xxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status return">Gia Lai</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                            <tr>
 	                                <td>004</td>
@@ -87,6 +104,11 @@
 	                                <td>xxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status inprogress">Tuy Phước</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                            <tr>
 	                                <td>005</td>
@@ -94,6 +116,11 @@
 	                                <td>xxxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                            <tr>
 	                                <td>005</td>
@@ -101,6 +128,11 @@
 	                                <td>xxxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                            <tr>
 	                                <td>005</td>
@@ -108,6 +140,11 @@
 	                                <td>xxxxx</td>
 	                                <td>xxxx</td>
 	                                <td><span class="status delivered">Quy Nhơn</span></td>
+	                                <td><button class="room-icon js-edit btnEdit">
+	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
+	                                    </button>
+	                                </td>
+	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
 	                            </tr>
 	                        </tbody>
 	                    </table>
@@ -159,7 +196,41 @@
 	        </div>
 	     </div>
     </div>
-    
+    <div class="edit-modal js-modal">
+        <div class="modal-container">
+            <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
+            <header class="modal-header">CHỈNH SỬA</header>
+            <div class="modal-body">
+                <label for="name" class="modal-label">
+                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    Tên khách hàng
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Tên khách hàng">
+
+                 <label for="name" class="modal-label">
+                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    Số điện thoại
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Số điện thoại">
+                
+                <label for="name" class="modal-label">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    CMND/CCDD
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="CMND/CCDD">
+                
+                <label for="name" class="modal-label">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    Quê quán
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Quê quán">
+                
+                <button class="btn-edit">
+                    Done
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -192,6 +263,24 @@
 
         //     }
         // })
+    </script>
+    <script>
+        const editBtns = document.querySelectorAll('.js-edit')
+        const modal = document.querySelector('.js-modal')
+        const modalClose = document.querySelector('.js-modal-close')
+        
+        function showedit(){
+            modal.classList.add('open')
+        }
+
+        function hideShowedit(){
+            modal.classList.remove('open')
+        }
+        for(const editBtn of editBtns){
+            editBtn.addEventListener('click', showedit)
+        }
+        modalClose.addEventListener('click', hideShowedit)
+
     </script>
 </body>
 </html>

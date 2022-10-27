@@ -125,6 +125,39 @@
                                 <td>xxxx</td>
                                 <td><span class="status delivered">Quy Nhơn</span></td>
                             </tr>
+                              <tr id="tr">
+                                <td>NV06</td>
+                                <td>Trần Ngọc tiền</td>
+                                <td>xxxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td><span class="status delivered">Quy Nhơn</span></td>
+                            </tr>
+                              <tr id="tr">
+                                <td>NV07</td>
+                                <td>Trần Ngọc tiền</td>
+                                <td>xxxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td><span class="status delivered">Quy Nhơn</span></td>
+                            </tr>
+                              <tr id="tr">
+                                <td>NV08</td>
+                                <td>Trần Ngọc tiền</td>
+                                <td>xxxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td>xxxx</td>
+                                <td><span class="status delivered">Quy Nhơn</span></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
