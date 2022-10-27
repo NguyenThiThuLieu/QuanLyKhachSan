@@ -39,7 +39,7 @@ public class HomeController implements ApplicationContextAware {
 	public ModelAndView home() {	
 		
 		// get HomeService from ApplicationContext
-		HomeService homeService = (HomeService) context.getBean("homeService");
+		HomeService homeService = (HomeService) context.getBean(Constants.HOME_SERVICE);
 		
 		// lay so luong phong thue trong ngay
 		long numOfRentedInDay = homeService.getNumOfRentedInDay();
@@ -57,7 +57,7 @@ public class HomeController implements ApplicationContextAware {
 		ModelAndView mv = new ModelAndView();
 		
 		// set ten view tra ve
-		mv.setViewName("Home");
+		mv.setViewName(Constants.HOME_VIEW);
 		
 		// them cac du lieu can truyen xuong view
 		mv.addObject("numOfRentedInDay", numOfRentedInDay);

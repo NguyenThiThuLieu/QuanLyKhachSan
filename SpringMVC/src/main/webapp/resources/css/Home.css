@@ -693,7 +693,7 @@ hr {
   button.info-view-info, .exit-info:hover {
     background-color: #0563af;
   }
-  button.pay-info, .btn-edit:hover {
+  button.pay-info:hover, .btn-edit:hover {
     background-color: #0563af;}
   button.info-view{
     background-color: white;

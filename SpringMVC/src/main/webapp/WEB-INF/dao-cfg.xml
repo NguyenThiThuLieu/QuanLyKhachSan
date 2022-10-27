@@ -13,13 +13,22 @@
  	<property name="homeDAO" ref="homeDAO"></property>
  </bean>
  
- <!-- System -->
+ <!-- Room -->
  <bean id="roomDAO" class="com.hotel.dao.RoomDAO">
  	<property name="sessionFactory" ref="mySessionFactory" />
  </bean>
  
  <bean id="roomService" class="com.hotel.service.RoomService">
  	<property name="roomDAO" ref="roomDAO"></property>
+ </bean>
+ 
+ <!-- Rent Room -->
+ <bean id="rentDAO" class="com.hotel.dao.RentDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
+ 
+ <bean id="rentService" class="com.hotel.service.RentService">
+ 	<property name="rentDAO" ref="rentDAO"></property>
  </bean>
 
 </beans>

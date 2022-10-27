@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hotel.common.Constants;
 import com.hotel.model.RoomModel;
 import com.hotel.service.RoomService;
 
@@ -70,7 +71,7 @@ public class RoomController implements ApplicationContextAware {
 	public @ResponseBody List<RoomModel> getAllRoom() {
 		
     	// lay RoomService tu ApplicationContext
-    	RoomService roomService = (RoomService) context.getBean("roomService");
+    	RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
     			
     	// lay danh sach tat ca phong
     	List<RoomModel> roomList = roomService.getAllRoom();
@@ -90,7 +91,7 @@ public class RoomController implements ApplicationContextAware {
 			@RequestParam(name = "searchString")String searchString) {
 		
     	// lay RoomService tu ApplicationContext
-    	RoomService roomService = (RoomService) context.getBean("roomService");
+    	RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
     			 
     	// lay danh sach phong theo ten
     	List<RoomModel> roomList = roomService.getRoomByName(searchString);
@@ -108,7 +109,7 @@ public class RoomController implements ApplicationContextAware {
 	public @ResponseBody Object addRoom(@ModelAttribute("RoomModel") RoomModel room) {
 		
 		// lay RoomService tu ApplicationContext
-		RoomService roomService = (RoomService) context.getBean("roomService");
+		RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
 		
 		// khai bao bien kiem tra co loi khong
 		boolean error = false;
@@ -147,7 +148,7 @@ public class RoomController implements ApplicationContextAware {
     public @ResponseBody List<RoomModel> removeRoom(@RequestParam(name = "maPhong") String maPhong) {
     	
     	// lay RoomService tu ApplicationContext
-    	RoomService roomService = (RoomService) context.getBean("roomService");
+    	RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
     	
     	// thuc hien xoa phong
     	roomService.removeRoom(maPhong);
@@ -169,7 +170,7 @@ public class RoomController implements ApplicationContextAware {
     public @ResponseBody RoomModel getRoom(@RequestParam(name = "maPhong") String maPhong) {
     	
     	// lay RoomService tu ApplicationContext
-    	RoomService roomService = (RoomService) context.getBean("roomService");
+    	RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
     	
     	// thuc hien viec lay phong va tra ve kết qua
     	return roomService.getRoom(maPhong);
@@ -186,7 +187,7 @@ public class RoomController implements ApplicationContextAware {
     public @ResponseBody List<RoomModel> editRoom(@ModelAttribute("RoomModel") RoomModel room) {
     	
     	// lay RoomService tu ApplicationContext
-    	RoomService roomService = (RoomService) context.getBean("roomService");
+    	RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
     	
     	// thuc hien chinh sua phong
     	roomService.editRoom(room);
@@ -195,5 +196,15 @@ public class RoomController implements ApplicationContextAware {
     	List<RoomModel> roomList = roomService.getAllRoom();
     	
     	return roomList;
+    }
+    
+    @RequestMapping(value = "/Room/GetRoomType",
+    		method = RequestMethod.POST)
+    public @ResponseBody List<?> getRoomType() {
+    	
+    	// lay RoomService tu ApplicationContext
+    	RoomService roomService = (RoomService) context.getBean(Constants.ROOM_SERVICE);
+    	
+    	return roomService.getRoomType();
     }
 }

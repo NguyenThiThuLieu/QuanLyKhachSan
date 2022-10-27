@@ -61,11 +61,9 @@ public class RoomDAO {
 		// tao query
 		Query query = session.createQuery(queryString);
 		
-		if (null != searchString) {
-			query.setParameter("maPhong", Constants.PERCENT_SYMBOL
-					+ searchString.replaceAll(Constants.PERCENT_SYMBOL, Constants.EMTY_STRING)
-					+ Constants.PERCENT_SYMBOL);
-		}
+		query.setParameter("tenPhong", Constants.PERCENT_SYMBOL
+				+ searchString.replaceAll(Constants.PERCENT_SYMBOL, Constants.EMPTY_STRING)
+				+ Constants.PERCENT_SYMBOL);
 
 		// execute query
 		List<RoomModel> roomList = query.list();
@@ -180,5 +178,19 @@ public class RoomDAO {
 		RoomModel room = (RoomModel) query.uniqueResult();
 		
 		return room;
+	}
+	
+	public List<?> getRoomType(String queryString) {
+		
+		// lay session tu sessionFactory
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		// tao query
+		Query<?> query = session.createQuery(queryString);
+		
+		// execute query
+		List<?> list = query.list();
+		
+		return list;
 	}
 }

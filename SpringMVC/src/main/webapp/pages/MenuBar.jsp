@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="pages/Room.jsp" class="title2">
+                    <a href="<%= request.getContextPath() %>/Rent" class="title2">
                         <span class="icon"><ion-icon name="repeat-outline"></ion-icon></ion-icon></span>
                         <span class="title">THUÊ - TRẢ PHÒNG</span>
                     </a>

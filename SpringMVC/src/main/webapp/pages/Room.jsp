@@ -9,6 +9,8 @@
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Room.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -30,12 +32,11 @@
                 <div class="cardBox">                   
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Tìm kiếm phòng">
+                            <input type="text" placeholder="Tìm kiếm phòng" id="txtSearch">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
-                    <div class="search">
-	                <button class="info-view-info">Search</button>
+
 	            </div>
                 </div>
                 <div class="details">
@@ -47,36 +48,8 @@
                                 <label for="tab-1" class="tab-label">
                                     <ion-icon name="storefront-outline" class="icon-"></ion-icon>
                                     Phòng chờ</label>
-                                <div class="tab-content">
-                                    <div class="tab-item">                                                                            
-                                        <div class="tab-item-first">
-                                            P.101
-                                            <button class="btn-thue">Thuê</button>
-                                        </div>
-                                        <div class="tab-item-second">
-	                                            <ion-icon name="bed-outline"></ion-icon>
-	                                            Phòng đôi
-                                        </div>
-                                        <div class="tab-item-second">
-                                            <ion-icon name="business-outline"></ion-icon>
-                                            Chưa sử dụng
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="tab-item">
-                                        <div class="tab-item-first">
-                                            P.102
-                                            <button class="btn-thue">Thuê</button>                                      
-                                        </div>
-                                        <div class="tab-item-second">
-	                                            <ion-icon name="bed-outline"></ion-icon>
-	                                            Phòng đơn
-                                        </div>
-                                        <div class="tab-item-second">
-                                            <ion-icon name="business-outline"></ion-icon>
-                                            Chưa sử dụng                    
-                                        </div>
-                                    </div>
+                                <div class="tab-content" id="emptyRoom">
+                                    
                                 </div>
                               </div>
                               <div class="tab">
@@ -84,49 +57,8 @@
                                 <label for="tab-2" class="tab-label">
                                     <ion-icon name="id-card-outline"></ion-icon>
                                     Phòng đang thuê</label>
-                                <div class="tab-content">
-                                    <div class="tab-item-2">
-                                        <div class="tab-item-first">
-                                            P.104
-                                        </div>
-                                        <div class="tab-item-third">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Tên khách hàng</td>
-                                                        <td>Loại phòng</td>
-                                                        <td><button id="btn3" class="info-view">Thông tin</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ngày đến</td>
-                                                        <td>Ngày đi</td>
-                                                        <td><button id="btn4" class="info-view">Trả phòng</button></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="tab-item-2">
-                                        <div class="tab-item-first">
-                                            P.105
-                                        </div>
-                                        <div class="tab-item-third">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Tên khách hàng</td>
-                                                        <td>Loại phòng</td>
-                                                        <td><button id="btn3" class="info-view">Thông tin</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ngày đến</td>
-                                                        <td>Ngày đi</td>
-                                                        <td><button id="btn4" class="info-view">Trả phòng</button></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                <div class="tab-content" id="rentedRoom">
+                                    
                                 </div>
                               </div>
                         </div>
@@ -139,54 +71,54 @@
                     </div>
                     <div class="page">
                         <div class="field field_v1">
-                          <label for="first-name" class="ha-screen-reader">Họ và tên khách hàng</label>
-                          <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
+                          <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
+                          <input name="tenKH" id="txtName" class="field__input" placeholder="vd: Thái Bá Tường">
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Họ và tên khách hàng</span>
                           </span>
                         </div>
                         <div class="field field_v2">
-                          <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-                          <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+                          <label for="txtSDT" class="ha-screen-reader">Số điện thoại</label>
+                          <input name="sdt" id="txtSDT"  class="field__input" placeholder="034xxxxxxx">
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Số điện thoại</span>
                           </span>
                         </div>    
                         <div class="field field_v1">
-                          <label for="email" class="ha-screen-reader">CMND</label>
-                          <input id="email" class="field__input" placeholder="056xxxxxxxxxx">
+                          <label for="txtCMND" class="ha-screen-reader">CMND</label>
+                          <input name="cmnd" id="txtCMND" class="field__input" placeholder="056xxxxxxxxxx">
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">CMND</span>
                           </span>
                         </div>
                         <div class="field field_v1">
-                            <label for="email" class="ha-screen-reader">Quốc tịch</label>
-                            <input id="email" class="field__input" placeholder="Việt Nam">
+                            <label for="txtQuocTich" class="ha-screen-reader">Quốc tịch</label>
+                            <input name="quocTich" id="txtQuocTich" class="field__input" placeholder="Việt Nam">
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">Quốc tịch</span>
                             </span>
                         </div>
                         <div class="field field_v1">
-                            <label for="email" class="ha-screen-reader">Loại</label>
-                            <input id="email" class="field__input" placeholder="VIP">
+                            <label for="txtVIP" class="ha-screen-reader">Loại</label>
+                            <input name="vip" id="txtVIP" class="field__input" placeholder="VIP">
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">VIP</span>
                             </span>
                         </div>
                         <div class="field field_v1">
                             <label for="start" class="date">Start date:</label>
-                            <input class="datee" type="date" id="start" name="trip-start"
+                            <input class="datee" type="date" id="start" name="ngayDen"
                                  value="2022-07-22"
                                  min="2000-01-01" max="2022-12-31">
                         </div>
                         <div class="field field_v1">
                             <label for="start" class="date">End date :</label>
-                            <input class="datee" type="date" id="start" name="trip-start"
+                            <input class="datee" type="date" id="end" name="ngayDi"
                                  value="2022-07-22"
                                  min="2000-01-01" max="2022-12-31">
                         </div>                         
                     </div>
-                    <button class="pay-info">Thuê</button>
+                    <button class="pay-info" id="btnRent">Thuê</button>
                     <button class="exit-info">Thoát</button>
                 </div>
                 <div class="recentPays" id="recentPays">
@@ -195,36 +127,36 @@
                     </div>
                     <div class="page-info">
                         <div class="field field_v1">
-                            <label for="first-name" class="ha-screen-reader">Họ và tên khách hàng</label>
-                            <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường" disabled>
+                            <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
+                            <input name="tenKH" id="txtName" class="field__input" placeholder="vd: Thái Bá Tường" disabled>
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">Họ và tên khách hàng</span>
                             </span>
                           </div>
                           <div class="field field_v2">
-                            <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx" disabled>
+                            <label for="txtSDT" class="ha-screen-reader">Số điện thoại</label>
+                            <input name="sdt" id="txtSDT"  class="field__input" placeholder="034xxxxxxx" disabled>
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">Số điện thoại</span>
                             </span>
                           </div>    
                           <div class="field field_v3">
-                            <label for="email" class="ha-screen-reader">CMND</label>
-                            <input id="email" class="field__input" placeholder="056xxxxxxxxxxx" disabled>
+                            <label for="txtCMND" class="ha-screen-reader">CMND</label>
+                            <input name="cmnd" id="txtCMND" class="field__input" placeholder="056xxxxxxxxxxx" disabled>
                             <span class="field__label-wrap" aria-hidden="true">
                               <span class="field__label">CMND</span>
                             </span>
                           </div>
                           <div class="field field_v3">
-                              <label for="email" class="ha-screen-reader">Quốc tịch</label>
-                              <input id="email" class="field__input" placeholder="Việt Nam" disabled>
+                              <label for="txtQuocTich" class="ha-screen-reader">Quốc tịch</label>
+                              <input name="quocTich" id="txtQuocTich" class="field__input" placeholder="Việt Nam" disabled>
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Quốc tịch</span>
                               </span>
                           </div>
                           <div class="field field_v3">
-                              <label for="email" class="ha-screen-reader">Loại</label>
-                              <input id="email" class="field__input" placeholder="VIP" disabled>
+                              <label for="txtVIP" class="ha-screen-reader">Loại</label>
+                              <input name="vip" id="txtVIP" class="field__input" placeholder="VIP" disabled>
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">VIP</span>
                               </span>
@@ -237,25 +169,8 @@
                     <div class="cardHeader">
                         <img src="https://media-cdn.tripadvisor.com/media/photo-s/25/04/93/1e/blossom-hotel-houston.jpg" alt="">
                     </div>
-                    <div class="page-info">
-                        <div class="field field_v1">                         
-                            <input id="first-name" class="field__input" placeholder="P.101" disabled>
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Tên phòng: P.101</span>
-                            </span>
-                          </div>
-                          <div class="field field_v2">
-                            <input id="last-name"  class="field__input" placeholder="Phòng đơn" disabled>
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Loại phòng: đơn</span>
-                            </span>
-                          </div>
-                          <div class="field field_v2">
-                            <input id="last-name"  class="field__input" placeholder="350000" disabled>
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">Giá: 350000</span>
-                            </span>
-                          </div>                         
+                    <div class="page-info" id="roomInfo">
+                        
                     </div>
                     <button class="exit-room">Thoát</button>
                 </div>
@@ -278,62 +193,6 @@
             main.classList.toggle('active')
         }
     </script>
-    <script>
-	    const rooms = document.querySelectorAll('.tab-item-second')
-	    const infoBtns = document.querySelectorAll('.info-view')
-	    const payBtns = document.querySelectorAll('.btn-thue')
-	    const modal = document.querySelector('.recentCustomerss')
-	    const roominfo = document.querySelector('.recentHotels')
-	    const modalClose = document.querySelector('.exit-info')
-	    const viewinfo = document.querySelector('.recentPays')
-	    const viewClose = document.querySelector('.exit-view')
-	    const roomClose = document.querySelector('.exit-room')
-	    
-	    function showpay(){
-	        modal.classList.add('open-info');
-	        roominfo.classList.remove('open-room');
-	        viewinfo.classList.remove('open-pay')
-	    }
-	
-	    function hidepay(){
-	        modal.classList.remove('open-info')
-	    }
-	
-	    function showroom(){
-	        roominfo.classList.add('open-room');
-	        modal.classList.remove('open-info');
-	        viewinfo.classList.remove('open-pay')
-	    }
-	
-	    function hideroom(){
-	        roominfo.classList.remove('open-room')
-	    }
-	
-	    function showinfo(){
-	        viewinfo.classList.add('open-pay');
-	        modal.classList.remove('open-info');
-	        roominfo.classList.remove('open-room')
-	    }
-	
-	    function hideinfo(){
-	        viewinfo.classList.remove('open-pay')
-	    }
-	
-	    for(const room of rooms){
-	        room.addEventListener('click', showroom)
-	    }
-	
-	    for(const infoBtn of infoBtns){
-	        infoBtn.addEventListener('click', showinfo)
-	    }
-	
-	    for(const payBtn of payBtns){
-	        payBtn.addEventListener('click', showpay)
-	    }
-	
-	    modalClose.addEventListener('click', hidepay)
-	    viewClose.addEventListener('click', hideinfo)
-	    roomClose.addEventListener('click', hideroom)
-	</script>
+    <script src="<%= request.getContextPath() %>/resources/js/Rent.js"></script>
 </body>
 </html>

@@ -59,8 +59,8 @@ public class RoomService {
 		builder.append("select r from com.hotel.model.RoomModel r ");
 		
 		// Xu ly query string neu searchString khong rong
-		if (null != searchString && !Constants.EMTY_STRING.equals(searchString.trim())) {
-			builder.append("where r.tenPhong like :maPhong");
+		if (null != searchString && !Constants.EMPTY_STRING.equals(searchString.trim())) {
+			builder.append("where r.tenPhong like :tenPhong");
 		}
 		
 		// lay danh sach phong
@@ -85,10 +85,12 @@ public class RoomService {
 		builder.append("values(:maPhong, :tenPhong, :loaiPhong, :gia, null, :trangThai)");
 		
 		// Xu ly gan lai loai phong cho room
-		if (!Constants.DOUBLE_ROOM.equals(room.getMaPhong())) {
+		if (Constants.DOUBLE_ROOM.equals(room.getMaPhong())) {
+			room.setLoaiPhong(Constants.DOUBLE_ROOM_TEXT);
+		} else if (Constants.SINGLE_ROOM.equals(room.getMaPhong())){
 			room.setLoaiPhong(Constants.SINGLE_ROOM_TEXT);
 		} else {
-			room.setLoaiPhong(Constants.DOUBLE_ROOM_TEXT);
+			room.setLoaiPhong(Constants.VIP_ROOM_TEXT);
 		}
 		
 		// them phong
@@ -171,5 +173,15 @@ public class RoomService {
 		RoomModel room = roomDAO.getRoom(maPhong, queryString);
 		
 		return room;
+	}
+	
+	public List<?> getRoomType() {
+		
+		// thiet lap cau truy van sql
+		String queryString = "select r from com.hotel.model.RoomModel r where maPhong = :maPhong";
+		
+		List<?> list = roomDAO.getRoomType(queryString);
+		
+		return list;
 	}
 }
