@@ -121,29 +121,29 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>DV01</td>
                                     <td>Cafe</td>
-                                    <td>Đồ uống</td>
                                     <td><span class="status delivered">15000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
                                 <tr>
+                                    <td>DV02</td>
                                     <td>Nước chanh</td>
-                                    <td>Đồ uống</td>
                                     <td><span class="status pending">15000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
                                 <tr>
+                                    <td>DV03</td>
                                     <td>Nước khoáng</td>
-                                    <td>Đồ uống</td>
                                     <td><span class="status return">15000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                                 </tr>
                                 <tr>
+                                    <td>DV04</td>
                                     <td>Bò né</td>
-                                    <td>Đồ ăn</td>
                                     <td><span class="status return">30000đ</span></td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
@@ -159,14 +159,14 @@
                         <div class="page">
                             <div class="field field_v1">
                               <label for="first-name" class="ha-screen-reader">Mã dịch vụ</label>
-                              <input id="first-name" class="field__input" placeholder="vd: Cafe, nước chanh, nước cam vv..">
+                              <input id="first-name" class="field__input" placeholder="vd: DV01..">
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Mã dịch vụ</span>
                               </span>
                             </div>
                             <div class="field field_v2">
                               <label for="last-name" class="ha-screen-reader">Tên dịch vụ</label>
-                              <input id="last-name"  class="field__input" placeholder="Đồ ăn, uống vv..">
+                              <input id="last-name"  class="field__input" placeholder="Nước cam,...">
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Tên dịch vụ</span>
                               </span>
