@@ -187,7 +187,6 @@ h3{
     position: relative;
     width: 400px;
     margin: 0 -20px;
-    margin-left: 20px;
 } */
  .search label
 {
@@ -254,9 +253,8 @@ h3{
 .searchh
 {
     position: relative;
-    width: 400px;
-    margin: 0px 250px 0px -200px;
-    margin-left: -250px;
+    width: 200px;
+    
 } */
  .searchh label
 {
@@ -466,12 +464,12 @@ hr {
 .btn-edit{
   border: none;
 }
-.details .table{
+.details table{
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 }
-.details .table thead td{
+.details table thead td{
     font-weight: 600;
 }
 .details .recentOrder table tr{

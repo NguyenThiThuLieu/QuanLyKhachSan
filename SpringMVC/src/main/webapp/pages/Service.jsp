@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Menu.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Service.css">
     
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h3>DỊCH VỤ</h3>
+                <h3>DỊCH VỤ ĐÃ SỬ DỤNG</h3>
             </div>
             <div class="user">
                 <img src="anhbac.jpg">
@@ -30,7 +30,7 @@
             <div class="tab-pane active">
                 <div class="cardBox">
                     <div class="close">
-                        <a href="System.jsp" style="font-size: 30px;">
+                        <a href="Menu.jsp" style="font-size: 30px;">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
@@ -42,133 +42,97 @@
                     </div>
                     <div class="searchhs">
                         <button id="btn2" class="info-view-info">Thêm mới</button>
-                    </div>                   
+                    </div>
                 </div>
                 <div class="details">
                     <div class="recentOrder">
                         <div class="cardHeader">
-                            <h2>DANH SÁCH DỊCH VỤ</h2>
+                            <h2>DANH SÁCH DỊCH VỤ ĐÃ SỬ DỤNG</h2>
                             <a href="#" class="btn">View All</a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                	<td>Mã dịch vụ</td>
+                                	<td>Mã KH</td>
+                                    <td>Tên khách hàng</td>
                                     <td>Tên dịch vụ</td>
-                                    <td>Đơn giá</td>
-                                    <td>Chỉnh sửa</td>
-                                    <td>Xóa </td>
+                                    <td>Trạng thái</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>DV01</td>
-                                    <td>Cafe</td>
-                                    <td><span class="status delivered">15000đ</span></td>
+                                    <td>KH01</td>
+                                    <td>Mai Anh Bắc</td>
+                                    <td>Massage</td>
+                                    <td class="status-yes">Đã thanh toán</td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                    <td><button class="btn-use">Sử dụng</button></td>
                                 </tr>
                                 <tr>
-                                    <td>DV02</td>
-                                    <td>Nước chanh</td>
-                                    <td><span class="status pending">15000đ</span></td>
+                                    <td>KH02</td>
+                                    <td>Thái Bá Tường</td>
+                                    <td>Fitness</td>
+                                    <td class="status-false">Chưa thanh toán</td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                    <td><button class="btn-use">Sử dụng</button></td>
                                 </tr>
                                 <tr>
-                                    <td>DV03</td>
-                                    <td>Nước khoáng</td>
-                                    <td><span class="status return">15000đ</span></td>
+                                    <td>KH03</td>
+                                    <td>Nguyễn Thị Thu Liễu</td>
+                                    <td>Tắm suối nước nóng</td>
+                                    <td class="status-yes">Đã thanh toán</td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                    <td><button class="btn-use">Sử dụng</button></td>
                                 </tr>
                                 <tr>
-                                    <td>DV04</td>
-                                    <td>Bò né</td>
-                                    <td><span class="status return">30000đ</span></td>
+                                    <td>KH04</td>
+                                    <td>Trần Ngọc Tiền</td>
+                                    <td>Bar</td>
+                                    <td class="status-false">Chưa thanh toán</td>
                                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                                     <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                    <td><button class="btn-use">Sử dụng</button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="recentCustomerss" id="recentCustomerss">
                         <div class="cardHeader">
-                            <h2>Thêm mới</h2>
+                            <h2>Thông tin chi tiết</h2>
                             <button class="snip1457">Lưu</button>
                         </div>
                         <div class="page">
                             <div class="field field_v1">
-                              <label for="first-name" class="ha-screen-reader">Mã dịch vụ</label>
-                              <input id="first-name" class="field__input" placeholder="vd: DV01">
+                              <label for="id-kh" class="ha-screen-reader">Mã khách hàng</label>
+                              <input id="id-kh" class="field__input" placeholder="vd: KH01">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Mã dịch vụ</span>
+                                <span class="field__label">Mã khách hàng</span>
                               </span>
                             </div>
                             <div class="field field_v2">
-                              <label for="last-name" class="ha-screen-reader">Tên dịch vụ</label>
-                              <input id="last-name"  class="field__input" placeholder="Nước cam">
+                              <label for="last-name" class="ha-screen-reader">Tên khách hàng</label>
+                              <input id="last-name"  class="field__input" placeholder="Tường">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Tên dịch vụ</span>
+                                <span class="field__label">Tên khách hàng</span>
                               </span>
                             </div>    
                             <div class="field field_v3">
-                              <label for="email" class="ha-screen-reader">Đơn giá</label>
-                              <input id="email" class="field__input" placeholder="15000 đ/món">
+                              <label for="service-name" class="ha-screen-reader">Tên dịch vụ</label>
+                              <input id="service-name" class="field__input" placeholder="Bar">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Đơn giá</span>
+                                <span class="field__label">Tên dịch vụ</span>
                               </span>
                             </div>
+                            <div class="wrapper">
+                                <select name="Trangthai" id="Trangthai" class="wrap">
+                                    <option value="Yes" class="wraptext">Đã thanh toán</option>
+                                    <option value="No" class="wraptext">Chưa thanh toán</option>
+                                 </select>
+                            </div>
+                            <button id="exit-customer" class="exit-customer">Thoát</button>
                         </div>
                     </div>
-                    <div class="recentSelect" id="recentSelect">
-	                    <div class="cardHeader">
-	                        <h2>Chọn khách hàng</h2>
-	                    </div>
-	                    <div class="page-info">
-	                        <table>
-	                            <thead>
-	                                <tr>
-	                                	<td>Mã KH</td>
-	                                    <td>Tên KH</td>
-	                                    <td>Ngày sử dụng</td>
-	                                </tr>
-	                            </thead>
-	                            <tbody>
-	                                <tr>
-	                                    <td>KH01</td>
-	                                    <td>Thái Bá Tường</td>
-	                                    <td><input class="datee" type="date" id="start" name="ngayDen"
-                                				 value="2022-07-22"
-                                				 min="2000-01-01" max="2022-12-31"></td>
-	                                    <td><input type="checkbox" id="ckb" name="check"/></td>                                  
-	                                </tr>
-	                                <tr>
-	                                    <td>KH02</td>
-	                                    <td>Bắc</td>
-	                                    <td><input class="datee" type="date" id="start" name="ngayDen"
-                                				 value="2022-07-22"
-                                				 min="2000-01-01" max="2022-12-31"></td>
-	                                    <td><input type="checkbox" id="ckb" name="check"/></td>                                  
-	                                </tr>
-	                            </tbody>
-	                        </table>                                         
-	                    </div>
-	                    	<button id="select-customer" class="select-customer">Chọn</button>
-	                    	<button id="exit-customer" class="exit-customer">Thoát</button>
-                	</div>
                 </div>
             </div>
-        </div>
-        <div class="page-service">
-        	<a href="Service.jsp">
-        		Danh sách dịch vụ đã sử dụng
-            	<ion-icon name="arrow-forward-outline"></ion-icon>
-            </a>
         </div>
     </div>
     <div class="edit-modal js-modal">
@@ -176,17 +140,31 @@
             <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
             <header class="modal-header">CHỈNH SỬA</header>
             <div class="modal-body">
-                <label for="name" class="modal-label">
+                <label for="MaKH" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    Mã KH
+                </label>
+                <input id="MaKH" type="text" class="modal-input" placeholder="KH01">
+                <label for="name" class="modal-label">
+                    <ion-icon name="person-outline" class="modal-icon"></ion-icon>
+                    Tên KH
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Tường">
+                <label for="service-name" class="modal-label">
+                    <ion-icon name="qr-code-outline" class="modal-icon"></ion-icon>
                     Tên dịch vụ
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Tên menu">
+                <input id="service-name" type="text" class="modal-input" placeholder="Bar">
                 <label for="status" class="modal-label">
-                    <ion-icon name="checkmark-done-circle-outline" class="modal-icon"></ion-icon>
-                    Đơn giá
-                </label>
-                <input id="status" type="text" class="modal-input" placeholder="Đơn giá">
-
+                    <ion-icon name="cash-outline" class="modal-icon"></ion-icon>
+                    Trạng thái
+                </label>				
+				<div class="wrapper">
+                    <select name="Trangthai" id="Trangthai" class="wrap" style="margin-bottom: 25px;">
+                        <option value="Yes" class="wraptext">Đã thanh toán</option>
+                        <option value="No" class="wraptext">Chưa thanh toán</option>
+                     </select>
+                </div>
                 <button class="btn-edit">
                     Done
                 </button>
@@ -198,32 +176,19 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
  	<script>
-	    const useBtns = document.querySelectorAll('.btn-use')
-		const choose = document.querySelector('.recentSelect')
+	    const useBtn = document.querySelector('.info-view-info')
+		const choose = document.querySelector('.recentCustomerss')
 		const chooseClose = document.querySelector('.exit-customer')
 		
-		const addCustomer = document.querySelector('.info-view-info')		
-		const customer = document.querySelector('.recentCustomerss')
-		
-		function showAdd(){
-	    	customer.classList.add('openCus')
-	    	choose.classList.remove('open-customer')
-	    }
+		useBtn.addEventListener('click', showCustomer)
 	    
 	    function showCustomer(){
-			choose.classList.add('open-customer')
-			customer.classList.remove('openCus')
+			choose.classList.add('openCus')
 	    }
 	
 	    function hideCustomer(){
-	    	choose.classList.remove('open-customer')
+	    	choose.classList.remove('openCus')
 	    }
-	    
-	    for(const useBtn of useBtns){
-	    	useBtn.addEventListener('click', showCustomer)
-	    }
-	    
-	    addCustomer.addEventListener('click', showAdd)
 	    
 	    chooseClose.addEventListener('click', hideCustomer)
     </script>
