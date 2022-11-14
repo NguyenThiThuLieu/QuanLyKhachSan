@@ -1,0 +1,59 @@
+@import url('http://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+.details-information{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    /* text-align: center; */
+   }
+ .middle2, .middle, .middle3, .middle4 {
+  text-align: left;
+ }
+ .information p{
+  margin: 15px;
+  padding-left: 19%;
+  margin-left: 0%;
+ }
+ .information label.label01{
+  margin-left: 30px;
+ }
+ .information label.label02{
+  margin-left: 118px;
+ }
+ .information label.label03{
+  margin-left: 95px;
+ }
+ .information label.label04{
+  margin-left: 80px;
+ }
+ p.tp {
+  text-align: center;
+ }
+ table.content-table {
+  width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+ }
+ .content-table td {
+  padding: 15px 20px;
+  text-align: left;
+ }
+ .btn-wrapper{
+  text-align: center;
+ }
+ .details-information a.btnxd{
+  padding: 10px 16px;
+  border: 2px solid #1abc9c;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #1abc9c;
+  margin-top: 20px;
+ }
+ .details-information a.btnxd:hover {
+  color: white;
+  background: #1abc9c;
+ }
+ .content-table tbody tr:last-of-type{
+  border-bottom: 2px solid #222;
+ }
