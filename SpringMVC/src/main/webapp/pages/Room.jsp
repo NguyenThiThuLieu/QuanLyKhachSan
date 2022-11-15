@@ -9,6 +9,7 @@
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Room.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Bill.css">
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
@@ -58,7 +59,7 @@
                                     <ion-icon name="id-card-outline"></ion-icon>
                                     Phòng đang thuê</label>
                                 <div class="tab-content" id="rentedRoom">
-                                    
+                                    <button class="pay-bill" id="pay-bill">Trả phòng</button>
                                 </div>
                               </div>
                         </div>
@@ -178,6 +179,122 @@
         </div>
     </div>
     
+    <div class="bill-modal js-modal">
+        <div class="bill-container">
+        	<div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
+            <header class="modal-header">HÓA ĐƠN</header>
+            <div class="modal-body">
+                <div class="information">
+                    <p class="name" >Họ và tên khách hàng: <label class="label01">Thái Bá Tường</label> </p>
+                    <p class="address" >Quê quán: <label class="label02">Bình định</label></p>
+                    <p class="phone" >Số điện thoại: <label class="label03">01234567</label></p>
+                    <p class="bill" >Mã hóa đơn: 47 <label class="label04" >Ngày: 13/05/2001</label></p> 
+                </div>
+                <p class="tp" >---------------Tiền phòng--------------</p>
+                <div class="middle2">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Phòng</td>
+                                <td>Số ngày</td>
+                                <td>Ngày nhận phòng</td>
+                                <td>Ngày trả phòng</td>
+                                <td>Thành tiền</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>P101</td>
+                                <td>1</td>
+                                <td>13/05/2001</td>
+                                <td>13/05/2001</td>
+                                <td>250000</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Tổng tiền: </td>
+                                <td>250000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="tp" >---------------Tiền dịch vụ--------------</p>
+                <div class="middle3">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Tên dịch vụ</td>
+                                <td>Số lượng</td>
+                                <td>Đơn giá</td>
+                                <td>Thành tiền</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Fitness</td>
+                                <td>1</td>
+                                <td>15000</td>
+                                <td>15000</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Tổng tiền: </td>
+                                <td>15000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="tp" >---------------Tổng thanh toán--------------</p>
+                <div class="middle4">
+                    <table class="content-table">
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>Tổng tiền: </td>
+                                <td>265000</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>Trả trước: </td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>Tổng thanh toán: </td>
+                                <td>265000</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>Khách trả: </td>
+                                <td>265000</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-wrapper">
+                    <button href="#" class="btnxd">Xác nhận</button>
+                    <button href="Room.jsp" class="btnxd js-close">Hủy</button>
+                </div>
+            </div>
+         </div>
+     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -192,6 +309,25 @@
             navigation.classList.toggle('active')
             main.classList.toggle('active')
         }
+    </script>
+    <script>
+	    const editBtns = document.querySelectorAll('.pay-bill')
+	    const pay = document.querySelector('.js-modal')
+	    const payClose = document.querySelector('.js-modal-close')
+	    const exitclose = document.querySelector('.js-close')
+	        
+	    function showedit(){
+	        pay.classList.add('open')
+	    }
+	
+	    function hideShowedit(){
+	        pay.classList.remove('open')
+	    }
+	    for(const editBtn of editBtns){
+	        editBtn.addEventListener('click', showedit)
+	    }
+	    payClose.addEventListener('click', hideShowedit)
+	    exitclose.addEventListener('click', hideShowedit)
     </script>
     <script src="<%= request.getContextPath() %>/resources/js/Rent.js"></script>
 </body>
