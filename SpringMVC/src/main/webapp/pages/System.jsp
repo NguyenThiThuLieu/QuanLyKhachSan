@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="carddd">
-                        <a href="Menu.jsp" class="hethong">
+                        <a href="<%= request.getContextPath() %>/System/Service" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="bookmark-outline"></ion-icon>
                                 <hr>

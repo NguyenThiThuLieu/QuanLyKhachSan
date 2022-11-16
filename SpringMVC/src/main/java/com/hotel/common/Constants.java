@@ -27,7 +27,7 @@ public class Constants {
 	public static String PERCENT_SYMBOL = "%";
 	
 	// Loai phong
-	public static String SINGLE_ROOM = "P9";
+	public static String SINGLE_ROOM = "P0";
 	public static String DOUBLE_ROOM = "P1";
 	public static String SINGLE_ROOM_TEXT = "Phòng đơn";
 	public static String DOUBLE_ROOM_TEXT = "Phòng đôi";
@@ -35,10 +35,10 @@ public class Constants {
 	
 	// service
 	public static String HOME_SERVICE ="homeService";
-	public static String ROOM_SERVICE = "roomService";
-	public static String RENT_SERVICE ="rentService";
 	
 	// view
 	public static String HOME_VIEW = "Home";
 	public static String RENT_VIEW = "Room";
+	public static String SYSTEM_VIEW = "System";
+	public static String SERVICE_VIEW = "Menu";
 }

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +24,7 @@ public class RentedRoomModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "MaKH")
 	private int maKH;
 	@Column(name = "NgayDen")
@@ -30,17 +32,21 @@ public class RentedRoomModel implements Serializable {
 	@Column(name = "NgayDi")
 	private Date ngayDi;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaPhong")
 	private String maPhong;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaNV")
 	private String maNV;
 	@Column(name = "TrangThai")
 	private int trangThai;
 	@Column(name = "NgayThucHien")
 	private Date ngayThucHien;
+	@ManyToOne
+	@JoinColumn(name = "MaKH")
+	private CustomerModel customer;
+	@ManyToOne
+	@JoinColumn(name = "MaPhong")
+	private RoomModel room;
 	
 	public int getMaKH() {
 		return maKH;
@@ -96,5 +102,21 @@ public class RentedRoomModel implements Serializable {
 
 	public void setNgayThucHien(Date ngayThucHien) {
 		this.ngayThucHien = ngayThucHien;
+	}
+
+	public CustomerModel getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerModel customer) {
+		this.customer = customer;
+	}
+
+	public RoomModel getRoom() {
+		return room;
+	}
+
+	public void setRoom(RoomModel room) {
+		this.room = room;
 	}
 }

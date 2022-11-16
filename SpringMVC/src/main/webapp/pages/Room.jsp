@@ -41,7 +41,7 @@
 	            </div>
                 </div>
                 <div class="details">
-                    <div class="recentOrder">
+                    <div class="recentOrder" style="padding: 0">
                         <div class="wrapper">
                             <div class="tabs">
                               <div class="tab">
@@ -192,7 +192,7 @@
                 </div>
                 <p class="tp" >---------------Tiền phòng--------------</p>
                 <div class="middle2">
-                    <table class="content-table">
+                    <table border="1" class="content-table">
                         <thead>
                             <tr>
                                 <td>STT</td>
@@ -225,7 +225,7 @@
                 </div>
                 <p class="tp" >---------------Tiền dịch vụ--------------</p>
                 <div class="middle3">
-                    <table class="content-table">
+                    <table border="1" class="content-table">
                         <thead>
                             <tr>
                                 <td>STT</td>
@@ -289,8 +289,8 @@
                     </table>
                 </div>
                 <div class="btn-wrapper">
-                    <button href="#" class="btnxd">Xác nhận</button>
-                    <button href="Room.jsp" class="btnxd js-close">Hủy</button>
+                    <button class="btnxd" id="btnXacNhan">Xác nhận</button>
+                    <button class="btnxd js-close" id="btnHuy">Hủy</button>
                 </div>
             </div>
          </div>

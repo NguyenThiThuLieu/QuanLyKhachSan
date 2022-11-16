@@ -65,40 +65,11 @@
                                     <td>Giá phòng</td>
                                     <td>Trạng thái</td>
                                     <td>Chỉnh sửa</td>
-                                    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspXóa</td>
+                                    <td>Xóa</td>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
-                                <c:forEach var="room" items="${roomList}">
-	                               <tr id='${room.maPhong }'>
-	                                    <td>${room.maPhong }</td>
-	                                    <td>${room.tenPhong }</td>
-	                                    <td>${room.loaiPhong }</td>
-	                                    <td>${room.gia }</td>
-	                                    <td><span class="status 
-	                                    
-	                                    <c:choose>
-										  	<c:when test="${room.trangThai == 0}">
-										    	delivered">Trống
-										  	</c:when>
-										  	<c:when test="${room.trangThai == 1}">
-										    	return">Đang thuê
-										  	</c:when>
-										  	<c:otherwise>
-										    	pending">Chưa dọn
-	 										</c:otherwise>
-										</c:choose>
-	                                    
-	                                    </span></td>
-	                                    <td>
-	                                    	<button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    	</button>
-	                                    </td>
-	                                    <td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                                </tr>
-
-                                </c:forEach>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -191,7 +162,7 @@
             navigation.classList.toggle('active')
             main.classList.toggle('active')
         }
-         //onclick thêm mới
+        //onclick thêm mới
         document.getElementById("btn2").onclick = function () {
         	 let recentCustomerss = $("#recentCustomerss").css('display')
         	 if (recentCustomerss == 'none') {
@@ -208,23 +179,6 @@
         if (errorMessage.innerHTML != "") {
         	const hideError = setTimeout(()=>errorMessage.style.display = 'none', 3000)
         }
-    </script>
-    <script>
-        const editBtns = document.querySelectorAll('.js-edit')
-        const modal = document.querySelector('.js-modal')
-        const modalClose = document.querySelector('.js-modal-close')
-        
-        function showedit(){
-            modal.classList.add('open')
-        }
-
-        function hideShowedit(){
-            modal.classList.remove('open')
-        }
-        for(const editBtn of editBtns){
-            editBtn.addEventListener('click', showedit)
-        }
-        modalClose.addEventListener('click', hideShowedit)
     </script>
    
 </body>

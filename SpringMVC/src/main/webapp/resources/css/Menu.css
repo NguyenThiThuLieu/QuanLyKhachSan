@@ -227,3 +227,11 @@ input[type="checkbox"]:checked {
 	text-decoration: none;
 	color: #0033FF;
 }
+
+#btnViewAll {
+	border: none;
+}
+
+#btnViewAll:hover {
+	cursor: pointer;
+}

@@ -2,6 +2,8 @@ package com.hotel.service;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 import com.hotel.dao.HomeDAO;
 
 /**
@@ -9,6 +11,7 @@ import com.hotel.dao.HomeDAO;
  * 
  * class HomeService
  */
+@Service
 public class HomeService {
 	
 	private HomeDAO homeDAO;

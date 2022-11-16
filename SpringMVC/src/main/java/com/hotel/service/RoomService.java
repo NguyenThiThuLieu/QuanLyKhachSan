@@ -2,6 +2,8 @@ package com.hotel.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.hotel.common.Constants;
 import com.hotel.dao.RoomDAO;
 import com.hotel.model.RoomModel;
@@ -11,6 +13,7 @@ import com.hotel.model.RoomModel;
  *
  * class RoomService
  */
+@Service
 public class RoomService {
 	
 	private RoomDAO roomDAO;
@@ -35,7 +38,7 @@ public class RoomService {
 		//int firstIndex = Constants.NUM_RECORD * (numPage - 1);
 		
 		// thiet lap cau truy van sql
-		String queryString = "select r from com.hotel.model.RoomModel r";
+		String queryString = "select r from RoomModel r";
 		
 		// lay danh sach phong
 		List<RoomModel> roomList = roomDAO.getAllRoom(queryString);
@@ -56,7 +59,7 @@ public class RoomService {
 		StringBuilder builder = new StringBuilder();
 		
 		// thiet lap cau truy van sql
-		builder.append("select r from com.hotel.model.RoomModel r ");
+		builder.append("select r from RoomModel r ");
 		
 		// Xu ly query string neu searchString khong rong
 		if (null != searchString && !Constants.EMPTY_STRING.equals(searchString.trim())) {
@@ -131,7 +134,7 @@ public class RoomService {
 	public int removeRoom(String maPhong) {
 		
 		// thiet lap cau truy van sql
-		String queryString = "delete from com.hotel.model.RoomModel where maPhong = :maPhong";
+		String queryString = "delete from RoomModel where maPhong = :maPhong";
 		
 		// them phong
 		return roomDAO.removeRoom(maPhong, queryString);
@@ -150,7 +153,7 @@ public class RoomService {
 		StringBuilder builder = new StringBuilder();
 
 		// thiet lap cau truy van sql
-		builder.append("update com.hotel.model.RoomModel ");
+		builder.append("update RoomModel ");
 		builder.append("set tenPhong = :tenPhong, loaiPhong = :loaiPhong, gia = :gia ");
 		builder.append("where maPhong = :maPhong");
 		
@@ -167,7 +170,7 @@ public class RoomService {
 	public RoomModel getRoom(String maPhong) {
 		
 		// thiet lap cau truy van sql
-		String queryString = "select r from com.hotel.model.RoomModel r where maPhong = :maPhong";
+		String queryString = "select r from RoomModel r where maPhong = :maPhong";
 		
 		// lay phong theo ma phong
 		RoomModel room = roomDAO.getRoom(maPhong, queryString);
@@ -178,7 +181,7 @@ public class RoomService {
 	public List<?> getRoomType() {
 		
 		// thiet lap cau truy van sql
-		String queryString = "select r from com.hotel.model.RoomModel r where maPhong = :maPhong";
+		String queryString = "select r from RoomModel r where maPhong = :maPhong";
 		
 		List<?> list = roomDAO.getRoomType(queryString);
 		

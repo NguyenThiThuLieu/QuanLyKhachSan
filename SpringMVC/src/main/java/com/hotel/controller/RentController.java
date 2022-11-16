@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,19 +24,10 @@ import com.hotel.service.RentService;
  * class RentController
  */
 @Controller
-public class RentController implements ApplicationContextAware {
+public class RentController{
 	
-	private static ApplicationContext context;
-
-    public static ApplicationContext getApplicationContext() {
-        return context;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext ac)
-            throws BeansException {
-        context = ac;
-    }
+	@Autowired
+	private RentService rentService;
     
     /**
      * phuong thuc tra ve view
@@ -60,8 +49,6 @@ public class RentController implements ApplicationContextAware {
     @RequestMapping("/Rent/GetEmptyRoom")
     public @ResponseBody List<?> getEmptyRoom() {
     	
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
-    	
     	return rentService.getEmptyRoom(Constants.ROOM_EMPTY);
     }
     
@@ -74,8 +61,6 @@ public class RentController implements ApplicationContextAware {
     @RequestMapping("/Rent/GetRentedInfo")
     public @ResponseBody List<?> getRentedInfo() {
     	
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
-    	
     	return rentService.getRentedInfo(Constants.RENTING);
     }
     
@@ -87,9 +72,7 @@ public class RentController implements ApplicationContextAware {
      */
     @RequestMapping("/Rent/CheckOut")
     public @ResponseBody int checkOut(@RequestParam(name = "maPhong") String maPhong) {
-    	
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
-    	
+    		
     	return rentService.changeStatus(maPhong, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
     }
     
@@ -101,8 +84,6 @@ public class RentController implements ApplicationContextAware {
      */
     @RequestMapping("/Rent/Search")
     public @ResponseBody Object search(@RequestParam(name = "tenPhong") String tenPhong) {
-    	
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
     	
     	List<?> emptyRoomList = rentService.searchEmptyRoom(tenPhong, Constants.ROOM_EMPTY);
     	
@@ -119,23 +100,18 @@ public class RentController implements ApplicationContextAware {
     @RequestMapping("/Rent/GetRoom")
     public @ResponseBody RoomModel getRoomByID(@RequestParam(name = "maPhong") String maPhong) {
     	
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
-    	
     	return rentService.getRoomByID(maPhong);
     }
     @RequestMapping("/Rent/CancelRenting")
     public @ResponseBody int cancelRenting(@RequestParam(name = "maPhong") String maPhong) {
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
-    	
+
     	return rentService.changeStatus(maPhong, Constants.CANCELED, Constants.ROOM_EMPTY);
     }
       
     @RequestMapping("/Rent/RentRoom")
     public @ResponseBody int rent(@ModelAttribute("CustomerModel") CustomerModel customer, 
     		@ModelAttribute("RentedRoomModel") RentedRoomModel rentedRoomModel) {
-    	
-    	RentService rentService = (RentService) context.getBean(Constants.RENT_SERVICE);
-    	
+
     	return 1;
     }
 }

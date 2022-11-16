@@ -1,236 +1,210 @@
-callAllEvent()
+eventLoad()
 
-function callAllEvent() {
-	$( document ).ready(function() {
-		eventDelete()
-		eventAdd()
-		eventSetData()
-		eventEdit()
-		eventViewAll()
-		eventSearch()
-	})
-}
-
-
-function eventAdd(){
-  	
-  	$('#btnAdd').click(function (){
-		errorMessage.style.display = 'block'
-		$('#errorMessage').text(``)
+function eventLoad() {
 	
-		let maPhong = $('#maPhongAdd').val()
-		let tenPhong = $('#tenPhongAdd').val()
-		let loaiPhong = $('#loaiPhongAdd').val()
-		loaiPhong = loaiPhong == "P0" ? "Phòng đơn" : "Phòng đôi"
-		let gia = $('#giaAdd').val()
-		
-		gia = gia == "" ? 0 : gia
-		
-		if (maPhong != '') {
-			$.ajax({
-            url: 'Room/Add',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-				maPhong: maPhong,
-                tenPhong: tenPhong,
-                loaiPhong: loaiPhong,
-                gia: gia
-            }
-	        }).done(function(response) {
-				$('#tbody').empty()
-	            
-	           	let tbody = getTBody(response.roomList)
-				
-				$('#tbody').append(tbody)
-
-				let error = response.error;
-				
-				if (error) {
-					$('#errorMessage').text(`Phòng ${maPhong} đã tồn tại`)
-						if (errorMessage.innerHTML != "") {
-				        	const hideError = setTimeout(()=>errorMessage.style.display = 'none', 3000)
-				        }
-				}
-				
-				callAllEvent()
-	        });
-		} else {
-			$('#errorMessage').text(`Vui lòng nhập mã phòng`)
-		}
-	})
-
-}
-
-function eventDelete(){
-
-    const btnDeletes = document.querySelectorAll(".btnDelete")
-
-	$.each(btnDeletes, function( key, value ) {
-	  	
-	  	value.onclick = function (){
-			let trid = $(this).closest('tr').attr('id')
-		
-			$.ajax({
-                url: 'Room/Remove',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    maPhong: trid, 
-                }
-            }).done(function(response) {
-				$('#tbody').empty()
-                
-               	let tbody = getTBody(response)
-				
-				$('#tbody').append(tbody)
-				
-				callAllEvent()
-            });
-		}
-	});
-
-}
-
-function eventSetData() {
-
-	ModalHandler()
-
-
-	const btnEdits = document.querySelectorAll(".btnEdit")
-	$.each(btnEdits, function( key, value ) {
-		
-		value.onclick = function (){
-			
-			$('#maPhong').val('')
-			$('#name').val('')
-			$('#loaiPhong').val('')
-			$('#gia').val('')
-			
-			let trid = $(this).closest('tr').attr('id')
-
-			$.ajax({
-                url: 'Room/GetRoom',
-                type: 'GET',
-                dataType: 'json',
-                data: {
-                    maPhong: trid, 
-                }
-            }).done(function(response) {
-				$('#maPhong').val(response.maPhong)
-				$('#name').val(response.tenPhong)
-				$('#loaiPhong').val(response.loaiPhong == "Phòng đơn" ? "P0" : "P1")
-				$('#gia').val(response.gia)
-				
-				callAllEvent()
-            });
-		}
-	});
-
-}
-
-function eventEdit() {
-
-	ModalHandler()
-
-	$('#btnDone').click(function (){
-		let maPhong = $('#maPhong').val()
-		let tenPhong = $('#name').val()
-		let loaiPhong = $('#loaiPhong').val()
-		loaiPhong = loaiPhong == "P0" ? "Phòng đơn" : "Phòng đôi"
-		let gia = $('#gia').val()
-		
-		$.ajax({
-            url: 'Room/Edit',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                maPhong: maPhong,
-                tenPhong: tenPhong,
-                loaiPhong: loaiPhong,
-                gia: gia
-            }
-        }).done(function(response) {
-	
+	$.ajax({
+        url: 'Room/GetAllRoom',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            
+        }
+    }).done(function(response) {
+		if (response.length != 0) {
 			$('#tbody').empty()
 
             let tbody = getTBody(response)
 			
 			$('#tbody').append(tbody)
-			
-			callAllEvent()
-			
-			const modal = document.querySelector('.js-modal')
-			hideShowedit(modal)
-			
-		})	
+		}
 	})
 }
 
-function eventSearch() {
+// event Add
+$(document).on('click', '#btnAdd', function (){
+	errorMessage.style.display = 'block'
+	$('#errorMessage').text(``)
 
-	$('#txtSearch').keypress(function(e) {
-		var key = e.which;
-		errorMessage.style.display = 'block'
-		$('#errorMessage').text(``)
-		let searchVal = $('#txtSearch').val()
-
- 		if(key == 13 && !searchVal == "")  // the enter key code
-  		{
-			
-			$.ajax({
-	            url: 'Room/Search',
-	            type: 'GET',
-	            dataType: 'json',
-	            data: {
-	                searchString: searchVal
-	            }
-	        }).done(function(response) {
-				if (response.length != 0) {
-					$('#tbody').empty()
+	let maPhong = $('#maPhongAdd').val()
+	let tenPhong = $('#tenPhongAdd').val()
+	let loaiPhong = $('#loaiPhongAdd').val()
+	loaiPhong = loaiPhong == "P0" ? "Phòng đơn" : "Phòng đôi"
+	let gia = $('#giaAdd').val()
 	
-		            let tbody = getTBody(response)
-					
-					$('#tbody').append(tbody)
-					
-					$('#errorMessage').text('')
-					
-					callAllEvent()
-				} else {
-					$('#errorMessage').text(`Không tìm thấy phòng: ${searchVal}`)
-					if (errorMessage.innerHTML != "") {
-			        	const hideError = setTimeout(()=>errorMessage.style.display = 'none', 3000)
-			        }
-				}
-			})
-  		}
-	})
-}
-
-function eventViewAll() {
-  	$('#btnViewAll').click(function (){
+	gia = gia == "" ? 0 : gia
+	
+	if (maPhong != '') {
 		$.ajax({
-            url: 'Room/GetAllRoom',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-
-            }
+        url: 'Room/Add',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+			maPhong: maPhong,
+            tenPhong: tenPhong,
+            loaiPhong: loaiPhong,
+            gia: gia
+        }
         }).done(function(response) {
 			$('#tbody').empty()
             
-           	let tbody = getTBody(response)
+           	let tbody = getTBody(response.roomList)	
 			
 			$('#tbody').append(tbody)
-			
-			callAllEvent()
-        });
-	})
 
-}
+			let error = response.error;
+			
+			if (error) {
+				$('#errorMessage').text(`Phòng ${maPhong} đã tồn tại`)
+					if (errorMessage.innerHTML != "") {
+			        	const hideError = setTimeout(function() {
+							errorMessage.style.display = 'none'
+							$('#errorMessage').text('')
+						}, 3000)
+			        }
+			}
+        });
+	} else {
+		//$('#errorMessage').text(`Vui lòng nhập mã phòng`)
+	}
+})
+
+// eventDelete()
+	  	
+$(document).on('click', '.btnDelete', function (){
+	let trid = $(this).closest('tr').attr('id')
+
+	$.ajax({
+        url: 'Room/Remove',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            maPhong: trid, 
+        }
+    }).done(function(response) {
+		$('#tbody').empty()
+        
+       	let tbody = getTBody(response)
+		
+		$('#tbody').append(tbody)
+    });
+})
+
+// event get and set room for client	
+$(document).on('click', '.btnEdit', function (){
+	
+	$('#maPhong').val('')
+	$('#name').val('')
+	$('#loaiPhong').val('')
+	$('#gia').val('')
+	
+	let trid = $(this).closest('tr').attr('id')
+	
+	$.ajax({
+        url: 'Room/GetRoom',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            maPhong: trid, 
+        }
+    }).done(function(response) {
+		$('#maPhong').val(response.maPhong)
+		$('#name').val(response.tenPhong)
+		$('#loaiPhong').val(response.loaiPhong == "Phòng đơn" ? "P0" : "P1")
+		$('#gia').val(response.gia)
+		
+		$('.edit-modal').addClass('open')
+    })
+})
+
+// event Edit
+$(document).on('click', '#btnDone', function (){
+	let maPhong = $('#maPhong').val()
+	let tenPhong = $('#name').val()
+	let loaiPhong = $('#loaiPhong').val()
+	loaiPhong = loaiPhong == "P0" ? "Phòng đơn" : "Phòng đôi"
+	let gia = $('#gia').val()
+	
+	$.ajax({
+        url: 'Room/Edit',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            maPhong: maPhong,
+            tenPhong: tenPhong,
+            loaiPhong: loaiPhong,
+            gia: gia
+        }
+    }).done(function(response) {
+		
+		$('#tbody').empty()
+
+        let tbody = getTBody(response)
+		
+		$('#tbody').append(tbody)
+		
+		$('.edit-modal').removeClass('open')
+	})
+})
+
+
+//event Search
+$(document).on('keypress', '#txtSearch', function(e) {
+	var key = e.which;
+	errorMessage.style.display = 'block'
+	$('#errorMessage').text(``)
+	let searchVal = $('#txtSearch').val()
+
+	if(key == 13 && !searchVal == "")  // the enter key code
+	{
+		
+		$.ajax({
+            url: 'Room/Search',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                searchString: searchVal
+            }
+        }).done(function(response) {
+			if (response.length != 0) {
+				$('#tbody').empty()
+
+	            let tbody = getTBody(response)
+				
+				$('#tbody').append(tbody)
+				
+				$('#errorMessage').text('')
+				
+				
+			} else {
+				$('#errorMessage').text(`Không tìm thấy phòng: ${searchVal}`)
+				if (errorMessage.innerHTML != "") {
+		        	const hideError = setTimeout(()=>errorMessage.style.display = 'none', 3000)
+		        }
+			}
+		})
+	}
+})
+
+$(document).on('click', '#btnViewAll', function (){
+	$.ajax({
+        url: 'Room/GetAllRoom',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+
+        }
+    }).done(function(response) {
+		$('#tbody').empty()
+        
+       	let tbody = getTBody(response)
+		$('#tbody').append(tbody)
+		
+    });
+})
 
 function getTBody(roomList) {
 	let tbody = ``;
+	console.log(roomList)
 	
 	$.each(roomList, function( key, value ) {
 		tbody += `<tr id="${value.maPhong }">`
@@ -261,21 +235,10 @@ function getTBody(roomList) {
 	return tbody
 }
 
-function ModalHandler() {
-	const editBtns = document.querySelectorAll('.js-edit')
-    
-    const modalClose = document.querySelector('.js-modal-close')
-    
-    for(const editBtn of editBtns){
-        editBtn.addEventListener('click', showedit)
-    }
-    modalClose.addEventListener('click', hideShowedit)
-}
+$(document).on('click', '.js-edit', function (){
+	$('.edit-modal').removeClass('open')
+})
 
-function showedit(modal){
-    modal.classList.add('open')
-}
-
-function hideShowedit(modal){
-    modal.classList.remove('open')
-}
+$(document).on('click', '.js-modal-close', function (){
+	$('.edit-modal').removeClass('open')
+})

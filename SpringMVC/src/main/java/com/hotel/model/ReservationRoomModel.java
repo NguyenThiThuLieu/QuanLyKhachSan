@@ -22,7 +22,7 @@ public class ReservationRoomModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "MaKH")
 	private int maKH;
 	@Column(name = "NgayDen")
@@ -30,13 +30,11 @@ public class ReservationRoomModel implements Serializable {
 	@Column(name = "NgayDi")
 	private Date ngayDi;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaPhong")
 	private String maPhong;
 	@Column(name = "TienCoc")
 	private Double tienCoc;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaNV")
 	private String maNV;
 	@Column(name = "TrangThai")

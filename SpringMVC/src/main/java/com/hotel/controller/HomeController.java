@@ -1,8 +1,6 @@
 package com.hotel.controller;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,19 +14,10 @@ import com.hotel.service.HomeService;
  * class HomeController
  */
 @Controller
-public class HomeController implements ApplicationContextAware {
+public class HomeController {
 	
-	private static ApplicationContext context;
-
-    public static ApplicationContext getApplicationContext() {
-        return context;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext ac)
-            throws BeansException {
-        context = ac;
-    }
+	@Autowired
+	private HomeService homeService;
 
 	/**
 	 * phuong thuc tra ve trang chu
@@ -37,9 +26,6 @@ public class HomeController implements ApplicationContextAware {
 	 */
 	@RequestMapping("/Home")
 	public ModelAndView home() {	
-		
-		// get HomeService from ApplicationContext
-		HomeService homeService = (HomeService) context.getBean(Constants.HOME_SERVICE);
 		
 		// lay so luong phong thue trong ngay
 		long numOfRentedInDay = homeService.getNumOfRentedInDay();

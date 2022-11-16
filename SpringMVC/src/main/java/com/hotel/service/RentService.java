@@ -2,7 +2,10 @@ package com.hotel.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.hotel.dao.RentDAO;
+import com.hotel.dao.RoomDAO;
 import com.hotel.model.RoomModel;
 
 /**
@@ -10,6 +13,7 @@ import com.hotel.model.RoomModel;
  *
  * class RentService
  */
+@Service
 public class RentService {
 	
 	private RentDAO rentDAO;
@@ -22,6 +26,16 @@ public class RentService {
 		this.rentDAO = rentDAO;
 	}
 	
+	private RoomDAO roomDAO;
+
+	public RoomDAO getRoomDAO() {
+		return roomDAO;
+	}
+
+	public void setRoomDAO(RoomDAO roomDAO) {
+		this.roomDAO = roomDAO;
+	}
+	
 	/**
 	 * phuong thuc lay du lieu phong cho
 	 * 
@@ -31,7 +45,7 @@ public class RentService {
 	public List<?> getEmptyRoom(int trangThai) {
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append("select r.maPhong, r.tenPhong, r.loaiPhong from com.hotel.model.RoomModel r ");
+		builder.append("select r from RoomModel r ");
 		builder.append("where trangThai = :trangThai");
 		
 		return rentDAO.getEmptyRoom(trangThai, builder.toString());
@@ -46,11 +60,8 @@ public class RentService {
 	public List<?> getRentedInfo(int trangThai) {
     	
 		StringBuilder builder = new StringBuilder();
-		builder.append("select r.maPhong, r.tenPhong, r.loaiPhong, ");
-		builder.append("c.tenKH, rr.ngayDen, rr.ngayDi ");
-		builder.append("from com.hotel.model.RentedRoomModel rr, com.hotel.model.CustomerModel c, ");
-		builder.append("com.hotel.model.RoomModel r where rr.maKH = c.maKH ");
-		builder.append("and r.maPhong = rr.maPhong and rr.trangThai = :trangThai");
+		builder.append("select r from RentedRoomModel r ");
+		builder.append("where r.trangThai = :trangThai");
 		
     	return rentDAO.getRentedInfo(trangThai, builder.toString());
     }
@@ -80,8 +91,8 @@ public class RentService {
 	public List<?> searchEmptyRoom(String tenPhong, int trangThai) {
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append("select r.maPhong, r.tenPhong, r.loaiPhong from com.hotel.model.RoomModel r ");
-		builder.append("where trangThai = :trangThai and tenPhong like :tenPhong");
+		builder.append("select r from RoomModel r ");
+		builder.append("where r.trangThai = :trangThai and r.tenPhong like :tenPhong");
 		
 		return rentDAO.search(tenPhong, trangThai, builder.toString());
 	}
@@ -89,22 +100,15 @@ public class RentService {
 	public List<?> searchRentedRoom(String tenPhong, int trangThai) {
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append("select r.maPhong, r.tenPhong, r.loaiPhong, ");
-		builder.append("c.tenKH, rr.ngayDen, rr.ngayDi ");
-		builder.append("from com.hotel.model.RentedRoomModel rr, com.hotel.model.CustomerModel c, ");
-		builder.append("com.hotel.model.RoomModel r where rr.maKH = c.maKH and r.maPhong = rr.maPhong ");
-		builder.append("and rr.trangThai = :trangThai and tenPhong like :tenPhong");
+		builder.append("select r from RentedRoomModel r ");
+		builder.append("where r.trangThai = :trangThai and r.room.tenPhong like :tenPhong");
 		
 		return rentDAO.search(tenPhong, trangThai, builder.toString());
 	}
 	
 	public RoomModel getRoomByID(String maPhong) {
 		
-		StringBuilder builder = new StringBuilder();
-		builder.append("select r from com.hotel.model.RoomModel r ");
-		builder.append("where maPhong = :maPhong");
-		
-		return rentDAO.getRoomByID(maPhong, builder.toString());
+		return roomDAO.getRoomByID(maPhong);
 	}
 	
 //	public int rent(String maPhong, String cmnd) {

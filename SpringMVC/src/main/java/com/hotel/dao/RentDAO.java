@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.common.Constants;
-import com.hotel.model.CustomerModel;
 import com.hotel.model.RoomModel;
 
 /**
@@ -113,11 +112,7 @@ public class RentDAO {
 		
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query<?> query = session.createQuery(queryString);
-		
-		query.setParameter("maPhong", maPhong);
-		
-		RoomModel room = (RoomModel) query.getSingleResult();
+		RoomModel room = (RoomModel) session.get(RoomModel.class, maPhong);
 		
     	return room;
     }

@@ -29,6 +29,16 @@
  
  <bean id="rentService" class="com.hotel.service.RentService">
  	<property name="rentDAO" ref="rentDAO"></property>
+ 	<property name="roomDAO" ref="roomDAO"></property>
+ </bean>
+ 
+  <!-- Service Room -->
+ <bean id="serviceDAO" class="com.hotel.dao.ServiceDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
+ 
+ <bean id="serviceService" class="com.hotel.service.ServiceService">
+ 	<property name="serviceDAO" ref="serviceDAO"></property>
  </bean>
 
 </beans>
