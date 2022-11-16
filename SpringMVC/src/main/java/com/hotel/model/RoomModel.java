@@ -1,7 +1,6 @@
 package com.hotel.model;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,11 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Tien
@@ -41,9 +37,6 @@ public class RoomModel implements Serializable {
 	private String hinhAnh;
 	@Column(name = "TrangThai")
 	private int trangThai;
-	@OneToMany(mappedBy = "room")
-	@JsonIgnore
-	private List<RentedRoomModel> rentedRooms;
 
 	public String getMaPhong() {
 		return maPhong;

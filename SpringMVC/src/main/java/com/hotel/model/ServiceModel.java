@@ -1,7 +1,6 @@
 package com.hotel.model;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,10 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Tien
@@ -33,9 +29,6 @@ public class ServiceModel implements Serializable {
 	private String tenDV;
 	@Column(name = "GiaDV")
 	private long giaDV;
-	@OneToMany(mappedBy = "service")
-	@JsonIgnore
-	private List<ServiceUsingModel> serviceUsings;
 
 	public String getMaDV() {
 		return maDV;
@@ -59,14 +52,6 @@ public class ServiceModel implements Serializable {
 
 	public void setGiaDV(long giaDV) {
 		this.giaDV = giaDV;
-	}
-	
-	public List<ServiceUsingModel> getServiceUsings() {
-		return serviceUsings;
-	}
-
-	public void setServiceUsings(List<ServiceUsingModel> serviceUsings) {
-		this.serviceUsings = serviceUsings;
 	}
 
 	@Override
