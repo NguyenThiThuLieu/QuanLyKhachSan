@@ -57,8 +57,7 @@
           </div>
       
           <button class="form-submit" id="dangnhap">Đăng nhập</button>
-          <a href="Home.jsp">Login</a>
-          <!-- <p class="message">Not registered? <a href="SignUp.html">Create an account</a></p> -->
+          <p class="message">Not registered? <a href="./SignUp.jsp">Create an account</a></p>
         </form>
       </div>
       <footer>

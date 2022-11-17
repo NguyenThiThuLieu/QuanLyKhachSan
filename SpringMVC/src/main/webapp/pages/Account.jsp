@@ -18,61 +18,125 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h3>TÀI KHOẢN</h3>
+                <h3>QUẢN LÍ TÀI KHOẢN</h3>
             </div>
-            <!-- <div class="search">
-                <label>
-                    <input type="text" placeholder="Search here">
-                    <ion-icon name="search-outline"></ion-icon>
-                </label>
-            </div> -->
             <div class="user">
                 <img src="anhbac.jpg">
             </div>
         </div>
         <div class="topfour">
             <div class="tab-pane active">
-                <div class="cardBox">
-                    <div class="card">
-                        <div>
-                            <div class="numbers">2,504</div>
-                            <div class="cardName">View</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
+                <!-- <div class="cardBox">
+                    <div class="search">
+                        <label>
+                            <input type="text" placeholder="Tìm kiếm phòng">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
                     </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">180</div>
-                            <div class="cardName">Sales</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="cart-outline"></ion-icon>
-                        </div>
+                    <div class="search">
+                        <button id="btn2">Thêm mới</button>
                     </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">484</div>
-                            <div class="cardName">Comments</div>
+                </div> -->
+                <div class="details">
+                    <div class="recentOrder">
+                        <div class="cardHeader">
+                            <h2>TÀI KHOẢN</h2>
+                            <a href="#" class="btn" id="btn2">View all</a>
                         </div>
-                        <div class="iconBx">
-                            <ion-icon name="chatbubbles-outline"></ion-icon>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Tài khoản</td>
+                                    <td>Mật khẩu</td>
+                                    <td>Chỉnh sửa</td>
+                                    <td>Xóa </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01</td>
+                                    <td>tuong001</td>
+                                    <td>123415</td>
+                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
+                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                </tr>
+                                <tr>
+                                    <td>02</td>
+                                    <td>tuong002</td>
+                                    <td>123123</td>
+                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
+                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                </tr>
+                                <tr>
+                                    <td>03</td>
+                                    <td>tuongngu</td>
+                                    <td>tuongngu</td>
+                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
+                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">$17,842</div>
-                            <div class="cardName">Earning</div>
+                    <div class="recentCustomerss" id="recentCustomerss">
+                        <div class="cardHeader">
+                            <h2>Đăng kí tài khoản</h2>
+                            <button class="snip1457">Đăng kí</button>
                         </div>
-                        <div class="iconBx">
-                            <ion-icon name="cash-outline"></ion-icon>
+                        <div class="page">
+                            <div class="field field_v1">
+                                <label for="first-name" class="ha-screen-reader">Mã phòng</label>
+                                <input id="first-name" class="field__input" placeholder="vd: P.201">
+                                <span class="field__label-wrap" aria-hidden="true">
+                                  <span class="field__label">ID</span>
+                                </span>
+                              </div>
+                            <div class="field field_v1">
+                              <label for="first-name" class="ha-screen-reader">Tài khoản</label>
+                              <input id="first-name" class="field__input" placeholder="vd: Phòng 201">
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">Tài khoản</span>
+                              </span>
+                            </div>
+                            <div class="field field_v1">
+                                <label for="first-name" class="ha-screen-reader">Mật khẩu</label>
+                                <input id="first-name" class="field__input" placeholder="vd: 100000">
+                                <span class="field__label-wrap" aria-hidden="true">
+                                  <span class="field__label">Mật khẩu</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-          
+        </div>
+    </div>
+    <div class="edit-modal js-modal">
+        <div class="modal-container">
+            <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
+            <header class="modal-header">CHỈNH SỬA</header>
+            <div class="modal-body">
+                <label for="name" class="modal-label">
+                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    ID
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="ID">
+
+                <label for="name" class="modal-label">
+                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    Tài khoản
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Tài khoản">
+               
+                <label for="name" class="modal-label">
+                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    Mật khẩu
+                </label>
+                <input id="name" type="text" class="modal-input" placeholder="Mật khẩu">
+                <button class="btn-edit">
+                    Done
+                </button>
+            </div>
         </div>
     </div>
     
@@ -105,6 +169,24 @@
 
         //     }
         // })
+    </script>
+     <script>
+        const editBtns = document.querySelectorAll('.js-edit')
+        const modal = document.querySelector('.js-modal')
+        const modalClose = document.querySelector('.js-modal-close')
+        
+        function showedit(){
+            modal.classList.add('open')
+        }
+
+        function hideShowedit(){
+            modal.classList.remove('open')
+        }
+        for(const editBtn of editBtns){
+            editBtn.addEventListener('click', showedit)
+        }
+        modalClose.addEventListener('click', hideShowedit)
+
     </script>
 </body>
 </html>
