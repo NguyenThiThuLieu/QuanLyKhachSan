@@ -35,7 +35,7 @@
             <div class="tab-pane active">
                 <div class="cardBoxxx">
                     <div class="carddd">
-                        <a href="Money.jsp" class="hethong">
+                        <a href="./pages/Money.jsp" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="library-outline"></ion-icon>
                                 <hr>
@@ -47,7 +47,7 @@
                          </a>
                     </div>
                     <div class="carddd">
-                        <a href="RoomSystem.jsp" class="hethong">
+                        <a href="./pages/RoomSystem.jsp" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="home-outline"></ion-icon>
                                 <hr>
@@ -59,7 +59,7 @@
                         </a>
                     </div>
                     <div class="carddd">
-                        <a href="Member.jsp" class="hethong">
+                        <a href="./pages/Member.jsp" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="file-tray-outline"></ion-icon>
                                 <hr>
