@@ -9,6 +9,7 @@
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Menu.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="<%= request.getContextPath() %>/resources/js/Service.js"></script>
@@ -30,21 +31,21 @@
         </div>
         <div class="topfour">
             <div class="tab-pane active">
-                <div class="cardBox">
+            	<div class="cardBoxss">
                     <div class="close">
-                        <a href="<%= request.getContextPath() %>/System" style="font-size: 30px;">
+                        <a href="<%= request.getContextPath() %>/System">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
-                    <div class="searchs">
+                    <div class="box_seach">
                         <label>
-                            <input id="txtSearch" type="text" placeholder="Search here">
+                            <input type="text" id="txtSearch" placeholder="Search here">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
-                    <div class="searchhs">
-                        <button id="btn2" class="info-view-info">Thêm mới</button>
-                    </div>                   
+                    <div class="box_add">
+                        <button id="btn2" class="add">Thêm mới</button>
+                    </div>
                 </div>
                 <div class="details">
                     <div class="recentOrder">
@@ -60,6 +61,7 @@
                                     <td>Đơn giá</td>
                                     <td>Chỉnh sửa</td>
                                     <td>Xóa </td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody id="tbody">

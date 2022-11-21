@@ -50,7 +50,6 @@
                                     <td>Tài khoản</td>
                                     <td>Mật khẩu</td>
                                     <td>Chỉnh sửa</td>
-                                    <td>Xóa </td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,22 +57,28 @@
                                     <td>01</td>
                                     <td>tuong001</td>
                                     <td>123415</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                    <td>
+                                    <button class="room-icon js-edit" title="Chỉnh sửa"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button>
+                                    <button class="room-icon" title="Xóa"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>02</td>
                                     <td>tuong002</td>
                                     <td>123123</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                    <td>
+                                    <button class="room-icon js-edit" title="Chỉnh sửa"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button>
+                                    <button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>03</td>
                                     <td>tuongngu</td>
                                     <td>tuongngu</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                                    <td>
+                                    <button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button>
+                                    <button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
