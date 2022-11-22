@@ -69,6 +69,7 @@ font-size: 1.2em;
 .close a ion-icon {
 font-size: 35px;
 color: purple;
+margin-top: 5px;
 }
 .close a ion-icon:hover {
 border-radius: 100%;
