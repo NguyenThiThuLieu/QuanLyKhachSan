@@ -9,6 +9,7 @@
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Service.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
     
 </head>
 <body>
@@ -28,20 +29,20 @@
         </div>
         <div class="topfour">
             <div class="tab-pane active">
-                <div class="cardBox">
+                <div class="cardBoxss">
                     <div class="close">
-                        <a href="Menu.jsp" style="font-size: 30px;">
+                        <a href="./System.jsp">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
-                    <div class="searchs">
+                    <div class="box_seach">
                         <label>
-                            <input type="text" placeholder="Search here">
+                            <input type="text" placeholder="Tìm kiếm nhân viên">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
-                    <div class="searchhs">
-                        <button id="btn2" class="info-view-info">Thêm mới</button>
+                    <div class="box_add">
+                        <button id="btn2" class="add">Thêm mới</button>
                     </div>
                 </div>
                 <div class="details">
@@ -176,7 +177,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
  	<script>
-	    const useBtn = document.querySelector('.info-view-info')
+	    const useBtn = document.querySelector('.add')
 		const choose = document.querySelector('.recentCustomerss')
 		const chooseClose = document.querySelector('.exit-customer')
 		
