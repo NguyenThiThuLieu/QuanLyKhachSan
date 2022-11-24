@@ -388,6 +388,7 @@ hr {
     position: relative;
     display: grid;
     max-height: 600px;
+    display: flow-root;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);/*khung viên bóng */
