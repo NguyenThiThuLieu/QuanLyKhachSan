@@ -35,25 +35,13 @@
             <div class="tab-pane active">
                 <div class="cardBoxxx">
                     <div class="carddd">
-                        <a href="./pages/Money.jsp" class="hethong">
-                            <div class="iconBxxx">
-                                <ion-icon name="library-outline"></ion-icon>
-                                <hr>
-                            </div>
-                            <div>
-                                <div class="numbersss">Quản lí kho</div>
-                                <!-- <div class="cardNameee">Daily View</div> -->
-                            </div>
-                         </a>
-                    </div>
-                    <div class="carddd">
-                        <a href="./pages/RoomSystem.jsp" class="hethong">
+                        <a href="./pages/Account.jsp" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="home-outline"></ion-icon>
                                 <hr>
                             </div>
                             <div>
-                                <div class="numbersss">Thống kê</div>
+                                <div class="numbersss">Tài khoản</div>
                                 <!-- <div class="cardNameee">Sales</div> -->
                             </div>
                         </a>

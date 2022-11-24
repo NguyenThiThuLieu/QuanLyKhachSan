@@ -41,30 +41,18 @@
                         <span class="title">QUẢN LÍ PHÒNG</span>
                     </a>
                 </li>
-                <li>
+                 <li>
                     <a href="<%= request.getContextPath() %>/System" class="title2">
                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ HỆ THỐNG</span>
                     </a>
                 </li>
-                <li>
+                <!--  <li>
                     <a href="./pages/Account.jsp" class="title2">
                         <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
                         <span class="title">TÀI KHOẢN</span>
                     </a>
-                </li>
-                <li>
-                    <a href="./pages/.jsp" class="title2">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
-                        <span class="title">TÀI KHOẢN</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./pages/Account.jsp" class="title2">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></ion-icon></span>
-                        <span class="title">TÀI KHOẢN</span>
-                    </a>
-                </li>
+                </li>-->
                 <li>
                     <a href="Login.jsp">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
