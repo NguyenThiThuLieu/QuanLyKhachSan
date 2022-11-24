@@ -34,14 +34,28 @@ public class RoomService {
 	@SuppressWarnings("unchecked")
 	public List<RoomModel> getAllRoom() {
 		
-		// tinh vi tri record dau tien
-		//int firstIndex = Constants.NUM_RECORD * (numPage - 1);
-		
 		// thiet lap cau truy van sql
 		String queryString = "select r from RoomModel r";
 		
 		// lay danh sach phong
 		List<RoomModel> roomList = roomDAO.getAllRoom(queryString);
+		
+		return roomList;
+	}
+	
+	/**
+	 * phuong thuc lay tat ca phong chua bi xoa
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<RoomModel> getAllRoomNoDeleted() {
+		
+		// thiet lap cau truy van sql
+		String queryString = "select r from RoomModel r where r.trangThai != :trangThai";
+		
+		// lay danh sach phong
+		List<RoomModel> roomList = roomDAO.getAllRoomNoDeleted(Constants.ROOM_DELETED, queryString);
 		
 		return roomList;
 	}
@@ -59,15 +73,15 @@ public class RoomService {
 		StringBuilder builder = new StringBuilder();
 		
 		// thiet lap cau truy van sql
-		builder.append("select r from RoomModel r ");
+		builder.append("select r from RoomModel r where r.trangThai != :trangThai ");
 		
 		// Xu ly query string neu searchString khong rong
 		if (null != searchString && !Constants.EMPTY_STRING.equals(searchString.trim())) {
-			builder.append("where r.tenPhong like :tenPhong");
+			builder.append("and r.tenPhong like :tenPhong");
 		}
 		
 		// lay danh sach phong
-		List<RoomModel> roomList = roomDAO.getRoomByName(searchString, builder.toString());
+		List<RoomModel> roomList = roomDAO.getRoomByName(searchString, Constants.ROOM_DELETED, builder.toString());
 		
 		return roomList;
 	}
@@ -134,12 +148,11 @@ public class RoomService {
 	public int removeRoom(String maPhong) {
 		
 		// thiet lap cau truy van sql
-		String queryString = "delete from RoomModel where maPhong = :maPhong";
+		String queryString = "update RoomModel r set r.trangThai = :trangThai where r.maPhong = :maPhong";
 		
 		// them phong
-		return roomDAO.removeRoom(maPhong, queryString);
+		return roomDAO.removeRoom(maPhong, Constants.ROOM_DELETED, queryString);
 	}
-	
 	
 	/**
 	 * phuong thuc chinh sua phong
@@ -170,21 +183,11 @@ public class RoomService {
 	public RoomModel getRoom(String maPhong) {
 		
 		// thiet lap cau truy van sql
-		String queryString = "select r from RoomModel r where maPhong = :maPhong";
+		String queryString = "select r from RoomModel r where r.maPhong = :maPhong and r.trangThai != :trangThai";
 		
 		// lay phong theo ma phong
-		RoomModel room = roomDAO.getRoom(maPhong, queryString);
+		RoomModel room = roomDAO.getRoom(maPhong, Constants.ROOM_DELETED, queryString);
 		
 		return room;
-	}
-	
-	public List<?> getRoomType() {
-		
-		// thiet lap cau truy van sql
-		String queryString = "select r from RoomModel r where maPhong = :maPhong";
-		
-		List<?> list = roomDAO.getRoomType(queryString);
-		
-		return list;
 	}
 }

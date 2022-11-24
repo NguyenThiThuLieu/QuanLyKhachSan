@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.common.Constants;
+import com.hotel.model.RentedRoomModel;
 import com.hotel.model.RoomModel;
 
 /**
@@ -69,6 +70,20 @@ public class RentDAO {
 		
     	return list;
     }
+	
+	public RentedRoomModel getRentedInfoForPay(int maKH, String maPhong, int trangThai, String queryString) {
+    	
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<?> query = session.createQuery(queryString);
+		query.setParameter("maKH", maKH);
+		query.setParameter("maPhong", maPhong);
+		query.setParameter("trangThai", trangThai);
+		
+		RentedRoomModel rentedRoomModel = (RentedRoomModel) query.getSingleResult();
+		
+    	return rentedRoomModel;
+    }
 
 
 	public int changeStatus(String roomID, int activityStatus, int roomStatus, String queryString) {
@@ -116,4 +131,34 @@ public class RentDAO {
 		
     	return room;
     }
+	
+	public int getCustomerIDByRoomID(String id, int trangThai, String queryString) {
+		
+		// lay session tu sessionFactory
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		// tao query
+		Query<?> query = session.createQuery(queryString);
+		query.setParameter("maPhong", id);
+		query.setParameter("trangThai", trangThai);
+		
+		int maKH = (int) query.getSingleResult();
+		
+		return maKH;
+	}
+	
+	public RentedRoomModel getRentedInfoByRoomID(String id, int trangThai, String queryString) {
+		
+		// lay session tu sessionFactory
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		// tao query
+		Query<?> query = session.createQuery(queryString);
+		query.setParameter("maPhong", id);
+		query.setParameter("trangThai", trangThai);
+		
+		RentedRoomModel customer = (RentedRoomModel) query.getSingleResult();
+		
+		return customer;
+	}
 }

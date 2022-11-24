@@ -39,7 +39,7 @@
                 <div class="cardBox">
                     <div class="search">
                         <label>
-                            <input id="txtSearch" name="tenPhong" type="text" placeholder="Tìm kiếm phòng">
+                            <input id="txtSearch" name="tenPhong" type="text" placeholder="Tìm theo tên phòng">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>

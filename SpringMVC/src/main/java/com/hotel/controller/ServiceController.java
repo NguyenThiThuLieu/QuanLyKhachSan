@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hotel.model.ServiceModel;
+import com.hotel.model.ServiceUsingModel;
 import com.hotel.service.ServiceService;
 
 /**
@@ -104,20 +105,5 @@ public class ServiceController {
     public @ResponseBody boolean isUnique(@ModelAttribute("ServiceModel") ServiceModel serviceModel) {
     	
     	return serviceService.isUnique(serviceModel);
-    }
-    
-    /**
-     * phuong thuc su dung dich vu
-     * 
-     * @param customerIDs kieu <code>String[]</code>
-     * @param usingDates kieu <code>String[]</code>
-     * @param maDV kieu <code>String</code>
-     */
-    @RequestMapping("/Service/Use")
-    public @ResponseBody void useService(@RequestParam("customerIDs[]") String[] customerIDs,
-    		@RequestParam("usingDates[]") String[] usingDates,
-    		@RequestParam("maDV") String maDV) {
-    	
-    	serviceService.useService(customerIDs, usingDates, maDV);
     }
 }

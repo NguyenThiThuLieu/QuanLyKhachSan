@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.hotel.common.Constants;
 import com.hotel.dao.RentDAO;
-import com.hotel.dao.RoomDAO;
-import com.hotel.model.RoomModel;
+import com.hotel.model.RentedRoomModel;
 
 /**
  * @author Tien
@@ -26,29 +26,19 @@ public class RentService {
 		this.rentDAO = rentDAO;
 	}
 	
-	private RoomDAO roomDAO;
-
-	public RoomDAO getRoomDAO() {
-		return roomDAO;
-	}
-
-	public void setRoomDAO(RoomDAO roomDAO) {
-		this.roomDAO = roomDAO;
-	}
-	
 	/**
 	 * phuong thuc lay du lieu phong cho
 	 * 
 	 * @param trangThai kieu int
 	 * @return
 	 */
-	public List<?> getEmptyRoom(int trangThai) {
+	public List<?> getEmptyRoom() {
 		
 		StringBuilder builder = new StringBuilder();
 		builder.append("select r from RoomModel r ");
 		builder.append("where trangThai = :trangThai");
 		
-		return rentDAO.getEmptyRoom(trangThai, builder.toString());
+		return rentDAO.getEmptyRoom(Constants.ROOM_EMPTY, builder.toString());
 	}
 	
 	/**
@@ -57,28 +47,57 @@ public class RentService {
 	 * @param trangThai kieu int
 	 * @return
 	 */
-	public List<?> getRentedInfo(int trangThai) {
+	public List<?> getRentedInfo() {
     	
 		StringBuilder builder = new StringBuilder();
 		builder.append("select r from RentedRoomModel r ");
 		builder.append("where r.trangThai = :trangThai");
 		
-    	return rentDAO.getRentedInfo(trangThai, builder.toString());
+    	return rentDAO.getRentedInfo(Constants.RENTING, builder.toString());
     }
 	
+	public RentedRoomModel getRentedInfoForPay(int maKH, String maPhong) {
+    	
+		StringBuilder builder = new StringBuilder();
+		builder.append("select r from RentedRoomModel r ");
+		builder.append("where r.maKH = :maKH and r.maPhong = :maPhong and r.trangThai = :trangThai");
+		
+    	return rentDAO.getRentedInfoForPay(maKH, maPhong, Constants.RENTING, builder.toString());
+    }
+	
+	public int changeStatus(int flag, String roomID) {
+		
+		int status = 0;
+		
+		if (flag == 0) {
+			status = changeStatusForRented(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
+		} else {
+			status = changeStatusForReservation(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
+		}
+		
+		return status;
+	}
 
-	public int changeStatus(String roomID, int activityStatus, int roomStatus) {
+	public int changeStatusForRented(String roomID, int trangThaiThue, int trangThaiPhong) {
 		
     	StringBuilder builder = new StringBuilder();
-//		builder.append("UPDATE com.hotel.model.RentedRoomModel rr, com.hotel.model.RoomModel r ");
-//		builder.append("SET rr.trangThai = :trangThaiTra, r.trangThai = :trangThaiPhong ");
-//		builder.append("WHERE rr.maPhong = r.maPhong and rr.maPhong = :maPhong");
 		
 		builder.append("UPDATE thuephong as rr, phong as r ");
 		builder.append("SET rr.TrangThai = :activityStatus, r.TrangThai = :roomStatus ");
 		builder.append("WHERE rr.MaPhong = r.MaPhong and rr.MaPhong = :roomID ");
     	
-    	return rentDAO.changeStatus(roomID, activityStatus, roomStatus, builder.toString());
+    	return rentDAO.changeStatus(roomID, trangThaiThue, trangThaiPhong, builder.toString());
+    }
+	
+	public int changeStatusForReservation(String roomID, int trangThaiThue, int trangThaiPhong) {
+		
+    	StringBuilder builder = new StringBuilder();
+		
+		builder.append("UPDATE datphong as d, phong as r ");
+		builder.append("SET d.TrangThai = :activityStatus, r.TrangThai = :roomStatus ");
+		builder.append("WHERE d.MaPhong = r.MaPhong and d.MaPhong = :roomID ");
+    	
+    	return rentDAO.changeStatus(roomID, trangThaiThue, trangThaiPhong, builder.toString());
     }
 	
 	/**
@@ -88,27 +107,31 @@ public class RentService {
 	 * @param trangThai kieu int
 	 * @return
 	 */
-	public List<?> searchEmptyRoom(String tenPhong, int trangThai) {
+	public List<?> searchEmptyRoom(String tenPhong) {
 		
 		StringBuilder builder = new StringBuilder();
 		builder.append("select r from RoomModel r ");
 		builder.append("where r.trangThai = :trangThai and r.tenPhong like :tenPhong");
 		
-		return rentDAO.search(tenPhong, trangThai, builder.toString());
+		return rentDAO.search(tenPhong, Constants.ROOM_EMPTY, builder.toString());
 	}
 	
-	public List<?> searchRentedRoom(String tenPhong, int trangThai) {
+	public List<?> searchRentedRoom(String tenPhong) {
 		
 		StringBuilder builder = new StringBuilder();
 		builder.append("select r from RentedRoomModel r ");
 		builder.append("where r.trangThai = :trangThai and r.room.tenPhong like :tenPhong");
 		
-		return rentDAO.search(tenPhong, trangThai, builder.toString());
+		return rentDAO.search(tenPhong, Constants.RENTING, builder.toString());
 	}
 	
-	public RoomModel getRoomByID(String maPhong) {
+	public RentedRoomModel getRentedInfoByRoomID(String maPhong) {
 		
-		return roomDAO.getRoomByID(maPhong);
+		StringBuilder builder = new StringBuilder();
+		builder.append("select r from RentedRoomModel r ");
+		builder.append("where r.trangThai = :trangThai and r.maPhong = :maPhong");
+		
+		return rentDAO.getRentedInfoByRoomID(maPhong, Constants.RENTING, builder.toString());
 	}
 	
 //	public int rent(String maPhong, String cmnd) {

@@ -33,7 +33,7 @@
                 <div class="cardBox">                   
                     <div class="search">
                         <label>
-                            <input type="text" placeholder="Tìm kiếm phòng" id="txtSearch">
+                            <input type="text" placeholder="Tìm theo tên phòng" id="txtSearch">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
@@ -126,7 +126,7 @@
                     <div class="cardHeader">
                         <h2>Thông tin khách hàng</h2>
                     </div>
-                    <div class="page-info">
+                    <div class="page-info" id="customerInfo">
                         <div class="field field_v1">
                             <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
                             <input name="tenKH" id="txtName" class="field__input" placeholder="vd: Thái Bá Tường" disabled>
@@ -195,17 +195,16 @@
                     <table border="1" class="content-table">
                         <thead>
                             <tr>
-                                <td>STT</td>
                                 <td>Phòng</td>
                                 <td>Số ngày</td>
                                 <td>Ngày nhận phòng</td>
                                 <td>Ngày trả phòng</td>
+                                <td>Giá phòng</td>
                                 <td>Thành tiền</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tbodyRoom">
                             <tr>
-                                <td>1</td>
                                 <td>P101</td>
                                 <td>1</td>
                                 <td>13/05/2001</td>
@@ -228,35 +227,21 @@
                     <table border="1" class="content-table">
                         <thead>
                             <tr>
-                                <td>STT</td>
                                 <td>Tên dịch vụ</td>
                                 <td>Số lượng</td>
                                 <td>Đơn giá</td>
                                 <td>Thành tiền</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Fitness</td>
-                                <td>1</td>
-                                <td>15000</td>
-                                <td>15000</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>Tổng tiền: </td>
-                                <td>15000</td>
-                            </tr>
+                        <tbody id="tbodyService">
+                            
                         </tbody>
                     </table>
                 </div>
                 <p class="tp" >---------------Tổng thanh toán--------------</p>
                 <div class="middle4">
                     <table class="content-table">
-                        <tbody>
+                        <tbody id="thanhToan">
                             <tr>
                                 <td></td>
                                 <td></td>

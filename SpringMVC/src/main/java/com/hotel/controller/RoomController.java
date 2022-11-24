@@ -59,6 +59,20 @@ public class RoomController {
 	}
     
     /**
+     * phuong thuc lay tat ca phong chua bi xoa
+     * 
+     * @return
+     */
+    @RequestMapping("/Room/GetAllRoomNoDeleted")
+	public @ResponseBody List<RoomModel> getAllRoomNoDeleted() {
+			
+    	// lay danh sach tat ca phong
+    	List<RoomModel> roomList = roomService.getAllRoomNoDeleted();
+		
+		return roomList;
+	}
+    
+    /**
      * phuong thuc lay danh sach phong theo ten
      * 
      * @param searchString kieu String
@@ -67,7 +81,7 @@ public class RoomController {
     @RequestMapping(value = "/Room/Search",
     		method = RequestMethod.GET)
 	public @ResponseBody List<RoomModel> getRoomByName(
-			@RequestParam(name = "searchString")String searchString) {
+			@RequestParam(name = "searchString") String searchString) {
 			 
     	// lay danh sach phong theo ten
     	List<RoomModel> roomList = roomService.getRoomByName(searchString);
@@ -97,8 +111,8 @@ public class RoomController {
 			error = true;
 		}
 		
-		// lay danh sach tat ca phong
-		roomList = roomService.getAllRoom();
+		// lay danh sach tat ca phong chua bi xoa
+		roomList = roomService.getAllRoomNoDeleted();
 		
 		// khoi tao doi tuong Map
 		Map<Object, Object> map = new HashMap<>();
@@ -123,8 +137,8 @@ public class RoomController {
     	// thuc hien xoa phong
     	roomService.removeRoom(maPhong);
     	
-    	// lay danh sach tat ca phong
-    	List<RoomModel> roomList = roomService.getAllRoom();
+    	// lay danh sach tat ca phong chua bi xoa
+    	List<RoomModel> roomList = roomService.getAllRoomNoDeleted();
     	
     	return roomList;
     }
@@ -160,12 +174,5 @@ public class RoomController {
     	List<RoomModel> roomList = roomService.getAllRoom();
     	
     	return roomList;
-    }
-    
-    @RequestMapping(value = "/Room/GetRoomType",
-    		method = RequestMethod.POST)
-    public @ResponseBody List<?> getRoomType() {
-    	
-    	return roomService.getRoomType();
     }
 }

@@ -10,13 +10,8 @@ $(document).on("click", "#btn2", function() {
 	$('.recentSelect').hide()
 })
 
-// button Sử dụng
-$(document).on("click", ".btn-use", function() {
-	$('.recentSelect').show()
-	$('.recentCustomerss').hide()
-	
-	let maDV = $(this).closest("tr").attr("id")
-	$('#maDV').val(maDV)
+$(document).on("click", ".modal-close", function() {
+	$('.using-service-modal').removeClass('open')
 })
 
 // button Thoát
@@ -34,37 +29,6 @@ $(document).on("click", ".js-edit", function() {
 // button Close modal
 $(document).on("click", ".js-modal-close", function() {
 	$('.edit-modal').removeClass('open')
-})
-
-// event chọn khách hàng sử dụng dịch vụ
-$(document).on("click", "#select-customer", function() {
-	
-	let customerIDs = []
-	let usingDates = []
-	let maDV = $('#maDV').val()
-	
-	$("input:checkbox[name=check]:checked").each(function(){
-    	customerIDs.push($(this).val());
-    	usingDates.push($(this).closest("tr").find('.datee').val());
-	});
-	
-	if (customerIDs.length > 0) {
-		$.ajax({
-	        url: `${ctx}/Service/Use`,
-	        type: 'POST',
-	        dataType: 'json',
-	        async: false,
-	        data: {
-				customerIDs: customerIDs,
-				usingDates: usingDates,
-				maDV: maDV
-			}
-		    }).done(function(response) {
-				
-	    })
-	    
-	    $('.recentSelect').hide()
-	}
 })
 
 // event Edit
@@ -243,7 +207,6 @@ function renderAllService(list){
                     <td>${value.giaDV} đ</td>
                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
                     <td><button id="btnDelete" class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                    <td><button class="btn-use">Sử dụng</button></td>
                 </tr>`
 	})
 	

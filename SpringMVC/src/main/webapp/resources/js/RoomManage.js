@@ -3,7 +3,7 @@ eventLoad()
 function eventLoad() {
 	
 	$.ajax({
-        url: 'Room/GetAllRoom',
+        url: 'Room/GetAllRoomNoDeleted',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -187,7 +187,7 @@ $(document).on('keypress', '#txtSearch', function(e) {
 
 $(document).on('click', '#btnViewAll', function (){
 	$.ajax({
-        url: 'Room/GetAllRoom',
+        url: 'Room/GetAllRoomNoDeleted',
         type: 'GET',
         dataType: 'json',
         data: {

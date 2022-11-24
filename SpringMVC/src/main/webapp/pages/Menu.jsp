@@ -100,19 +100,20 @@
                     </div>
                     <div class="recentSelect" id="recentSelect">
 	                    <div class="cardHeader">
-	                        <h2>Chọn khách hàng</h2>
+	                        <h2>Sử dụng dịch vụ</h2>
 	                    </div>
 	                    <div class="page-info">
 	                        <table>
 	                            <thead>
 	                                <tr>
-	                                	<td>Mã KH</td>
-	                                    <td>Tên KH</td>
+	                                	<td>Tên phòng</td>
+	                                    <td>Tên khách hàng</td>
+	                                    <td>Số lượng</td>
 	                                    <td>Ngày sử dụng</td>
 	                                </tr>
 	                            </thead>
-	                            <tbody>
-	                                <tr>
+	                            <tbody id="tbodyUsing">
+	                                <!-- <tr>
 	                                    <td>KH01</td>
 	                                    <td>Thái Bá Tường</td>
 	                                    <td><input class="datee" type="date" id="start" name="ngayDen"
@@ -127,7 +128,7 @@
                                 				 value="2022-07-22"
                                 				 min="2000-01-01" max="2022-12-31"></td>
 	                                    <td><input type="checkbox" class="ckb" name="check" value="KH02"/></td>                                  
-	                                </tr>
+	                                </tr> -->
 	                            </tbody>
 	                        </table>
 	                        <input type="hidden" id="maDV">                                    
@@ -139,7 +140,7 @@
             </div>
         </div>
         <div class="page-service">
-        	<a href="Service.jsp">
+        	<a href="<%= request.getContextPath() %>/System/ServiceUsing">
         		Danh sách dịch vụ đã sử dụng
             	<ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
@@ -167,6 +168,7 @@
             </div>
         </div>
     </div>
+    
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

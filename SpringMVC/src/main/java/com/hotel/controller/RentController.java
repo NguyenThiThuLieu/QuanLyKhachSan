@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hotel.common.Constants;
 import com.hotel.model.CustomerModel;
 import com.hotel.model.RentedRoomModel;
-import com.hotel.model.RoomModel;
 import com.hotel.service.RentService;
+import com.hotel.service.ServiceUsingService;
 
 /**
  * @author Tien
@@ -28,6 +28,9 @@ public class RentController{
 	
 	@Autowired
 	private RentService rentService;
+	
+	@Autowired
+	private ServiceUsingService serviceUsingService;
     
     /**
      * phuong thuc tra ve view
@@ -49,7 +52,7 @@ public class RentController{
     @RequestMapping("/Rent/GetEmptyRoom")
     public @ResponseBody List<?> getEmptyRoom() {
     	
-    	return rentService.getEmptyRoom(Constants.ROOM_EMPTY);
+    	return rentService.getEmptyRoom();
     }
     
     /**
@@ -61,7 +64,23 @@ public class RentController{
     @RequestMapping("/Rent/GetRentedInfo")
     public @ResponseBody List<?> getRentedInfo() {
     	
-    	return rentService.getRentedInfo(Constants.RENTING);
+    	return rentService.getRentedInfo();
+    }
+    
+    @RequestMapping("/Rent/GetInfoCheckOut")
+    public @ResponseBody Object getInfoCheckOut(@RequestParam(name = "maPhong") String maPhong,
+    		@RequestParam(name = "maKH") int maKH) {
+    	
+    	Map<String, Object> map = new HashMap<>();
+    	
+    	RentedRoomModel rentedRoom = rentService.getRentedInfoForPay(maKH, maPhong);
+    	List<?> serviceUsingRoom = serviceUsingService.getServiceUsedForPay(maKH, maPhong);
+    	//List<?> reservationRoomList = rentService.getRentedInfoForPay(maKH, maPhong);
+    	
+    	map.put("rentedRoom", rentedRoom);
+    	map.put("serviceUsingRoom", serviceUsingRoom);
+    	  		
+    	return map;
     }
     
     /**
@@ -73,7 +92,7 @@ public class RentController{
     @RequestMapping("/Rent/CheckOut")
     public @ResponseBody int checkOut(@RequestParam(name = "maPhong") String maPhong) {
     		
-    	return rentService.changeStatus(maPhong, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
+    	return rentService.changeStatus(1, maPhong);
     }
     
     /**
@@ -85,9 +104,9 @@ public class RentController{
     @RequestMapping("/Rent/Search")
     public @ResponseBody Object search(@RequestParam(name = "tenPhong") String tenPhong) {
     	
-    	List<?> emptyRoomList = rentService.searchEmptyRoom(tenPhong, Constants.ROOM_EMPTY);
+    	List<?> emptyRoomList = rentService.searchEmptyRoom(tenPhong);
     	
-    	List<?> rentedRoomList = rentService.searchRentedRoom(tenPhong, Constants.RENTING);
+    	List<?> rentedRoomList = rentService.searchRentedRoom(tenPhong);
     	
     	Map<Object, Object> map = new HashMap<>();
     	
@@ -97,17 +116,18 @@ public class RentController{
     	return map;
     }
     
-    @RequestMapping("/Rent/GetRoom")
-    public @ResponseBody RoomModel getRoomByID(@RequestParam(name = "maPhong") String maPhong) {
-    	
-    	return rentService.getRoomByID(maPhong);
-    }
     @RequestMapping("/Rent/CancelRenting")
     public @ResponseBody int cancelRenting(@RequestParam(name = "maPhong") String maPhong) {
 
-    	return rentService.changeStatus(maPhong, Constants.CANCELED, Constants.ROOM_EMPTY);
+    	return rentService.changeStatus(1, maPhong);
     }
-      
+    
+    @RequestMapping("/Rent/GetRentedInfoByRoomID")
+    public @ResponseBody RentedRoomModel getRentedInfoByRoomID(@RequestParam(name = "maPhong") String maPhong) {
+
+    	return rentService.getRentedInfoByRoomID(maPhong);
+    }
+    
     @RequestMapping("/Rent/RentRoom")
     public @ResponseBody int rent(@ModelAttribute("CustomerModel") CustomerModel customer, 
     		@ModelAttribute("RentedRoomModel") RentedRoomModel rentedRoomModel) {

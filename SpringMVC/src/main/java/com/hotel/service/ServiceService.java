@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.hotel.common.Constants;
+import com.hotel.dao.RentDAO;
 import com.hotel.dao.ServiceDAO;
 import com.hotel.model.ServiceModel;
+import com.hotel.model.ServiceUsingModel;
 
 /**
  * @author Tien
@@ -136,30 +138,5 @@ public class ServiceService {
 		}
 				
 		return isUnique;
-	}
-	
-	/**
-     * phuong thuc su dung dich vu
-     * 
-     * @param customerIDs kieu <code>String[]</code>
-     * @param usingDates kieu <code>String[]</code>
-     * @param maDV kieu <code>String</code>
-     */
-	public void useService(String[] customerIDs, String[] usingDates, String maDV) {
-		
-		int builderLength = 0;
-		
-		StringBuilder builder = new StringBuilder();
-		builder.append("insert into sddv(MaDV, MaKH, NgaySD) values");
-		
-		for (String customerID : customerIDs) {
-			builder.append(String.format("(:maDV%s, :maKH%s, :ngaySD%s),", customerID, customerID, customerID));
-		}
-		
-		builderLength = builder.length();
-		
-		builder.replace(builderLength - 1, builderLength, Constants.EMPTY_STRING);
-		
-		serviceDAO.useService(customerIDs, maDV, usingDates, builder.toString());
 	}
 }

@@ -11,14 +11,17 @@ public class Constants {
 	public static int ROOM_EMPTY = 0;
 	public static int ROOM_RENTED = 1;
 	public static int ROOM_CLEAN = 2;
+	public static int ROOM_DELETED = 3;
 	
 	// Trang thai thue phong
 	public static int RENTING = 0;
 	public static int CHECKED_OUT = 1;
 	public static int CANCELED = 2;
-	
-	// So records trên 1 page
-	public static int NUM_RECORD = 5;
+
+	// Trang thai dich vu da su dung
+	public static int U_UNPAID = 0;
+	public static int U_PAID = 1;
+	public static int U_CANCELED = 2;
 	
 	// chuoi rong
 	public static String EMPTY_STRING = "";
@@ -41,4 +44,5 @@ public class Constants {
 	public static String RENT_VIEW = "Room";
 	public static String SYSTEM_VIEW = "System";
 	public static String SERVICE_VIEW = "Menu";
+	public static String SERVICE_USING_VIEW = "Service";
 }

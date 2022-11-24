@@ -2,6 +2,7 @@ package com.hotel.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,16 +31,40 @@ public class ServiceUsingModel implements Serializable {
 	@Id
 	@Column(name = "MaDV")
 	private String maDV;
+	@Id
+	@Column(name = "MaPhong")
+	private String maPhong;
 	@Column(name = "ngaySD")
 	private Date ngaySD;
 	@Column(name = "TrangThai")
 	private int trangThai;
+	@Column(name = "SoLuong")
+	private int soLuong;
 	@ManyToOne
 	@JoinColumn(name="MaKH")
 	private CustomerModel customer;
 	@ManyToOne
 	@JoinColumn(name="MaDV")
 	private ServiceModel service;
+	@ManyToOne
+	@JoinColumn(name="MaPhong")
+	private RoomModel room;
+	
+	public String getMaPhong() {
+		return maPhong;
+	}
+
+	public void setMaPhong(String maPhong) {
+		this.maPhong = maPhong;
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
 
 	public int getMaKH() {
 		return maKH;
@@ -87,5 +112,30 @@ public class ServiceUsingModel implements Serializable {
 
 	public void setService(ServiceModel service) {
 		this.service = service;
+	}
+
+	public RoomModel getRoom() {
+		return room;
+	}
+
+	public void setRoom(RoomModel room) {
+		this.room = room;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(maDV, maKH, maPhong);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ServiceUsingModel other = (ServiceUsingModel) obj;
+		return Objects.equals(maDV, other.maDV) && maKH == other.maKH && Objects.equals(maPhong, other.maPhong);
 	}
 }

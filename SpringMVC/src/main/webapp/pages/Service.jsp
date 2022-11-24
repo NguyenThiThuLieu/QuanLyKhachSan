@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Service.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
     
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/ServiceUsing.js"></script>
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -31,68 +33,39 @@
             <div class="tab-pane active">
                 <div class="cardBoxss">
                     <div class="close">
-                        <a href="./System.jsp">
+                        <a href="<%=request.getContextPath() %>/System/Service">
                             <ion-icon name="arrow-back-outline"></ion-icon>
                         </a>
                     </div>
                     <div class="box_seach">
                         <label>
-                            <input type="text" placeholder="Tìm kiếm nhân viên">
+                            <input type="text" placeholder="Tìm theo tên khách hàng">
                             <ion-icon name="search-outline"></ion-icon>
                         </label>
                     </div>
                     <div class="box_add">
-                        <button id="btn2" class="add">Thêm mới</button>
+                        <button id="btn2" class="add">Sử dụng</button>
                     </div>
                 </div>
                 <div class="details">
                     <div class="recentOrder">
                         <div class="cardHeader">
                             <h2>DANH SÁCH DỊCH VỤ ĐÃ SỬ DỤNG</h2>
-                            <a href="#" class="btn">View All</a>
+                            <button class="btn" id="btnViewAll">View All</button>
                         </div>
                         <table>
                             <thead>
                                 <tr>
                                 	<td>Mã KH</td>
                                     <td>Tên khách hàng</td>
+                                    <td>Tên phòng</td>
                                     <td>Tên dịch vụ</td>
+                                    <td>Số lượng</td>
                                     <td>Trạng thái</td>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>KH01</td>
-                                    <td>Mai Anh Bắc</td>
-                                    <td>Massage</td>
-                                    <td class="status-yes">Đã thanh toán</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>KH02</td>
-                                    <td>Thái Bá Tường</td>
-                                    <td>Fitness</td>
-                                    <td class="status-false">Chưa thanh toán</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>KH03</td>
-                                    <td>Nguyễn Thị Thu Liễu</td>
-                                    <td>Tắm suối nước nóng</td>
-                                    <td class="status-yes">Đã thanh toán</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
-                                <tr>
-                                    <td>KH04</td>
-                                    <td>Trần Ngọc Tiền</td>
-                                    <td>Bar</td>
-                                    <td class="status-false">Chưa thanh toán</td>
-                                    <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                                    <td><button class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-                                </tr>
+                            <tbody id="tbody">
+                                
                             </tbody>
                         </table>
                     </div>
@@ -141,33 +114,61 @@
             <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
             <header class="modal-header">CHỈNH SỬA</header>
             <div class="modal-body">
-                <label for="MaKH" class="modal-label">
-                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
-                    Mã KH
-                </label>
-                <input id="MaKH" type="text" class="modal-input" placeholder="KH01">
-                <label for="name" class="modal-label">
-                    <ion-icon name="person-outline" class="modal-icon"></ion-icon>
-                    Tên KH
-                </label>
-                <input id="name" type="text" class="modal-input" placeholder="Tường">
-                <label for="service-name" class="modal-label">
+                <label for="txtTenDVEdit" class="modal-label">
                     <ion-icon name="qr-code-outline" class="modal-icon"></ion-icon>
                     Tên dịch vụ
                 </label>
-                <input id="service-name" type="text" class="modal-input" placeholder="Bar">
-                <label for="status" class="modal-label">
+                <input id="txtTenDVEdit" type="text" class="modal-input">
+                <label for="txtQuantityEdit" class="modal-label">
                     <ion-icon name="cash-outline" class="modal-icon"></ion-icon>
-                    Trạng thái
+                    Số lượng
                 </label>				
-				<div class="wrapper">
-                    <select name="Trangthai" id="Trangthai" class="wrap" style="margin-bottom: 25px;">
-                        <option value="Yes" class="wraptext">Đã thanh toán</option>
-                        <option value="No" class="wraptext">Chưa thanh toán</option>
-                     </select>
-                </div>
+				<input id="txtQuantityEdit" type="text" class="modal-input">
                 <button class="btn-edit">
                     Done
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="using-service-modal js-modal">
+        <div class="modal-container">
+            <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
+            <header class="modal-header">SỬ DỤNG DỊCH VỤ</header>
+            <div class="modal-body">
+                <label for="selPhong" class="modal-label">
+                    <ion-icon name="person-outline" class="modal-icon"></ion-icon>
+                    Phòng
+                </label>
+                <div class="wrapper">
+                    <select name="Trangthai" id="selPhong" class="wrap" style="margin-bottom: 25px;">
+                        
+                     </select>
+                </div>
+                
+                <label for="selDichVu" class="modal-label">
+                    <ion-icon name="person-outline" class="modal-icon"></ion-icon>
+                    Dịch vụ
+                </label>
+                <div class="wrapper">
+                    <select name="dichvu" id="selDichVu" class="wrap" style="margin-bottom: 25px;">
+                        
+                     </select>
+                </div>
+                
+                <label for="txtQuantity" class="modal-label">
+                    <ion-icon name="qr-code-outline" class="modal-icon"></ion-icon>
+                    Số lượng
+                </label>
+                <input id="txtQuantity" type="number" class="modal-input" value="1" min="1">
+                <label for="txtUsingTime" class="modal-label">
+                    <ion-icon name="cash-outline" class="modal-icon"></ion-icon>
+                    Ngày sử dụng
+                </label>
+				<input id="txtUsingTime" type="date" class="modal-input">
+				<input type="hidden" id="txtMaKH">
+                <button class="btn-edit" id="btnUse">
+                    Use
                 </button>
             </div>
         </div>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hotel.common.Constants;
 import com.hotel.model.ServiceModel;
+import com.hotel.model.ServiceUsingModel;
 
 /**
  * @author Tien
@@ -157,34 +158,5 @@ public class ServiceDAO {
 		status = query.executeUpdate();
 		
 		return status;
-	}
-	
-	/**
-	 * phuong thuc su dung dich vu
-	 * 
-	 * @param customerIDs kieu <code>String[]</code>
-	 * @param maDV kieu <code>String</code>
-	 * @param usingDates kieu <code>String[]</code>
-	 * @param queryString kieu <code>String</code>
-	 */
-	public void useService(String[] customerIDs, String maDV, String[] usingDates, String queryString) {
-		
-		// chi so cua mang ngay su dung
-		int i = 0;
-		int status = 0;
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		Query<?> query = session.createSQLQuery(queryString);
-		
-		for (String customerID: customerIDs) {
-			query.setParameter(String.format("maDV%s", customerID), maDV);
-			query.setParameter(String.format("maKH%s", customerID), customerID);
-			query.setParameter(String.format("ngaySD%s", customerID), usingDates[i++]);
-		}
-		
-		//status = query.executeUpdate();
-		
-		//return status;
 	}
 }

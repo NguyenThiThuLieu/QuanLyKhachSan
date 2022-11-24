@@ -1046,7 +1046,7 @@ hr {
     font-weight: 500;
     align-items: center;
   }
-  .edit-modal{
+  .edit-modal, .using-service-modal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -1105,7 +1105,8 @@ hr {
   .modal-icon{
     margin-right: 5px;
   }
-  .edit-modal.open{
+  .edit-modal.open, 
+.using-service-modal.open{
     display: flex;
   }
   .room-icon{
@@ -1138,4 +1139,12 @@ hr {
 	font-size: 20px;
 	color: red;
 }
+#btnViewAll {
+	border: none;
+	padding: 1vh 1vw;
+	font-size: 14px;
+}
 
+#btnViewAll:hover {
+	cursor: pointer;
+}

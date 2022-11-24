@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.common.Constants;
+import com.hotel.model.RentedRoomModel;
 import com.hotel.model.RoomModel;
 
 /**
@@ -30,6 +31,13 @@ public class RoomDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	/**
+	 * lay danh sach tat ca cac phong
+	 * 
+	 * @param trangThai kieu <code>int</code>
+	 * @param queryString kieu <code>String</code>
+	 * @return
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List getAllRoom(String queryString) {
 		
@@ -46,20 +54,45 @@ public class RoomDAO {
 	}
 	
 	/**
-	 * phuong thuc lay phong theo ma phong
+	 * lay danh sach tat ca cac phong chua bi xoa
 	 * 
-	 * @param tenPhong kieu String
-	 * @param queryString kieu String
+	 * @param trangThai kieu <code>int</code>
+	 * @param queryString kieu <code>String</code>
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List getRoomByName(String searchString, String queryString) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List getAllRoomNoDeleted(int trangThai, String queryString) {
 		
 		// lay session tu sessionFactory
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		// tao query
 		Query query = session.createQuery(queryString);
+		query.setParameter("trangThai", trangThai);
+		
+		// execute query, phan trang
+		List<RoomModel> roomList = query.list();
+		
+		return roomList;
+	}
+	
+	/**
+	 * phuong thuc lay phong chua bi xoa theo ma phong
+	 * 
+	 * @param tenPhong kieu <code>String</code>
+	 * @param trangThai kieu <code>int</code>
+	 * @param queryString kieu <code>String</code>
+	 * @return
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List getRoomByName(String searchString, int trangThai, String queryString) {
+		
+		// lay session tu sessionFactory
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		// tao query
+		Query query = session.createQuery(queryString);
+		query.setParameter("trangThai", trangThai);
 		
 		// Xu ly tham so neu searchString khong rong
 		if (null != searchString && !Constants.EMPTY_STRING.equals(searchString.trim())) {
@@ -108,10 +141,11 @@ public class RoomDAO {
 	 * phuong thuc xoa phong 
 	 * 
 	 * @param maPhong kieu String
+	 * @param trangThai kieu int
 	 * @param queryString kieu String
 	 */
 	@SuppressWarnings("rawtypes")
-	public int removeRoom(String maPhong, String queryString) {
+	public int removeRoom(String maPhong, int trangThai, String queryString) {
 		
 		// trang thai cua viec thuc thi query
 		int status = 0;
@@ -121,7 +155,7 @@ public class RoomDAO {
 		
 		// tao query
 		Query query = session.createQuery(queryString);
-		
+		query.setParameter("trangThai", trangThai);
 		query.setParameter("maPhong", maPhong);
 		
 		// execute query
@@ -163,18 +197,19 @@ public class RoomDAO {
 	 * phuong thuc lay phong theo ma phong
 	 * 
 	 * @param maPhong kieu String
+	 * @param trangThai kieu int
 	 * @param queryString kieu String
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
-	public RoomModel getRoom(String maPhong, String queryString) {
+	public RoomModel getRoom(String maPhong, int trangThai, String queryString) {
 		
 		// lay session tu sessionFactory
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		// tao query
 		Query query = session.createQuery(queryString);
-		
+		query.setParameter("trangThai", trangThai);
 		query.setParameter("maPhong", maPhong);
 		
 		// execute query
