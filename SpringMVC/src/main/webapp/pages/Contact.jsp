@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div></div>
         <div>Loading Content!</div>
-    </div>
+    </div> -->
     
     <header>
         <input type="checkbox" id="toggle-check">

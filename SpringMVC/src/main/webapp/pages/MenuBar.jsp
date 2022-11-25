@@ -54,7 +54,7 @@
                     </a>
                 </li>-->
                 <li>
-                    <a href="Login.jsp">
+                    <a href="./pages/Login.jsp">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span class="title">ĐĂNG XUẤT</span>
                     </a>
