@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Home.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Customer.js"></script>
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -18,7 +23,7 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h3>QUẢN LÍ KHÁCH HÀNG</h3>
+                <h2>QUẢN LÍ KHÁCH HÀNG</h2>
             </div>
             <!-- <div class="search">
                 <label>
@@ -35,162 +40,77 @@
 	                <div class="cardBox">
 	                    <div class="search">
 	                        <label>
-	                            <input type="text" placeholder="Tìm kiếm khách hàng">
+	                            <input type="text" name="txtSearch" id="txtSearch" placeholder="Tìm kiếm khách hàng">
 	                            <ion-icon name="search-outline"></ion-icon>
 	                        </label>
 	                    </div>
 	                    <div class="search">
 	                        <button id="btn2" class="info-view-info">Thêm mới</button>
 	                    </div>
+	                    <div>
+                    	<span class="errorMessage" id="errorMessage">${errorMessage}</span>
+                    	</div>
 	                </div>
 	            <div class="details">
 	                <div class="recentOrder">
 	                    <div class="cardHeader">
-	                        <h2>Bảng khách hàng</h2>
-	                        <a href="#" class="btn">View All</a>
+	                        <h2></h2>
+	                        <a href="#" id="btnViewAll" class="btn">View All</a>
 	                    </div>
 	                    <table>
 	                        <thead>
 	                            <tr>
-	                                <td>Mã khách hàng</td>
-	                                <td>Tên khách hàng</td>
+	                                <td>ID</td>
+	                                <td>Họ tên</td>
 	                                <td>Số điện thoại</td>
 	                                <td>CMND/CCCD</td>
-	                                <td>Quê Quán</td>
+	                                <td>Quốc tịch</td>
 	                                <td></td>
 	                                <td></td>
 	                            </tr>
 	                        </thead>
-	                        <tbody>
-	                            <tr>
-	                                <td>001</td>
-	                                <td>Thái Bá Tường</td>
-	                                <td>xxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status delivered">Quy Nhơn</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                            <tr>
-	                                <td>002</td>
-	                                <td>Nguyễn Thị Thu Liễu</td>
-	                                <td>xxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status pending">Quy Nhơn</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                            <tr>
-	                                <td>003</td>
-	                                <td>Mai Anh Bắc</td>
-	                                <td>xxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status return">Gia Lai</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                            <tr>
-	                                <td>004</td>
-	                                <td>Nguyễn Văn A</td>
-	                                <td>xxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status inprogress">Tuy Phước</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                            <tr>
-	                                <td>005</td>
-	                                <td>Trần Ngọc tiền</td>
-	                                <td>xxxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status delivered">Quy Nhơn</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                            <tr>
-	                                <td>005</td>
-	                                <td>Trần Ngọc tiền</td>
-	                                <td>xxxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status delivered">Quy Nhơn</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                            <tr>
-	                                <td>005</td>
-	                                <td>Trần Ngọc tiền</td>
-	                                <td>xxxxx</td>
-	                                <td>xxxx</td>
-	                                <td><span class="status delivered">Quy Nhơn</span></td>
-	                                <td><button class="room-icon js-edit btnEdit">
-	                                    		<ion-icon class="edit-icon" name="construct-outline"></ion-icon>
-	                                    </button>
-	                                </td>
-	                               	<td><button class="room-icon btnDelete"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
-	                            </tr>
-	                        </tbody>
+	                        <tbody id="tbody">
+	                        
+	                       </tbody>
 	                    </table>
 	                </div>
 	                <div class="recentCustomerss" id="recentCustomerss">
-	                    <div class="cardHeader">
+	             <!--     <form action="insertCustomer" method="post"> -->
+                       <div class="cardHeader">
 	                        <h2>Thêm mới</h2>
-	                        <button class="snip1457">Lưu</button>
+	                        <button class="snip1457" id="btnSave">Lưu</button>
 	                    </div>
 	                    <div class="page">
 	                        <div class="field field_v1">
-	                            <label for="first-name" class="ha-screen-reader">Mã khách hàng</label>
-	                            <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
-	                            <span class="field__label-wrap" aria-hidden="true">
-	                              <span class="field__label">Mã khách hàng</span>
-	                            </span>
-	                          </div>
-	                        <div class="field field_v1">
 	                          <label for="first-name" class="ha-screen-reader">Họ và tên khách hàng</label>
-	                          <input id="first-name" class="field__input" placeholder="vd: Thái Bá Tường">
+	                          <input name="tenKH" id="tenKH" class="field__input" placeholder="vd: Thái Bá Tường">
 	                          <span class="field__label-wrap" aria-hidden="true">
 	                            <span class="field__label">Họ và tên khách hàng</span>
 	                          </span>
 	                        </div>
 	                        <div class="field field_v2">
 	                          <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-	                          <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+	                          <input name="sdt" id="sdt"  class="field__input" placeholder="034xxxxxxx">
 	                          <span class="field__label-wrap" aria-hidden="true">
 	                            <span class="field__label">Số điện thoại</span>
 	                          </span>
 	                        </div>
 	                        <div class="field field_v2">
-	                            <label for="last-name" class="ha-screen-reader">Số điện thoại</label>
-	                            <input id="last-name"  class="field__input" placeholder="034xxxxxxx">
+	                            <label for="last-name" class="ha-screen-reader">CMND</label>
+	                            <input name="cmnd" id="cmnd"   class="field__input" placeholder="xxxxxxxx">
 	                            <span class="field__label-wrap" aria-hidden="true">
 	                              <span class="field__label">CMND/CCCD</span>
 	                            </span>
 	                          </div>    
 	                        <div class="field field_v3">
-	                          <label for="email" class="ha-screen-reader">Quê quán</label>
-	                          <input id="email" class="field__input" placeholder="info@gmail.com">
+	                          <label for="queQuan" class="ha-screen-reader">Quốc tịch</label>
+	                          <input name="quocTich" id="quocTich"  class="field__input" placeholder="Việt Nam">
 	                          <span class="field__label-wrap" aria-hidden="true">
-	                            <span class="field__label">Quê quán</span>
+	                            <span class="field__label">Quốc tịch</span>
 	                          </span>
 	                        </div>
 	                    </div>
+	                  <!--  </form> -->
 	                </div>
 	            </div>
 	        </div>
@@ -200,38 +120,44 @@
         <div class="modal-container">
             <div class="modal-close js-modal-close"><ion-icon name="close-outline"></ion-icon></div>
             <header class="modal-header">CHỈNH SỬA</header>
-            <div class="modal-body">
+            <div class="modal-body" id="updateCustomer">
+                <label for="name" class="modal-label">
+                    <ion-icon name="text-outline" class="modal-icon"></ion-icon>
+                    Mã khách hàng
+                  </label>
+             
+              <input id="maKHup" name="maKHup" type="text" class="modal-input" value="${customer.maKH}" readonly>
+
                 <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
                     Tên khách hàng
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Tên khách hàng">
+                <input id="tenKHup" name="tenKHup" type="text" class="modal-input" value="${customer.tenKH}">
 
                  <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
                     Số điện thoại
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Số điện thoại">
+                <input id="sdtup" name="sdtup" type="text" class="modal-input" value="${customer.sdt}">
                 
                 <label for="name" class="modal-label">
                     <ion-icon name="cash-outline"></ion-icon>
                     CMND/CCDD
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="CMND/CCDD">
+                <input id="cmndup" name="cmndup" type="text" class="modal-input" value="${customer.cmnd}" readonly>
                 
                 <label for="name" class="modal-label">
                     <ion-icon name="cash-outline"></ion-icon>
-                    Quê quán
+                    Quốc tịch
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Quê quán">
+                <input id="quocTichup" name="quocTichup" type="text" class="modal-input" value="${customer.quocTich}">
                 
-                <button class="btn-edit">
+                <button name="btnUpdate" id="btnUpdate" class="btn-edit">
                     Done
-                </button>
+                </button>              
             </div>
         </div>
     </div>
-
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -268,6 +194,7 @@
         const editBtns = document.querySelectorAll('.js-edit')
         const modal = document.querySelector('.js-modal')
         const modalClose = document.querySelector('.js-modal-close')
+        var element = "22";//document.getElementById('biencmnd')
         
         function showedit(){
             modal.classList.add('open')
@@ -281,6 +208,9 @@
         }
         modalClose.addEventListener('click', hideShowedit)
 
+    </script>
+    <script>
+    	
     </script>
 </body>
 </html>

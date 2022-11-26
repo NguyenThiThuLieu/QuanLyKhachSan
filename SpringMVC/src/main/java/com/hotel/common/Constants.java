@@ -7,6 +7,9 @@ package com.hotel.common;
  */
 public class Constants {
 	
+	public static final String EMTY_STRING = "";
+	public static final boolean CUSTOMER_NORMAL = false;
+	public static final boolean EMPLOYEE_NORMAL = true;
 	// Trang thai phong
 	public static int ROOM_EMPTY = 0;
 	public static int ROOM_RENTED = 1;

@@ -1,6 +1,8 @@
 // context path
 var ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
+/*INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `NgaySinh`, `GioiTinh`, `SDT`, `MatKhau`, `ChucVu`, `Luong`, `TinhTrang`) VALUES ('Nv3', 'Tiền', '2001-01-29', '0', '0378924257', '11111', 'Tạp vụ', '5000000', '1')
+*/
 $( document ).ready(function() {
 	getRoomEmpty()
 })

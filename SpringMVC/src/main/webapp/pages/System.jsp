@@ -47,7 +47,7 @@
                         </a>
                     </div>
                     <div class="carddd">
-                        <a href="./pages/Member.jsp" class="hethong">
+                        <a href="<%= request.getContextPath() %>/Employee" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="file-tray-outline"></ion-icon>
                                 <hr>
@@ -59,7 +59,7 @@
                         </a>
                     </div>
                     <div class="carddd">
-                        <a href="<%= request.getContextPath() %>/System/Service" class="hethong">
+                        <a href="<%= request.getContextPath() %>/Service" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="bookmark-outline"></ion-icon>
                                 <hr>

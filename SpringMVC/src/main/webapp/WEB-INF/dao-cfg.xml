@@ -49,5 +49,23 @@
  	<property name="serviceUsingDAO" ref="serviceUsingDAO"></property>
  	<property name="rentDAO" ref="rentDAO"></property>
  </bean>
-
+ 
+  <!--  Customer -->
+  <!-- Customer -->
+ <bean id="customerDAO" class="com.hotel.dao.CustomerDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
+ 
+ <bean id="customerService" class="com.hotel.service.CustomerService">
+ 	<property name="customerDAO" ref="customerDAO"></property>
+ </bean>
+ 
+ <!-- Employee -->
+ <bean id="employeeDAO" class="com.hotel.dao.EmployeeDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
+ 
+ <bean id="employeeService" class="com.hotel.service.EmployeeService">
+ 	<property name="employeeDAO" ref="employeeDAO"></property>
+ </bean>
 </beans>

@@ -23,7 +23,7 @@ public class CustomerModel implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="MaKH")
-	private String maKH;
+	private int maKH;
 	@Column(name="TenKH")
 	private String tenKH;
 	@Column(name="CMND")
@@ -33,13 +33,13 @@ public class CustomerModel implements Serializable {
 	@Column(name="QuocTich")
 	private String quocTich;
 	@Column(name="VIP")
-	private String vip;
+	private boolean vip;
 	
-	public String getMaKH() {
+	public int getMaKH() {
 		return maKH;
 	}
 
-	public void setMaKH(String maKH) {
+	public void setMaKH(int maKH) {
 		this.maKH = maKH;
 	}
 
@@ -75,11 +75,11 @@ public class CustomerModel implements Serializable {
 		this.quocTich = quocTich;
 	}
 
-	public String getVip() {
+	public boolean getVip() {
 		return vip;
 	}
 
-	public void setVip(String vip) {
+	public void setVip(boolean vip) {
 		this.vip = vip;
 	}
 }

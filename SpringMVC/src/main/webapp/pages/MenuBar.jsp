@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Customer.jsp" class="title2">
+                    <a href="<%= request.getContextPath() %>/Customer" class="title2">
                         <span class="icon"><ion-icon name="man-outline"></ion-icon></span>
                         <span class="title">QUẢN LÍ KHÁCH HÀNG</span>
                     </a>
