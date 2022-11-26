@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div></div>
         <div>Loading Content!</div>
-    </div>
+    </div> -->
     
     <header>
         <input type="checkbox" id="toggle-check">
@@ -59,13 +59,13 @@
                 <h1>What the Guests Say</h1>
 
                 <article>
-                    <div class="image"><img src="../img/Yoonaa.jpg" alt="Dylan-Moran"></div>
+                    <div class="image"><img src="../resources/img/Yoonaa.jpg" alt="Dylan-Moran"></div>
                     <p>Everybody is corrupted by hotel rooms. You can't help it. It's the only place in the world where
                         you walk in and the first thing you do is steal everything before you take your coat off.</p>
                 </article>
 
                 <article>
-                    <div class="image"><img src="../img/Lee-Jong-Suk.jpg" alt="George-Yeo"></div>
+                    <div class="image"><img src="../resources/img/Lee-Jong-Suk.jpg" alt="George-Yeo"></div>
                     <p>What we need are individuals and families who feel a responsibility to help build and to help run
                         the hotel. When that happens the hotel becomes a home.</p>
                 </article>
