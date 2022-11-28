@@ -75,10 +75,15 @@ public class RentService {
 		if (flag == 0) {
 			status = changeStatusForRented(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
 		} else {
-			status = changeStatusForReservation(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
+			status = changeStatusPayForReservation(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
 		}
 		
 		return status;
+	}
+	
+	public int changeStatusForRentRoom(String roomID) {
+		
+		return changeStatusForRented(roomID, Constants.RENTING, Constants.ROOM_RENTED);
 	}
 
 	public int changeStatusForRented(String roomID, int trangThaiThue, int trangThaiPhong) {
@@ -87,12 +92,12 @@ public class RentService {
 		
 		builder.append("UPDATE thuephong as rr, phong as r ");
 		builder.append("SET rr.TrangThai = :activityStatus, r.TrangThai = :roomStatus ");
-		builder.append("WHERE rr.MaPhong = r.MaPhong and rr.MaPhong = :roomID ");
+		builder.append("WHERE rr.MaPhong = r.MaPhong and rr.MaPhong = :roomID");
     	
     	return rentDAO.changeStatus(roomID, trangThaiThue, trangThaiPhong, builder.toString());
     }
 	
-	public int changeStatusForReservation(String roomID, int trangThaiThue, int trangThaiPhong) {
+	public int changeStatusPayForReservation(String roomID, int trangThaiThue, int trangThaiPhong) {
 		
     	StringBuilder builder = new StringBuilder();
 		

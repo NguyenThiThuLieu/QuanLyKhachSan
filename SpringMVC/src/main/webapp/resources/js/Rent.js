@@ -161,8 +161,10 @@ $(document).on("click", ".btn-thue", function(e){
 	$('#recentHotels').hide()
 	
 	let maPhong = $(this).closest(".tab-item").attr("id")
+	let tenPhong = $(this).closest(".tab-item").find('.tenPhong').text()
 	
 	$('#maPhongPost').val(maPhong)
+	$('#phongThue').val(tenPhong)
 })
 
 $(document).on("click", '#btnRent', function(e) {
@@ -193,40 +195,42 @@ $(document).on("click", '#btnRent', function(e) {
 			maPhong: maPhong,
 			vip: 0
 		}
-    }).done(function(response) {        
+    }).done(function(response) {     
+    	   getRentedRoom()
+    	   getRoomEmpty()
 		$('#recentCustomerss').hide()
     })
 })
 
 function renderCustomer(customer) {
 	let html = `<div class="field field_v1">
-                        <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
-                        <input name="tenKH" id="txtName" class="field__input" value="${customer.tenKH}" disabled>
-                        <span class="field__label-wrap" aria-hidden="true">
-                          <span class="field__label">Họ và tên khách hàng</span>
-                        </span>
-                      </div>
-                      <div class="field field_v2">
-                        <label for="txtSDT" class="ha-screen-reader">Số điện thoại</label>
-                        <input name="sdt" id="txtSDT"  class="field__input" value="${customer.sdt}" disabled>
-                        <span class="field__label-wrap" aria-hidden="true">
-                          <span class="field__label">Số điện thoại</span>
-                        </span>
-                      </div>    
-                      <div class="field field_v3">
-                        <label for="txtCMND" class="ha-screen-reader">CMND</label>
-                        <input name="cmnd" id="txtCMND" class="field__input" value="${customer.cmnd}" disabled>
-                        <span class="field__label-wrap" aria-hidden="true">
-                          <span class="field__label">CMND</span>
-                        </span>
-                      </div>
-                      <div class="field field_v3">
-                          <label for="txtQuocTich" class="ha-screen-reader">Quốc tịch</label>
-                          <input name="quocTich" id="txtQuocTich" class="field__input" value="${customer.quocTich}" disabled>
-                          <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Quốc tịch</span>
-                          </span>
-                      </div>`
+	                <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
+	                <input name="tenKH" id="txtName" class="field__input" value="${customer.tenKH}" disabled>
+	                <span class="field__label-wrap" aria-hidden="true">
+	                  <span class="field__label">Họ và tên khách hàng</span>
+	                </span>
+	              </div>
+	              <div class="field field_v2">
+	                <label for="txtSDT" class="ha-screen-reader">Số điện thoại</label>
+	                <input name="sdt" id="txtSDT"  class="field__input" value="${customer.sdt}" disabled>
+	                <span class="field__label-wrap" aria-hidden="true">
+	                  <span class="field__label">Số điện thoại</span>
+	                </span>
+	              </div>    
+	              <div class="field field_v3">
+	                <label for="txtCMND" class="ha-screen-reader">CMND</label>
+	                <input name="cmnd" id="txtCMND" class="field__input" value="${customer.cmnd}" disabled>
+	                <span class="field__label-wrap" aria-hidden="true">
+	                  <span class="field__label">CMND</span>
+	                </span>
+	              </div>
+	              <div class="field field_v3">
+	                  <label for="txtQuocTich" class="ha-screen-reader">Quốc tịch</label>
+	                  <input name="quocTich" id="txtQuocTich" class="field__input" value="${customer.quocTich}" disabled>
+	                  <span class="field__label-wrap" aria-hidden="true">
+	                    <span class="field__label">Quốc tịch</span>
+	                  </span>
+	              </div>`
 	$('#customerInfo').empty()
 	$('#customerInfo').append(html)
 }
@@ -410,7 +414,7 @@ function renderEmptyRoom(list){
 
 		emptyRoom += `<div class="tab-item" id="${value.maPhong}">                                                                            
                         <div class="tab-item-first">
-                            ${value.tenPhong}
+                            <span class="tenPhong">${value.tenPhong}</span>
                             <button class="btn-thue">Thuê</button>
                         </div>
                         <div class="tab-item-second">

@@ -72,6 +72,13 @@
                         <h2>Thuê phòng</h2>
                     </div>
                     <div class="page">
+                    	<div class="field field_v1">
+                          <label for="phongThue" class="ha-screen-reader">Phòng thuê</label>
+                          <input name="" id="phongThue" class="field__input" disabled="disabled">
+                          <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Thuê phòng</span>
+                          </span>
+                        </div>
                         <div class="field field_v1">
                           <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
                           <input name="tenKH" id="txtName" class="field__input" placeholder="vd: Thái Bá Tường">
@@ -165,6 +172,9 @@
             </div>      
         </div>
     </div>
+    
+    <input type="hidden" id="maPhongPost">
+    <input type="hidden" id="maKHPost">
     
     <div class="bill-modal js-modal">
         <div class="bill-container">

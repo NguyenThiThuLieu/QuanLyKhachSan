@@ -149,6 +149,8 @@ public class RentController{
     	
     	customer = customerService.getCustomer(customerPost.getCmnd());
     	
+    	rentService.changeStatusForRentRoom(rentedRoomModel.getMaPhong());
+    	
     	return rentService.rent(customer, rentedRoomModel);
     }
 }
