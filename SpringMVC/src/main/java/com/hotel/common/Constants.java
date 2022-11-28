@@ -48,4 +48,5 @@ public class Constants {
 	public static String SYSTEM_VIEW = "System";
 	public static String SERVICE_VIEW = "Menu";
 	public static String SERVICE_USING_VIEW = "Service";
+	public static String LOGIN_VIEW = "Login";
 }

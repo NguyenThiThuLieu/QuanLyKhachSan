@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,7 +22,6 @@ public class RentedRoomModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "MaKH")
 	private int maKH;
 	@Column(name = "NgayDen")
@@ -47,6 +44,9 @@ public class RentedRoomModel implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "MaPhong")
 	private RoomModel room;
+	@ManyToOne
+	@JoinColumn(name = "MaNV")
+	private EmployeeModel employee;
 	
 	public int getMaKH() {
 		return maKH;

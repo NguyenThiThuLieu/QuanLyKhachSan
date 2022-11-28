@@ -27,7 +27,7 @@
             </div>
             <div class="used">
                 <label for="">Chào: </label>
-                <span class="welcome">Admin</span>
+                <span class="welcome">${userName}</span>
             </div>
         </div>
         <div class="topfour">

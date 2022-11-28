@@ -29,7 +29,7 @@
             </div> -->
             <div class="used">
                 <label for="">Chào: </label>
-                <span class="welcome">Admin</span>
+                <span class="welcome">${userName}</span>
             </div>
         </div>
         <div class="topfour">
@@ -47,7 +47,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="carddd">
+                    <div class="carddd" id="remove">
                         <a href="<%= request.getContextPath() %>/Employee" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="file-tray-outline"></ion-icon>

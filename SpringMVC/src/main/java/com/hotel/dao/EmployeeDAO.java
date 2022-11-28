@@ -3,17 +3,13 @@ package com.hotel.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.common.Constants;
-import com.hotel.model.CustomerModel;
 import com.hotel.model.EmployeeModel;
 
 @Repository("customerDAO")

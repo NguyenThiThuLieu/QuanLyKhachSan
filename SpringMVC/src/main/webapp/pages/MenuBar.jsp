@@ -5,7 +5,7 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="<%= request.getContextPath() %>/Home">
                         <i class="fa-solid fa-circle-exclamation"></i>
                         <span class="icon"><ion-icon name="logo-github"></ion-icon></span>
                         <span class="titlee">ATHENA HOTEL</span>
@@ -54,7 +54,7 @@
                     </a>
                 </li>-->
                 <li>
-                    <a href="./pages/Login.jsp">
+                    <a href="<%= request.getContextPath() %>/Logout">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span class="title">ĐĂNG XUẤT</span>
                     </a>
@@ -62,3 +62,5 @@
             </ul>
         </div>
     </div>
+    <input type="hidden" id="chucVu" value="${chucVu eq 'Admin' ? 0 : 1 }">
+	<input type="hidden" id="maNV" value="${maNV }">

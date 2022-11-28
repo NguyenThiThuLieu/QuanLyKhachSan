@@ -1,8 +1,6 @@
 // context path
 var ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
-/*INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `NgaySinh`, `GioiTinh`, `SDT`, `MatKhau`, `ChucVu`, `Luong`, `TinhTrang`) VALUES ('Nv3', 'Tiền', '2001-01-29', '0', '0378924257', '11111', 'Tạp vụ', '5000000', '1')
-*/
 $( document ).ready(function() {
 	getRoomEmpty()
 })
@@ -13,6 +11,10 @@ $(document).on("click",".exit-view", function(e){
 
 $(document).on("click",".exit-room", function(e){
 	$('#recentHotels').hide()
+})
+
+$(document).on("click",".exit-info", function(e){
+	$('#recentCustomerss').hide()
 })
 
 $(document).on("click", ".tab-item-third", function(e){
@@ -34,12 +36,6 @@ $(document).on("click", ".tab-item-third", function(e){
 		$('#recentHotels').hide()
     })
 	
-})
-
-$(document).on("click", ".btn-thue", function(e){
-	$('#recentCustomerss').show()
-	$('#recentPays').hide()
-	$('#recentHotels').hide()
 })
 
 $("#tab-1").click(function(){
@@ -67,6 +63,8 @@ $(document).on("click", "#btn4", function(e){
 	
 	let maPhong = $(this).closest(".tab-item-2").attr("id")
 	let maKH = $(this).closest("tr").attr("id")
+	$('#maKHPost').val(maKH)
+	$('#maPhongPost').val(maPhong)
 	
 	$.ajax({
         url: `Rent/GetInfoCheckOut`,
@@ -77,7 +75,6 @@ $(document).on("click", "#btn4", function(e){
 			maPhong: maPhong
 		}
     }).done(function(response) {
-    	console.log(response)
        	renderModalBill(response)
     })
 	
@@ -87,18 +84,26 @@ $(document).on("click", "#btn4", function(e){
 
 $(document).on("click", "#btnXacNhan", function() {
 	
-	let maPhong = $(this).closest(".tab-item-2").attr("id")
+	let maPhong = $('#maPhongPost').val()
+	let maKH = $('#maKHPost').val()
+	let thanhTien = $('#tongTien').text();
 	
 	$.ajax({
         url: 'Rent/CheckOut',
         type: 'POST',
         dataType: 'json',
         data: {
-			maPhong: maPhong
+			maPhong: maPhong,
+			maKH: maKH,
+			trangThai: 1,
+			thanhTien: thanhTien,
+			ngayThanhToan: new Date()
 		}
     }).done(function(response) {        
        	if(response != 0) {
 			getRentedRoom()
+			
+			$('.bill-modal').removeClass('open')
 		} else {
 			console.log("failed")
 		}
@@ -150,6 +155,16 @@ $('#txtSearch').keypress(function(e) {
 	}
 })
 
+$(document).on("click", ".btn-thue", function(e){
+	$('#recentCustomerss').show()
+	$('#recentPays').hide()
+	$('#recentHotels').hide()
+	
+	let maPhong = $(this).closest(".tab-item").attr("id")
+	
+	$('#maPhongPost').val(maPhong)
+})
+
 $(document).on("click", '#btnRent', function(e) {
 
 	let tenKH = $('#txtName').val()
@@ -159,7 +174,9 @@ $(document).on("click", '#btnRent', function(e) {
 	let vip = $('#txtVIP').val()
 	let startDate = $('#start').val()
 	let endDate = $('#end').val()
-
+	let maNV = $('#maNV').val()
+	let maPhong = $('#maPhongPost').val()
+	
 	$.ajax({
 	    url: 'Rent/RentRoom',
 	    type: 'POST',
@@ -170,40 +187,42 @@ $(document).on("click", '#btnRent', function(e) {
 			cmnd: cmnd,
 			quocTich: quocTich,
 			vip: vip,
-			ngayDen: new Date(startDate).toLocaleDateString(),
-			ngayDi: new Date(endDate).toLocaleDateString()
+			ngayDen: new Date(startDate),
+			ngayDi: new Date(endDate),
+			maNV: maNV,
+			maPhong: maPhong,
+			vip: 0
 		}
     }).done(function(response) {        
-		
+		$('#recentCustomerss').hide()
     })
-
 })
 
 function renderCustomer(customer) {
 	let html = `<div class="field field_v1">
                         <label for="txtName" class="ha-screen-reader">Họ và tên khách hàng</label>
-                        <input name="tenKH" id="txtName" class="field__input" value=${customer.tenKH} disabled>
+                        <input name="tenKH" id="txtName" class="field__input" value="${customer.tenKH}" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
                           <span class="field__label">Họ và tên khách hàng</span>
                         </span>
                       </div>
                       <div class="field field_v2">
                         <label for="txtSDT" class="ha-screen-reader">Số điện thoại</label>
-                        <input name="sdt" id="txtSDT"  class="field__input" value=${customer.sdt} disabled>
+                        <input name="sdt" id="txtSDT"  class="field__input" value="${customer.sdt}" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
                           <span class="field__label">Số điện thoại</span>
                         </span>
                       </div>    
                       <div class="field field_v3">
                         <label for="txtCMND" class="ha-screen-reader">CMND</label>
-                        <input name="cmnd" id="txtCMND" class="field__input" value=${customer.cmnd} disabled>
+                        <input name="cmnd" id="txtCMND" class="field__input" value="${customer.cmnd}" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
                           <span class="field__label">CMND</span>
                         </span>
                       </div>
                       <div class="field field_v3">
                           <label for="txtQuocTich" class="ha-screen-reader">Quốc tịch</label>
-                          <input name="quocTich" id="txtQuocTich" class="field__input" value=${customer.quocTich} disabled>
+                          <input name="quocTich" id="txtQuocTich" class="field__input" value="${customer.quocTich}" disabled>
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Quốc tịch</span>
                           </span>
@@ -313,7 +332,7 @@ function renderModalBill(list) {
 	                    <td></td>
 	                    <td></td>
 	                    <td>Tổng thanh toán: </td>
-	                    <td>${tongTien}</td>
+	                    <td id="tongTien">${tongTien}</td>
 	                    <td></td>
 	                </tr>
 	                <tr>

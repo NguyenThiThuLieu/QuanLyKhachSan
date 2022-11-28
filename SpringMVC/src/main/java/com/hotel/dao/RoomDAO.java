@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.common.Constants;
-import com.hotel.model.RentedRoomModel;
 import com.hotel.model.RoomModel;
 
 /**

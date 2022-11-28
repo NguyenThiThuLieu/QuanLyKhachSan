@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.hotel.common.Constants;
-import com.hotel.dao.RentDAO;
 import com.hotel.dao.ServiceDAO;
 import com.hotel.model.ServiceModel;
-import com.hotel.model.ServiceUsingModel;
 
 /**
  * @author Tien

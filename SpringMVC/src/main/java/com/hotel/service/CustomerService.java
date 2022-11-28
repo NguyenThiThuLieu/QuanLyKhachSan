@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.hotel.common.Constants;
 import com.hotel.dao.CustomerDAO;
 import com.hotel.model.CustomerModel;
-import com.hotel.model.RoomModel;
 
 @Service
 public class CustomerService {

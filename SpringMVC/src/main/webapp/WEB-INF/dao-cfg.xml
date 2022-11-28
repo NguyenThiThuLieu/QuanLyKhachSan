@@ -50,7 +50,6 @@
  	<property name="rentDAO" ref="rentDAO"></property>
  </bean>
  
-  <!--  Customer -->
   <!-- Customer -->
  <bean id="customerDAO" class="com.hotel.dao.CustomerDAO">
  	<property name="sessionFactory" ref="mySessionFactory" />
@@ -68,4 +67,14 @@
  <bean id="employeeService" class="com.hotel.service.EmployeeService">
  	<property name="employeeDAO" ref="employeeDAO"></property>
  </bean>
+ 
+ <!-- Login -->
+ <bean id="loginDAO" class="com.hotel.dao.LoginDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
+ 
+ <bean id="loginService" class="com.hotel.service.LoginService">
+ 	<property name="loginDAO" ref="loginDAO"></property>
+ </bean>
+
 </beans>

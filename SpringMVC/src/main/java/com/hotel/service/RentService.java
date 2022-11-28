@@ -1,11 +1,14 @@
 package com.hotel.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.hotel.common.Constants;
 import com.hotel.dao.RentDAO;
+import com.hotel.model.BillModel;
+import com.hotel.model.CustomerModel;
 import com.hotel.model.RentedRoomModel;
 
 /**
@@ -134,12 +137,21 @@ public class RentService {
 		return rentDAO.getRentedInfoByRoomID(maPhong, Constants.RENTING, builder.toString());
 	}
 	
-//	public int rent(String maPhong, String cmnd) {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append("insert into com.hotel.model.RentedRoomModel values( ");
-//		builder.append("");
-//		builder.append("where maPhong = :maPhong");
-//		
-//		return rentDAO.rent(maPhong, cmnd, builder.toString());
-//	}
+	public int rent(CustomerModel customer, RentedRoomModel rentedRoomModel) {
+		
+		StringBuilder builder = new StringBuilder();
+		builder.append("insert into thuephong values(");
+		builder.append(":maKH,:ngayDen,:ngayDi,:maPhong,:maNV,:trangThai,:ngayThucHien)");
+		
+		
+		rentedRoomModel.setMaKH(customer.getMaKH());
+		rentedRoomModel.setNgayThucHien(new Date());
+
+		return rentDAO.rent(rentedRoomModel, builder.toString());
+	}
+	
+	public void addBill(BillModel billModel) {
+
+		rentDAO.addBill(billModel);
+	}
 }

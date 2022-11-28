@@ -1,6 +1,5 @@
 package com.hotel.model;
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.context.annotation.Primary;
 
 @Entity
 @Table(name = "nhanvien")

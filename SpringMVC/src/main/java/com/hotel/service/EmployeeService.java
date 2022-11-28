@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hotel.common.Constants;
-import com.hotel.dao.CustomerDAO;
 import com.hotel.dao.EmployeeDAO;
-import com.hotel.model.CustomerModel;
 import com.hotel.model.EmployeeModel;
-import com.hotel.model.RoomModel;
 
 @Service
 public class EmployeeService {

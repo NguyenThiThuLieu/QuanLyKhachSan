@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.common.Constants;
+import com.hotel.model.BillModel;
 import com.hotel.model.RentedRoomModel;
 import com.hotel.model.RoomModel;
 
@@ -160,5 +161,37 @@ public class RentDAO {
 		RentedRoomModel customer = (RentedRoomModel) query.getSingleResult();
 		
 		return customer;
+	}
+	
+	public int rent(RentedRoomModel rentedRoomModel, String queryString) {
+		
+		int status = 0;
+		
+		// lay session tu sessionFactory
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		 //tao query
+		Query<?> query = session.createSQLQuery(queryString);
+		
+		query.setParameter("maKH", rentedRoomModel.getMaKH());
+		query.setParameter("ngayDen",rentedRoomModel.getNgayDen());
+		query.setParameter("ngayDi", rentedRoomModel.getNgayDi());
+		query.setParameter("maPhong",rentedRoomModel.getMaPhong());
+		query.setParameter("maNV", rentedRoomModel.getMaNV());
+		query.setParameter("trangThai",rentedRoomModel.getTrangThai());
+		query.setParameter("ngayThucHien",rentedRoomModel.getNgayThucHien());
+		 
+		status = query.executeUpdate();
+		
+		return status;
+	}
+	
+	public void addBill(BillModel billModel) {
+		
+		// lay session tu sessionFactory
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		session.save(billModel);
+		
 	}
 }

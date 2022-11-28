@@ -26,7 +26,7 @@
             </div>
             <<div class="used">
                 <label for="">Chào: </label>
-                <span class="welcome">Admin</span>
+                <span class="welcome">${userName }</span>
             </div>
         </div>
         <div class="topfour">
@@ -101,13 +101,6 @@
                             </span>
                         </div>
                         <div class="field field_v1">
-                            <label for="txtVIP" class="ha-screen-reader">Loại</label>
-                            <input name="vip" id="txtVIP" class="field__input" placeholder="VIP">
-                            <span class="field__label-wrap" aria-hidden="true">
-                              <span class="field__label">VIP</span>
-                            </span>
-                        </div>
-                        <div class="field field_v1">
                             <label for="start" class="date">Start date:</label>
                             <input class="datee" type="date" id="start" name="ngayDen"
                                  value="2022-07-22"
@@ -154,13 +147,6 @@
                               <input name="quocTich" id="txtQuocTich" class="field__input" placeholder="Việt Nam" disabled>
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">Quốc tịch</span>
-                              </span>
-                          </div>
-                          <div class="field field_v3">
-                              <label for="txtVIP" class="ha-screen-reader">Loại</label>
-                              <input name="vip" id="txtVIP" class="field__input" placeholder="VIP" disabled>
-                              <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">VIP</span>
                               </span>
                           </div>
                                                

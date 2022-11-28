@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hotel.common.Constants;
+import com.hotel.model.BillModel;
 import com.hotel.model.CustomerModel;
 import com.hotel.model.RentedRoomModel;
+import com.hotel.service.CustomerService;
 import com.hotel.service.RentService;
 import com.hotel.service.ServiceUsingService;
 
@@ -28,6 +30,9 @@ public class RentController{
 	
 	@Autowired
 	private RentService rentService;
+	
+	@Autowired
+	private CustomerService customerService;
 	
 	@Autowired
 	private ServiceUsingService serviceUsingService;
@@ -90,9 +95,12 @@ public class RentController{
      * @return
      */
     @RequestMapping("/Rent/CheckOut")
-    public @ResponseBody int checkOut(@RequestParam(name = "maPhong") String maPhong) {
+    public @ResponseBody int checkOut(@RequestParam(name = "maPhong") String maPhong,
+    		@ModelAttribute("BillModel") BillModel billModel) {
+    	
+    	rentService.addBill(billModel);
     		
-    	return rentService.changeStatus(1, maPhong);
+    	return rentService.changeStatus(0, maPhong);
     }
     
     /**
@@ -119,7 +127,7 @@ public class RentController{
     @RequestMapping("/Rent/CancelRenting")
     public @ResponseBody int cancelRenting(@RequestParam(name = "maPhong") String maPhong) {
 
-    	return rentService.changeStatus(1, maPhong);
+    	return rentService.changeStatus(0, maPhong);
     }
     
     @RequestMapping("/Rent/GetRentedInfoByRoomID")
@@ -129,9 +137,18 @@ public class RentController{
     }
     
     @RequestMapping("/Rent/RentRoom")
-    public @ResponseBody int rent(@ModelAttribute("CustomerModel") CustomerModel customer, 
+    public @ResponseBody int rent(@ModelAttribute("CustomerModel") CustomerModel customerPost, 
     		@ModelAttribute("RentedRoomModel") RentedRoomModel rentedRoomModel) {
-
-    	return 1;
+    	
+    	CustomerModel customer = customerService.getCustomer(customerPost.getCmnd());
+    	
+    	if (customer == null) {
+    		
+    		customerService.addCustomer(customerPost);
+    	}
+    	
+    	customer = customerService.getCustomer(customerPost.getCmnd());
+    	
+    	return rentService.rent(customer, rentedRoomModel);
     }
 }

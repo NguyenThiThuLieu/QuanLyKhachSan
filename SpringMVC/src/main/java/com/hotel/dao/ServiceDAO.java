@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import com.hotel.common.Constants;
 import com.hotel.model.ServiceModel;
-import com.hotel.model.ServiceUsingModel;
 
 /**
  * @author Tien
