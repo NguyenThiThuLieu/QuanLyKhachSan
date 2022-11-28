@@ -79,8 +79,9 @@
             <div class="search">
                 <h3>CÁCH TÍNH TIỀN</h3>
             </div>
-            <div class="user">
-                <img src="anhbac.jpg">
+            <div class="used">
+                <label for="">Chào: </label>
+                <span class="welcome">Admin</span>
             </div>
         </div>
         <div class="topfour">

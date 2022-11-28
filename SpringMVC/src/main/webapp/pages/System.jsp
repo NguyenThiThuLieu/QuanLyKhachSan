@@ -27,8 +27,9 @@
                     <ion-icon name="search-outline"></ion-icon>
                 </label>
             </div> -->
-            <div class="user">
-                <img src="anhbac.jpg">
+            <div class="used">
+                <label for="">Chào: </label>
+                <span class="welcome">Admin</span>
             </div>
         </div>
         <div class="topfour">
@@ -59,7 +60,7 @@
                         </a>
                     </div>
                     <div class="carddd">
-                        <a href="<%= request.getContextPath() %>/Service" class="hethong">
+                        <a href="<%= request.getContextPath() %>/System/Service" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="bookmark-outline"></ion-icon>
                                 <hr>

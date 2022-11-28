@@ -29,8 +29,9 @@
                     <ion-icon name="search-outline"></ion-icon>
                 </label>
             </div> -->
-            <div class="user">
-                <img src="anhbac.jpg">
+            <div class="used">
+                <label for="">Chào: </label>
+                <span class="welcome">Admin</span>
             </div>
         </div>
         <div class="topfour">
