@@ -23,7 +23,7 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h2>QUẢN LÍ KHÁCH HÀNG</h2>
+                <h3>QUẢN LÍ KHÁCH HÀNG</h3>
             </div>
             <!-- <div class="search">
                 <label>

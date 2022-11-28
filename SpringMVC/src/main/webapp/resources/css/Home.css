@@ -1,10 +1,10 @@
-@import url('http://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 html{
   overflow: auto;
@@ -634,7 +634,7 @@ hr {
     color: #fff;
     cursor: pointer;
     padding: .75em 1.5em;
-    font-size: 1em;
+    font-size: 0.9em;
     height: 42px;
     border: none;
   }
@@ -1147,4 +1147,17 @@ hr {
 
 #btnViewAll:hover {
 	cursor: pointer;
+}
+.field_v2 {
+	display: flex;
+}
+.field_v2 input.ngaysinh {
+	padding: 5px;
+	width: 300px;
+	margin-left: 10px;
+}
+.field_v2 label.date{
+	font-size: 17px;
+	margin-top: 4px;
+	margin-left: 10px;
 }

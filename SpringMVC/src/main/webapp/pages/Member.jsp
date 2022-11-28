@@ -97,35 +97,34 @@
                               </span>
                             </div>
                             <div class="datemember">
-                                <div class="field field_v1">
+                                <div class="field field_v2">
                                    <label for="first-name" class="ha-screen-reader">Ngày sinh</label>
-                                        <label for="start" class="date">Ngày sinh:</label>
-                                    <input class="datee" type="date" id="ngaySinh" name="ngaySinh"  value=""
+                                   <label for="start" class="date">Ngày sinh:</label>
+                                    <input class="ngaysinh" type="date" id="ngaySinh" name="ngaySinh"  value=""
                                  min="1700-01-01" max="2022-12-31">
-                                 
-                              </span>
+     
                                 </div>
                             </div>
-                                <div class="field field_v1">
-                                  
-                                     <div class="wrapper">
-                                   <select id="gioiTinh" name="gioiTinh" class="wrap">
-                                	  <option value="true">Nam</option>
-                                	  <option value="false">Nữ</option>
-                               		</select>
-                               		</div>
+                            <div class="field field_v1">
+                                <div class="wrapper">
+	                                <select id="gioiTinh" name="gioiTinh" class="wrap">
+	                                	<option value="true">Nam</option>
+	                                	<option value="false">Nữ</option>
+	                                </select>
+                               	</div>
                                     
-                                </div>
+                            </div>
                           
-                            <div class="datemember">
-                                <div class="field field_v1">
+                        
+                            	
+                            <div class="field field_v1">
                                     <label for="first-name" class="ha-screen-reader">Số điện thoại</label>
                                     <input id="sdt" name="sdt" class="field__input" placeholder="vd: 03xxx556">
                                     <span class="field__label-wrap" aria-hidden="true">
                                       <span class="field__label">Số điện thoại</span>
                                     </span>
-                                </div>
                             </div>
+                     
                             <div class="field field_v1">
                               <label for="first-name" class="ha-screen-reader">Lương</label>
                               <input id="luong" name="luong" class="field__input" placeholder="vd: 5000000">
