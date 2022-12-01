@@ -22,7 +22,7 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h3>QUẢN LÍ NHÂN VIÊN</h3>
+                <h2>QUẢN LÍ NHÂN VIÊN</h2>
             </div>
             <!-- <div class="search">
                 <label>
@@ -54,7 +54,7 @@
             <div class="details">
                 <div class="recentOrder">
                     <div class="cardHeader">
-                        <h2>DANH SÁCH NHÂN VIÊN</h2>
+                        <h2></h2>
                         <a href="#" id="btnViewAll" class="btn">View All</a>
                     </div>
                     <table>
@@ -62,7 +62,6 @@
                             <tr>
                                 <td>ID</td>
                                 <td>Họ tên</td>
-                                <td>Ngày sinh</td>
                                 <td>Giới tính</td>
                                 <td>SĐT</td>
                                 <td>Chức vụ</td>
@@ -85,7 +84,7 @@
               		<div class="page">
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Mã NV</label>
-                                <input id="maNV" name="maNV" class="field__input" placeholder="vd: NV5">
+                                <input id="maNVAdd" name="maNV" class="field__input" placeholder="vd: NV5">
                                 <span class="field__label-wrap" aria-hidden="true">
                                   <span class="field__label">Mã NV</span>
                                 </span>
@@ -134,7 +133,7 @@
                               </span>
                             </div>
                             <div class="wrapper">
-                                <select id="chucVu" name="chucVu" class="wrap">
+                                <select id="chucVuAdd" name="chucVu" class="wrap">
                                     <option value="Buồng phòng">Buồng phòng</option>
                                     <option value="Quản lý">Quản lý</option>
                                     <option value="Bảo vệ">Bảo vệ</option>

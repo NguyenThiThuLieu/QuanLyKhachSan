@@ -37,14 +37,13 @@ function renderAllEmployee(list){
 	let tbody = ''
 	       	
    	$.each(list, function( key, value ) {
-		var ngaySinh= new Date(value.ngaySinh).toLocaleDateString();
 		var gt;
 		var tt;
 		if (value.gioiTinh == true) {gt="Nam"} else {gt="Nữ"}
 		tbody += ` <tr id="${value.maNV}">
                         <td>${value.maNV}</td>
                         <td>${value.tenNV}</td>
-                        <td>${ngaySinh}</td>
+            
                         <td>${gt}</td>
                         <td>${value.sdt}</td>
                         <td>${value.chucVu}</td>
@@ -79,15 +78,15 @@ function renderAllEmployee(list){
 }
 // Add employee
 $(document).on("click", "#btnSave", function(e){
-	let maNV = $('#maNV').val()
+	let maNV = $('#maNVAdd').val()
 	let tenNV = $('#tenNV').val()
 	let ngaySinh1 = $('#ngaySinh').val()
 	let gioiTinh = $('#gioiTinh').val()
 	let sdt = $('#sdt').val()
-	let chucVu = $('#chucVu').val()
+	let chucVu = $('#chucVuAdd').val()
 	let luong1 = $('#luong').val()
 	let matKhau= "11111"
-	
+	console.log(maNV + "" + tenNV)
 	var ngaySinh= new Date(ngaySinh1).toLocaleDateString();
 	var luong = new Number(luong1);
     if (maNV != '') {
