@@ -95,7 +95,7 @@
                         </div>    
                         <div class="field field_v1">
                           <label for="txtCMND" class="ha-screen-reader">CMND</label>
-                          <input name="cmnd" id="txtCMND" class="field__input" placeholder="056xxxxxxxxxx">
+                          <input name="cmnd" id="txtCMND" class="field__input" placeholder="056xxxxxxxxxx" required>
                           <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">CMND</span>
                           </span>

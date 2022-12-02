@@ -140,16 +140,20 @@ public class RentController{
     public @ResponseBody int rent(@ModelAttribute("CustomerModel") CustomerModel customerPost, 
     		@ModelAttribute("RentedRoomModel") RentedRoomModel rentedRoomModel) {
     	
+    	// lay khac hang theo cmnd
     	CustomerModel customer = customerService.getCustomer(customerPost.getCmnd());
     	
+    	// neu khach hang chua co thi add vao database
     	if (customer == null) {
     		
     		customerService.addCustomer(customerPost);
+    		
+    		// lay lai khach hang sau khi add
+    		customer = customerService.getCustomer(customerPost.getCmnd());
     	}
     	
-    	customer = customerService.getCustomer(customerPost.getCmnd());
-    	
-    	rentService.changeStatusForRentRoom(rentedRoomModel.getMaPhong());
+    	// thue phong
+    	rentService.changeStatusForRoom(rentedRoomModel.getMaPhong(), Constants.ROOM_RENTED);
     	
     	return rentService.rent(customer, rentedRoomModel);
     }

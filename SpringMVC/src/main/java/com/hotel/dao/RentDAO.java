@@ -91,8 +91,20 @@ public class RentDAO {
 		
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query<?> query = session.createSQLQuery(queryString);
+		Query<?> query = session.createQuery(queryString);
 		query.setParameter("activityStatus", activityStatus);
+		query.setParameter("roomID", roomID);
+		
+		int result = query.executeUpdate();
+		
+    	return result;
+    }
+	
+	public int changeStatusForRoom(String roomID, int roomStatus, String queryString) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<?> query = session.createQuery(queryString);
 		query.setParameter("roomStatus", roomStatus);
 		query.setParameter("roomID", roomID);
 		

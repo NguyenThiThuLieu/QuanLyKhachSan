@@ -73,8 +73,10 @@ public class RentService {
 		int status = 0;
 		
 		if (flag == 0) {
+			changeStatusForRoom(roomID, Constants.ROOM_EMPTY);
 			status = changeStatusForRented(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
 		} else {
+			changeStatusForRoom(roomID, Constants.ROOM_EMPTY);
 			status = changeStatusPayForReservation(roomID, Constants.CHECKED_OUT, Constants.ROOM_EMPTY);
 		}
 		
@@ -85,15 +87,24 @@ public class RentService {
 		
 		return changeStatusForRented(roomID, Constants.RENTING, Constants.ROOM_RENTED);
 	}
+	
+	public int changeStatusForRoom(String roomID, int status) {
+		
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append("UPDATE RoomModel r set r.trangThai = :roomStatus where r.maPhong = :roomID");
+		
+		return rentDAO.changeStatusForRoom(roomID, status, builder.toString());
+	}
 
 	public int changeStatusForRented(String roomID, int trangThaiThue, int trangThaiPhong) {
 		
     	StringBuilder builder = new StringBuilder();
 		
-		builder.append("UPDATE thuephong as rr, phong as r ");
-		builder.append("SET rr.TrangThai = :activityStatus, r.TrangThai = :roomStatus ");
-		builder.append("WHERE rr.MaPhong = r.MaPhong and rr.MaPhong = :roomID");
-    	
+		builder.append("UPDATE RentedRoomModel as t ");
+		builder.append("SET t.trangThai = :activityStatus ");
+		builder.append("WHERE t.maPhong = :roomID");
+		
     	return rentDAO.changeStatus(roomID, trangThaiThue, trangThaiPhong, builder.toString());
     }
 	
@@ -101,9 +112,9 @@ public class RentService {
 		
     	StringBuilder builder = new StringBuilder();
 		
-		builder.append("UPDATE datphong as d, phong as r ");
-		builder.append("SET d.TrangThai = :activityStatus, r.TrangThai = :roomStatus ");
-		builder.append("WHERE d.MaPhong = r.MaPhong and d.MaPhong = :roomID ");
+		builder.append("UPDATE ReservationRoomModel as d ");
+		builder.append("SET d.TrangThai = :activityStatus ");
+		builder.append("WHERE d.MaPhong = :roomID ");
     	
     	return rentDAO.changeStatus(roomID, trangThaiThue, trangThaiPhong, builder.toString());
     }
