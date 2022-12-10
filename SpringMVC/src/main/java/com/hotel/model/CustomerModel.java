@@ -35,6 +35,8 @@ public class CustomerModel implements Serializable {
 	@Column(name="VIP")
 	private boolean vip;
 	
+	
+	
 	public int getMaKH() {
 		return maKH;
 	}

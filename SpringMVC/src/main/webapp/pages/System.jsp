@@ -36,7 +36,7 @@
             <div class="tab-pane active">
                 <div class="cardBoxxx">
                     <div class="carddd">
-                        <a href="./pages/Account.jsp" class="hethong">
+                        <a href="<%= request.getContextPath() %>/Account" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="home-outline"></ion-icon>
                                 <hr>

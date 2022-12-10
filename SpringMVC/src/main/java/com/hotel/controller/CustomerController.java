@@ -94,7 +94,6 @@ public class CustomerController {
 	@RequestMapping(value = "/Customer", method = RequestMethod.GET)
 	public ModelAndView customer() {
 
-		
 		List<CustomerModel> list = new ArrayList<>();
 		list = customerService.getAllCustomer();
 

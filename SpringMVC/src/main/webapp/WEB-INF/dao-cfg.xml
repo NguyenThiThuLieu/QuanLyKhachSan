@@ -58,7 +58,14 @@
  <bean id="customerService" class="com.hotel.service.CustomerService">
  	<property name="customerDAO" ref="customerDAO"></property>
  </bean>
+  <!-- OrderRoom -->
+ <bean id="orderDAO" class="com.hotel.dao.OrderDAO">
+ 	<property name="sessionFactory" ref="mySessionFactory" />
+ </bean>
  
+ <bean id="orderService" class="com.hotel.service.OrderService">
+ 	<property name="orderDAO" ref="orderDAO"></property>
+ </bean>
  <!-- Employee -->
  <bean id="employeeDAO" class="com.hotel.dao.EmployeeDAO">
  	<property name="sessionFactory" ref="mySessionFactory" />

@@ -35,6 +35,15 @@ public class EmployeeDAO {
 		return list;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<EmployeeModel> getAllAccount(String queryString) {
+		List<EmployeeModel> list = new ArrayList<>();
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery(queryString);
+		list = query.list();
+		return list;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<EmployeeModel> findById(String queryString) {
 		List<EmployeeModel> list = new ArrayList<>();
@@ -158,6 +167,50 @@ public class EmployeeDAO {
 		return status;
 	}
 
+	@SuppressWarnings("rawtypes")
+	public int editPassword(EmployeeModel employee, String queryString) {
+
+		// trang thai cua viec thuc thi query
+		int status = 0;
+
+		// lay session tu sessionFactory
+		Session session = sessionFactory.getCurrentSession();
+
+		// tao query
+		Query query = session.createQuery(queryString);
+		query.setParameter("maNV", employee.getMaNV());
+		
+		query.setParameter("matKhau", employee.getMatKhau());
+		
+	//	query.setParameter("tinhTrang", employee.isTinhTrang());
+		// execute query
+		status = query.executeUpdate();
+
+		return status;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public int editTrangThai(EmployeeModel employee, String queryString) {
+
+		// trang thai cua viec thuc thi query
+		int status = 0;
+
+		// lay session tu sessionFactory
+		Session session = sessionFactory.getCurrentSession();
+
+		// tao query
+		Query query = session.createQuery(queryString);
+		query.setParameter("maNV", employee.getMaNV());
+		
+		//query.setParameter("matKhau", employee.getMatKhau());
+		
+		query.setParameter("tinhTrang", employee.isTinhTrang());
+		// execute query
+		status = query.executeUpdate();
+
+		return status;
+	}
+	
 	/**
 	 * phuong thuc lay nhan vien theo manv
 	 * 

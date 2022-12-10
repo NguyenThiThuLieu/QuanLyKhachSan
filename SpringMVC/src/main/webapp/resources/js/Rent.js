@@ -87,6 +87,7 @@ $(document).on("click", "#btnXacNhan", function() {
 	let maPhong = $('#maPhongPost').val()
 	let maKH = $('#maKHPost').val()
 	let thanhTien = $('#tongTien').text();
+	console.log(thanhTien)
 	
 	$.ajax({
         url: 'Rent/CheckOut',
@@ -322,14 +323,7 @@ function renderModalBill(list) {
 	                    <td></td>
 	                    <td></td>
 	                    <td>Tổng tiền: </td>
-	                    <td>${tongTien}</td>
-	                    <td></td>
-	                </tr>
-	                <tr>
-	                    <td></td>
-	                    <td></td>
-	                    <td>Trả trước: </td>
-	                    <td>${reservationRoom == null ? 0 : reservationRoom.tienCoc}</td>
+	                    <td id="tongTien">${tongTien}</td>
 	                    <td></td>
 	                </tr>
 	                <tr>

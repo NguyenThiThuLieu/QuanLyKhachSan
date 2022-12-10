@@ -23,12 +23,7 @@
                         <span class="title">THUÊ - TRẢ PHÒNG</span>
                     </a>
                 </li>
-                <li>
-                    <a href="./pages/Order.jsp" class="title2">
-                        <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
-                        <span class="title">ĐẶT PHÒNG</span>
-                    </a>
-                </li>
+               
                 <li>
                     <a href="<%= request.getContextPath() %>/Customer" class="title2">
                         <span class="icon"><ion-icon name="man-outline"></ion-icon></span>

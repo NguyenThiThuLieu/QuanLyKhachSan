@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTEL QUY NHƠN</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
+   <!--  <script src="../js/Home.js"></script> -->
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Home.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Account.js"></script>
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -42,18 +46,18 @@
                     <div class="recentOrder">
                         <div class="cardHeader">
                             <h2>TÀI KHOẢN</h2>
-                            <a href="#" class="btn" id="btn2">View all</a>
+                            <a href="#" class="btn" id="btnViewAll">View all</a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>Tài khoản</td>
-                                    <td>Mật khẩu</td>
+                                    <td>Họ tên</td>
+                                    <td>Chức vụ</td>
                                     <td>Chỉnh sửa</td>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
                                 <tr>
                                     <td>01</td>
                                     <td>tuong001</td>
@@ -101,14 +105,14 @@
                               <label for="first-name" class="ha-screen-reader">Tài khoản</label>
                               <input id="first-name" class="field__input" placeholder="vd: Phòng 201">
                               <span class="field__label-wrap" aria-hidden="true">
-                                <span class="field__label">Tài khoản</span>
+                                <span class="field__label">Mật khẩu hiện tại</span>
                               </span>
                             </div>
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Mật khẩu</label>
                                 <input id="first-name" class="field__input" placeholder="vd: 100000">
                                 <span class="field__label-wrap" aria-hidden="true">
-                                  <span class="field__label">Mật khẩu</span>
+                                  <span class="field__label">Mật khẩu mới</span>
                                 </span>
                             </div>
                         </div>
@@ -126,20 +130,20 @@
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
                     ID
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="ID">
+                <input id="maNVup" type="text" class="modal-input" placeholder="ID">
 
                 <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
-                    Tài khoản
+                   Mật khẩu hiện tại
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Tài khoản">
+                <input id="matKhauht" type="text" class="modal-input" placeholder="Mật khẩu hiện tại">
                
                 <label for="name" class="modal-label">
                     <ion-icon name="text-outline" class="modal-icon"></ion-icon>
-                    Mật khẩu
+                    Mật khẩu mới
                 </label>
-                <input id="name" type="text" class="modal-input" placeholder="Mật khẩu">
-                <button class="btn-edit">
+                <input id="matKhaumoi" type="text" class="modal-input" placeholder="Mật khẩu mới">
+                <button id="btnDone" class="btn-edit">
                     Done
                 </button>
             </div>
@@ -160,21 +164,6 @@
             navigation.classList.toggle('active')
             main.classList.toggle('active')
         }
-
-        // const $ = document.querySelector.bind(document)
-        // const $$ = document.querySelectorAll.bind(document)
-        // const title = $$('.title2')
-        // const panes = $$('.tab-pane')
-        // title.forEach((tab, index)=>{
-        //     const pane = panes[index]
-        //     tab.onclick = function(){
-        //         $('.title2.active').classList.remove('active')
-        //         $('.tab-pane.active').classList.remove('active')
-        //         this.classList.add('active')
-        //         pane.classList.add('active')
-
-        //     }
-        // })
     </script>
      <script>
         const editBtns = document.querySelectorAll('.js-edit')

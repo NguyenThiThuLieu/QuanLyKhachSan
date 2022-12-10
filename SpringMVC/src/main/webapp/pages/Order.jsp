@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Room.css">
     <script src="../js/Home.js"></script>
+     
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Home.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/js/Order.js"></script>
 </head>
 <body>
     <jsp:include page="MenuBar.jsp"/>
@@ -21,7 +25,7 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
             <div class="search">
-                <h3>ĐẶT PHÒNG</h3>
+                <h2>ĐẶT PHÒNG</h2>
             </div>
             <!-- <div class="search">
                 <label>
@@ -50,7 +54,7 @@
                 <div class="details">
                     <div class="recentOrder">
                         <div class="cardHeader">
-                            <h2>DANH SÁCH ĐẶT PHÒNG</h2>
+                            <h2></h2>
                             <a href="#" class="btn">View All</a>
                         </div>
                         <table>
@@ -66,7 +70,7 @@
                                     <td></td>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
                                 <tr> 
                                     <td>KH01</td>
                                     <td>P101</td>
@@ -107,36 +111,7 @@
                                     <td>Chưa biết</td>
                                     <td><button id="btn2" class="info-view">Đặt phòng</button></td>
                                 </tr>
-                                <tr>
-                                    <td>KH05</td>
-                                    <td>P105</td>
-                                    <td>NV105</td>
-                                    <td>23/10/2022</td>
-                                    <td>27/10/2022</td>
-                                    <td>300000đ</td>
-                                    <td>Chưa biết</td>
-                                    <td><button id="btn2" class="info-view">Đặt phòng</button></td>
-                                </tr>
-                                <tr>
-                                    <td>KH06</td>
-                                    <td>P106</td>
-                                    <td>NV106</td>
-                                    <td>23/10/2022</td>
-                                    <td>27/10/2022</td>
-                                    <td>150000đ</td>
-                                    <td>Chưa biết</td>
-                                    <td><button id="btn2" class="info-view">Đặt phòng</button></td>
-                                </tr>
-                                <tr>
-                                    <td>KH07</td>
-                                    <td>P107</td>
-                                    <td>NV101</td>
-                                    <td>23/10/2022</td>
-                                    <td>27/10/2022</td>
-                                    <td>300000đ</td>
-                                    <td>Chưa biết</td>
-                                    <td><button id="btn2" class="info-view">Đặt phòng</button></td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -148,18 +123,18 @@
                         <div class="page">
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Mã khách hàng</label>
-                                <input id="first-name" class="field__input" placeholder="vd: KH01">
+                                <input id="maKH" class="field__input" placeholder="vd: KH01">
                                 <span class="field__label-wrap" aria-hidden="true">
                                   <span class="field__label">Mã khách hàng</span>
                                 </span>
                             </div>
                             <div class="datemember">
                                 <p style="padding: 10px;">Phòng đặt : P101</p>
-                                <!-- <p style="padding: 10px;margin-left: 100px;">Loại phòng : Phòng đơn</p> -->
+                              	 <input id="maPhong" class="field__input" placeholder="vd: KH01">
                             </div>
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Mã nhân viên</label>
-                                <input id="first-name" class="field__input" placeholder="vd: NV01">
+                                <input id="maNV" class="field__input" placeholder="vd: NV01">
                                 <span class="field__label-wrap" aria-hidden="true">
                                   <span class="field__label">Mã nhân viên</span>
                                 </span>
@@ -167,38 +142,32 @@
                             <div class="datemember">
                                 <div class="field field_v3" style="margin-left: 10px">
                                     <label for="start"  style="margin-right: -10px;">Ngày đến:</label>
-                                    <input class="date" type="date" id="start" name="trip-start"
+                                    <input class="date" type="date" id="ngayDen" name="trip-start"
                                          value="2022-07-22"
                                          min="2022-01-01" max="2022-12-31">
                                 </div>
                                 <div class="field field_v3" style="margin-left: 50px;">
                                     <label for="start"  style="margin-right: 7px;">Ngày đi:</label>
-                                    <input class="date" type="date" id="start" name="trip-start"
+                                    <input class="date" type="date" id="ngayDi" name="trip-start"
                                          value="2022-07-22"
                                          min="2022-01-01" max="2022-12-31">
                                 </div>
                             </div>
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Tiền đặt trước</label>
-                                <input id="first-name" class="field__input" placeholder="vd: 150000">
+                                <input id="tienCoc" class="field__input" placeholder="vd: 150000">
                                 <span class="field__label-wrap" aria-hidden="true">
                                   <span class="field__label">Tiền đặt trước</span>
                                 </span>
                             </div>
                             <div class="field field_v1">
                                 <label for="first-name" class="ha-screen-reader">Ngày thực hiện</label>
-                                <input id="first-name" class="field__input" placeholder="vd: 24/10/2022">
+                                <input id="ngayThucHien" class="field__input" placeholder="vd: 24/10/2022">
                                 <span class="field__label-wrap" aria-hidden="true">
                                   <span class="field__label">Ngày thực hiện</span>
                                 </span>
                             </div>
-                            <div class="field field_v1">
-                                <label for="first-name" class="ha-screen-reader">Trạng thái</label>
-                                <input id="first-name" class="field__input" placeholder="vd: Nội dung">
-                                <span class="field__label-wrap" aria-hidden="true">
-                                  <span class="field__label">Trạng thái</span>
-                                </span>
-                            </div>
+                           
                         </div>
                         <button class="exit-info" id="exit-info" style="border:none;margin-left: 20px;">Thoát</button>
                     </div>

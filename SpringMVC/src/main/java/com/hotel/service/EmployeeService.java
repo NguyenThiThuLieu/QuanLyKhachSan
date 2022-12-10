@@ -26,9 +26,10 @@ public class EmployeeService {
 	public List<EmployeeModel> getAllEmployee() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("select r from EmployeeModel r");
-
+		
 		return employeeDAO.getAllEmployee(builder.toString());
 	}
+
 
 	public List<EmployeeModel> findById(String id) {
 		StringBuilder builder = new StringBuilder();
@@ -108,6 +109,25 @@ public class EmployeeService {
 		return employeeList;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<EmployeeModel> getAllAccount() {
+
+		// khoi tao doi tuong builder kieu StringBuilder
+		StringBuilder builder = new StringBuilder();
+
+		// thiet lap cau truy van sql
+		builder.append("select r from com.hotel.model.EmployeeModel r ");
+//
+		// Xu ly query string neu searchString khong rong
+			builder.append("where r.tinhTrang = true");
+
+		// lay danh sach phong
+		List<EmployeeModel> employeeList = employeeDAO.getAllAccount(builder.toString());
+
+		return employeeList;
+	}
+
+	
 	/**
 	 * phuong thuc xoa khach hang
 	 * 
@@ -141,6 +161,34 @@ public class EmployeeService {
 		return employeeDAO.editEmployee(employee, builder.toString());
 	}
 
+	 
+	public int editPassword(EmployeeModel employee) {
+
+		// khoi tao doi tuong builder kieu StringBuilder
+		StringBuilder builder = new StringBuilder();
+
+		// thiet lap cau truy van sql
+
+		builder.append("update EmployeeModel s set matKhau = :matKhau ");
+		builder.append("where maNV = :maNV");
+
+		return employeeDAO.editPassword(employee, builder.toString());
+	}
+	
+	public int editTrangThai(EmployeeModel employee) {
+
+		// khoi tao doi tuong builder kieu StringBuilder
+		StringBuilder builder = new StringBuilder();
+
+		// thiet lap cau truy van sql
+
+		builder.append("update EmployeeModel s set tinhTrang = :tinhTrang ");
+		builder.append("where maNV = :maNV");
+
+		return employeeDAO.editTrangThai(employee, builder.toString());
+	}
+	
+	
 	/**
 	 * phuong thuc lay khach hang theo cmnd
 	 * 
