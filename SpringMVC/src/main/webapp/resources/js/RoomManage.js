@@ -71,22 +71,43 @@ $(document).on('click', '#btnAdd', function (){
 // eventDelete()
 	  	
 $(document).on('click', '.btnDelete', function (){
+
+	$('#notify').removeClass('hide')
+	$('#notify').addClass('active')
+	
 	let trid = $(this).closest('tr').attr('id')
+	$('#idDelete').val(trid)
+	
+})
+
+$(document).on('click', '.yes', function (){
+
+	let id = $('#idDelete').val()
 
 	$.ajax({
-        url: 'Room/Remove',
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            maPhong: trid, 
-        }
+	        url: 'Room/Remove',
+	        type: 'POST',
+	        dataType: 'json',
+	        data: {
+	            maPhong: id, 
+	        }
     }).done(function(response) {
 		$('#tbody').empty()
         
        	let tbody = getTBody(response)
 		
 		$('#tbody').append(tbody)
+		
+		$('#notify').addClass('hide')
+		$('#notify').removeClass('active')	
     });
+
+})
+
+$(document).on('click', '.no', function (){
+
+	$('#notify').addClass('hide')
+	$('#notify').removeClass('active')
 })
 
 // event get and set room for client	

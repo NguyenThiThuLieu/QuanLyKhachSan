@@ -12,7 +12,7 @@
     
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/Home.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/selectbox.css">
-    
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/notify.css">
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="<%= request.getContextPath() %>/resources/js/Home.js"></script>
@@ -149,6 +149,23 @@
             </div>
         </div>
     </div>
+    
+    <div class="model hide" id="notify">
+        <div class="model__inner">
+            <div class="model__header">
+                <p>Thông báo</p>
+            </div>
+            <div class="model__body">
+                <!-- <h2>Modal</h2> -->
+                <p>Bạn có chắc chắn xóa không?</p>
+            </div>
+            <div class="model__footer">
+                <button class="yes" title="Yes">Yes</button>
+                <button class="no" title="No">No</button>
+            </div>  
+        </div>
+    </div>
+    <input type="hidden" id="idDelete">
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

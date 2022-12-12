@@ -112,8 +112,22 @@ $(document).on("click", "#btnXacNhan", function() {
 })
 
 // event cancel rent room
-$(document).on("click", "#btn3", function(e){
-	let maPhong = $(this).closest(".tab-item-2").attr("id")
+$(document).on("click", "#btn3", function(){
+
+	$('#notify').removeClass('hide')
+	$('#notify').addClass('active')
+	
+	let maPhong = $(this).closest('.tab-item-2').attr('id')
+	$('#idDelete').val(maPhong)
+	
+	// ngăn event hiện thông tin khách hàng   
+	 e.stopPropagation()
+	
+})
+
+$(document).on('click', '.yes', function (){
+
+	let maPhong = $('#idDelete').val()
 	
 	$.ajax({
         url: 'Rent/CancelRenting',
@@ -126,13 +140,20 @@ $(document).on("click", "#btn3", function(e){
 	       	if(response != 0) {
 		
 				getRentedRoom()
+				
+				$('#notify').addClass('hide')
+				$('#notify').removeClass('active')	
 			} else {
 				console.log("failed")
 			}
 	    })
-	 
-	 // ngăn event hiện thông tin khách hàng   
-	 e.stopPropagation()
+})
+
+
+$(document).on('click', '.no', function (){
+
+	$('#notify').addClass('hide')
+	$('#notify').removeClass('active')	
 })
 
 // event search

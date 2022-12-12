@@ -35,7 +35,7 @@
         <div class="topfour">
             <div class="tab-pane active">
                 <div class="cardBoxxx">
-                    <div class="carddd">
+                    <div class="carddd remove">
                         <a href="<%= request.getContextPath() %>/Account" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="home-outline"></ion-icon>
@@ -47,7 +47,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="carddd" id="remove">
+                    <div class="carddd remove">
                         <a href="<%= request.getContextPath() %>/Employee" class="hethong">
                             <div class="iconBxxx">
                                 <ion-icon name="file-tray-outline"></ion-icon>
@@ -91,6 +91,16 @@
         toggle.onclick = function(){
             navigation.classList.toggle('active')
             main.classList.toggle('active')
+        }
+        
+        let chucVu = document.querySelector('#chucVu').value
+        let divRemove = document.querySelectorAll('.remove')
+
+        if (chucVu == 1) {
+        	for (let div of divRemove) {
+        		
+        		div.remove()
+        	}
         }
 
         // const $ = document.querySelector.bind(document)
