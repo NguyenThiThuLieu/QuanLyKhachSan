@@ -171,7 +171,7 @@ public class RoomController {
     	roomService.editRoom(room);
     	
     	// lay danh sach tat ca phong
-    	List<RoomModel> roomList = roomService.getAllRoom();
+    	List<RoomModel> roomList = roomService.getAllRoomNoDeleted();
     	
     	return roomList;
     }

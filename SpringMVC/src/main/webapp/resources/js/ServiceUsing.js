@@ -93,12 +93,25 @@ $(document).on("click", "#btnUse", function() {
 	}
 })
 
-$(document).on('click', '#btnCancel', function() {
+$(document).on('click', '.btnCancel', function() {
 	
 	let maDV = $(this).closest("tr").attr("id")
 	let maKH = $(this).closest("tr").find("td").attr("id")
 	let maPhong = $(this).closest("tr").find("input").attr("id")
-	console.log(maPhong)
+	
+	$('#idPhong').val(maPhong)
+	$('#idKH').val(maKH)
+	$('#idDV').val(maDV)
+	
+	$('#notify').removeClass('hide')
+	$('#notify').addClass('active')
+})
+
+$(document).on('click', '.yes', function (){
+
+	let maDV = $('#idDV').val()
+	let maKH = $('#idKH').val()
+	let maPhong = $('#idPhong').val()
 
 	$.ajax({
 	    url: `${ctx}/ServiceUsing/Cancel`,
@@ -112,10 +125,20 @@ $(document).on('click', '#btnCancel', function() {
 	}).done(function(response) {
 		if(response != 0) {
 			getAllServiceUsed()
+			
+			$('#notify').addClass('hide')
+			$('#notify').removeClass('active')
 		} else {
 			console.log('Failed')
 		}
 	})
+
+})
+
+$(document).on('click', '.no', function (){
+
+	$('#notify').addClass('hide')
+	$('#notify').removeClass('active')
 })
 
 $(document).on('keypress', '#txtSearch', function(e) {
@@ -162,7 +185,7 @@ function renderAllService(list){
                     <td>${value.service.tenDV}</td>
                     <td>${value.soLuong}</td>
                     <td class="${value.trangThai == 1 ? "status-yes\">Đã thanh toán" : "status-false\">Chưa thanh toán"}</td>
-                    <td><button id="btnCancel" class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                    <td><button class="room-icon btnCancel"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                 	<input type="hidden" id="${value.room.maPhong}">
                 </tr>`
 	})

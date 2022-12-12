@@ -71,11 +71,28 @@ $(document).on("click", "#btnViewAll", function() {
 })
 
 // event Delete
-$(document).on("click", "#btnDelete", function() {
+$(document).on("click", ".btnDelete", function() {
 
+	$('#notify').removeClass('hide')
+	$('#notify').addClass('active')
+	
 	let maDV = $(this).closest("tr").attr("id")
+	$('#idDelete').val(maDV)
+})
 
-	removeService(maDV)
+$(document).on('click', '.yes', function (){
+
+	let id = $('#idDelete').val()
+
+	removeService(id)
+
+
+})
+
+$(document).on('click', '.no', function (){
+
+	$('#notify').addClass('hide')
+	$('#notify').removeClass('active')
 })
 
 // function search by searchVal String
@@ -161,6 +178,9 @@ function removeService(maDV){
 		}
     }).done(function(response) {
 		getAllService()
+		
+		$('#notify').addClass('hide')
+		$('#notify').removeClass('active')
     })
 }
 
@@ -206,7 +226,7 @@ function renderAllService(list){
                     <td>${value.tenDV}</td>
                     <td>${value.giaDV} đ</td>
                     <td><button class="room-icon js-edit"><ion-icon class="edit-icon" name="construct-outline"></ion-icon></button></td>
-                    <td><button id="btnDelete" class="room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
+                    <td><button class="btnDelete room-icon"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></button></td>
                 </tr>`
 	})
 	
