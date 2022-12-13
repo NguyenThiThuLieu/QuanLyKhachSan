@@ -35,7 +35,7 @@ public class CustomerController {
 	public @ResponseBody Object addCustomer(@ModelAttribute("CustomerModel") CustomerModel customer) {
 
 		// khai bao bien kiem tra co loi khong
-		boolean error = false;
+		String error = "";
 
 		// lay danh sach tat ca khách hàng
 		List<CustomerModel> customerList = customerService.getAllCustomer();
@@ -44,7 +44,7 @@ public class CustomerController {
 		if (!customerService.containCustomer(customerList, customer)) {
 			customerService.addCustomer(customer);
 		} else {
-			error = true;
+			error = "Khách hàng đã tồn tại";
 		}
 
 //		// lay danh sach tat ca phong

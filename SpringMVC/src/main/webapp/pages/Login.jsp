@@ -23,12 +23,7 @@
           <div class="container">
               <h1>Hotel</h1>
 
-              <ul>
-                  <li><a href="Index.jsp">Home</a></li>
-                    <li><a href="About.jsp" class="current">About</a></li>
-                    <li><a href="Contact.jsp">Contact</a></li>
-                    <li><a href="Login.jsp">Login</a></li>
-              </ul>
+          
 
               <div class="toggle">
                   <label for="toggle-check" class="toggle-btn"><span></span></i></label>
@@ -55,7 +50,7 @@
             <span class="form-message"></span>
           </div>
           <div class="checkbox">
-            <input type="checkbox" value="true" id="rememberMe" name="rememberMe"> Remember me
+            <input type="checkbox" value="true" id="rememberMe" name="rememberMe"> Nhớ mật khẩu
           </div>
       		<p class="errorMessage">${message }</p>
           <button class="form-submit" id="dangnhap" onclick="lsRememberMe()">Đăng nhập</button>

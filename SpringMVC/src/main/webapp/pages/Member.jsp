@@ -48,7 +48,7 @@
 	                        <button id="btn2" class="info-view-info">Thêm mới</button>
 	                    </div>
 	                    <div>
-                    	<span class="errorMessage" id="errorMessage">${errorMessage}</span>
+                    	<span class="errorMessage" id="errorMessage">${error}</span>
                     	</div>
 	                </div>
             <div class="details">

@@ -19,54 +19,26 @@ import com.hotel.service.EmployeeService;
 
 @Controller
 @RequestMapping
-public class EmployeeController {
+public class AccountController {
 	
 	@Autowired
 	public EmployeeService employeeService;
 	
-	 @RequestMapping("/Employee/getAllEmployee")
+	 @RequestMapping("/Account/getAllEmployee")
 	    public @ResponseBody List<EmployeeModel> getAllEmployee() {
 	    	
-	    	return employeeService.getAllEmployee();
+	    	return employeeService.getAllAccount();
 	    }
 		
 	
-	@RequestMapping(value = "/Employee/Add", method = RequestMethod.POST)
-	public @ResponseBody Object addEmployee(@ModelAttribute("EmployeeModel") EmployeeModel employee) {
-
-		// khai bao bien kiem tra co loi khong
-		String error = "";
-
-		// lay danh sach tat ca khách hàng
-		List<EmployeeModel> employeeList = employeeService.getAllEmployee();
-
-		// kiem tra khach hang do co ton tai khong, neu co tra ve loi
-		if (!employeeService.containEmployee(employeeList, employee)) {
-			employeeService.addEmployee(employee);
-		} else {
-			error = "Nhân viên đã tồn tại";
-		}
-
-//		// lay danh sach tat ca nhan vien
-		employeeList = employeeService.getAllEmployee();
-		
-		// khoi tao doi tuong Map
-		Map<Object, Object> map = new HashMap<>();
-		
-		// put cac doi tuong vao map
-		map.put("employeeList", employeeList);
-		map.put("error", error);
-
-		return map;
-	}
 	
- @RequestMapping("/Employee/GetEmployee")
+ @RequestMapping("/Account/GetEmployee")
     public @ResponseBody EmployeeModel getEmployee(@RequestParam(value = "maNV") String maNV) {
     	    	
     	return employeeService.getEmployee(maNV);
     }
 // Search
-	@RequestMapping(value = "/Employee/Search", method = RequestMethod.GET)
+	@RequestMapping(value = "/Account/Search", method = RequestMethod.GET)
 	public @ResponseBody Object search(
 			@RequestParam(name = "searchString") String searchString) {
 		
@@ -82,31 +54,31 @@ public class EmployeeController {
 	}
 
 
-	@RequestMapping(value = "/Employee", method = RequestMethod.GET)
+	@RequestMapping(value = "/Account", method = RequestMethod.GET)
 	public ModelAndView employee() {
 		
 		List<EmployeeModel> list = new ArrayList<>();
-		list = employeeService.getAllEmployee();
+		list = employeeService.getAllAccount();
 
 		// khoi tao doi tuong ModelAndView
 		ModelAndView mv = new ModelAndView();
 
 		// set ten view tra ve
-		mv.setViewName("Member");
+		mv.setViewName("Account");
 
 		// them cac du lieu can truyen xuong view
 		mv.addObject("listEmployee", list);
 		return mv;
 	}
 
-	@RequestMapping(value = "/Employee/Edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/Account/EditPass", method = RequestMethod.POST)
 	public @ResponseBody Object editEmployee(@ModelAttribute("EmployeeModel") EmployeeModel employee) {
 
 		// thuc hien chinh sua nhan vien
-		employeeService.editEmployee(employee);
+		employeeService.editPassword(employee);
 
 		// lay danh sach tat ca nhan vien
-		List<EmployeeModel> employeeList = employeeService.getAllEmployee();
+		List<EmployeeModel> employeeList = employeeService.getAllAccount();
 
 		// khoi tao doi tuong Map
 		Map<Object, Object> map = new HashMap<>();
@@ -116,6 +88,22 @@ public class EmployeeController {
 
 		return map;
 	}
+	@RequestMapping(value = "/Account/EditTrangThai", method = RequestMethod.POST)
+	public @ResponseBody Object editTrangThai(@ModelAttribute("EmployeeModel") EmployeeModel employee) {
 
+		// thuc hien chinh sua nhan vien
+		employeeService.editTrangThai(employee);
+
+		// lay danh sach tat ca nhan vien
+		List<EmployeeModel> employeeList = employeeService.getAllAccount();
+
+		// khoi tao doi tuong Map
+		Map<Object, Object> map = new HashMap<>();
+		
+		// put cac doi tuong vao map
+		map.put("employeeList", employeeList);
+
+		return map;
+	}
 
 }

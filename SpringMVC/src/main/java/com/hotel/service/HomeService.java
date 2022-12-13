@@ -45,26 +45,7 @@ public class HomeService {
 		return numOfRentedRoom;
 	}
 	
-	/**
-	 * phuong thuc lay so luong phong dat trong ngay
-	 * 
-	 * @param now
-	 * @return numOfReservationRoom kieu long
-	 */
-	private long getNumOfReservationRoomInDay(Date now) {
-		
-		// khoi tao doi tuong builder kieu StringBuilder
-		StringBuilder builder = new StringBuilder();
-		
-		// thiet lap cau truy van sql
-		builder.append("select count(r) from com.hotel.model.ReservationRoomModel r ");
-		builder.append("where CONVERT(r.ngayDen, DATE) = CONVERT(:now, DATE)");
-		
-		// lay so luong phong dat trong ngay
-		long numOfReservationRoom = homeDAO.getNumOfRoom(now, builder.toString());
-		
-		return numOfReservationRoom;
-	}
+
 	
 	/**
 	 * phuong thuc lay so luong phong thue trong ngay
@@ -81,10 +62,10 @@ public class HomeService {
 		long numOfRentedRoom = getNumOfRentedRoomInDay(now);
 		
 		// lay so luong phong dat trong ngay
-		long numOfReservationRoom = getNumOfReservationRoomInDay(now);
+	//	long numOfReservationRoom = getNumOfReservationRoomInDay(now);
 		
 		// lay so luong phong thue trong ngay (bao gom phong thue va dat)
-		long numOfRentedInDay = numOfRentedRoom + numOfReservationRoom;
+		long numOfRentedInDay = numOfRentedRoom;
 		
 		return numOfRentedInDay;
 	}
