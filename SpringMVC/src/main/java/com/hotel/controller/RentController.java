@@ -99,6 +99,8 @@ public class RentController{
     		@ModelAttribute("BillModel") BillModel billModel) {
     	
     	rentService.addBill(billModel);
+    	
+    	serviceUsingService.checkOut(billModel.getMaKH(), maPhong);
     		
     	return rentService.changeStatus(0, maPhong);
     }

@@ -151,4 +151,21 @@ public class ServiceUsingDAO {
 		
 		return quantity;
 	}
+	
+	public int checkOut(int maKH, String maPhong, int trangThai, String queryString) {
+		
+		int status = 0;
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<?> query = session.createQuery(queryString);
+				
+		query.setParameter("maKH", maKH);
+		query.setParameter("maPhong", maPhong);
+		query.setParameter("trangThai", trangThai);
+
+		status = query.executeUpdate();
+		
+		return status;
+	}
 }

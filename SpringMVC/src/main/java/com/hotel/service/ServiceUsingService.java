@@ -149,4 +149,14 @@ public class ServiceUsingService {
 			
 		return serviceUsingDAO.useService(serviceUsingModel, Constants.U_CANCELED, isUnique, builder.toString());
 	}
+	
+	public int checkOut(int maKH, String maPhong) {
+		
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append("update ServiceUsingModel set trangThai = :trangThai ");
+		builder.append("where trangThai != 2 and maKH = :maKH and maPhong = :maPhong");
+		
+		return serviceUsingDAO.checkOut(maKH, maPhong, Constants.U_PAID, builder.toString());
+	}
 }
